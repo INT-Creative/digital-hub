@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Home" 
+  description="INT Creative Hub - Professional marketing agency specializing in startup lead generation, brand development, and growth strategies. Scale your startup from idea to market leader."
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
+            Scale Your Startup with 
+            <span class="text-secondary-400">Data-Driven Marketing</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
+            We help startups generate qualified leads and build scalable growth systems that convert prospects into customers.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+            <a href="/contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200">
+              Get Free Strategy Call
+            </a>
+            <a href="/portfolio" class="border-2 border-white text-white hover:bg-white hover:text-primary-700 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200">
+              View Our Work
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+            How We Help Startups Grow
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From seed stage to Series A+, we provide the marketing expertise and systems you need to scale rapidly and efficiently.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-semibold mb-4">Lead Generation</h3>
+            <p class="text-gray-600 mb-4">
+              Targeted campaigns that identify and convert high-quality prospects into paying customers using proven funnel strategies.
+            </p>
+            <a href="/services/lead-generation" class="text-primary-600 font-medium hover:text-primary-700">
+              Learn more →
+            </a>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-secondary-100 text-secondary-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-semibold mb-4">Brand Development</h3>
+            <p class="text-gray-600 mb-4">
+              Strategic branding that resonates with your target market and differentiates you from competitors in crowded markets.
+            </p>
+            <a href="/services/branding" class="text-primary-600 font-medium hover:text-primary-700">
+              Learn more →
+            </a>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-semibold mb-4">Growth Strategy</h3>
+            <p class="text-gray-600 mb-4">
+              Scalable marketing systems and automation that grow with your business from startup to enterprise scale.
+            </p>
+            <a href="/services/growth-strategy" class="text-primary-600 font-medium hover:text-primary-700">
+              Learn more →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary-600 text-white">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
+          Ready to Scale Your Startup?
+        </h2>
+        <p class="text-xl mb-8 text-gray-200">
+          Get a free strategy call to discuss how we can accelerate your growth with proven marketing systems.
+        </p>
+        <a href="/contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block">
+          Book Your Free Strategy Call
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .bg-grid-white\/10 {
+    background-image: url("data:image/svg+xml,%3csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='grid' width='32' height='32' patternUnits='userSpaceOnUse'%3e%3cpath d='m 32 0 l 0 32 M 0 32 l 32 0' fill='none' stroke='white' stroke-width='1' stroke-opacity='0.1'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23grid)' /%3e%3c/svg%3e");
+  }
+</style>
