@@ -1,0 +1,299 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SocialShare from '../components/SocialShare.astro';
+import SocialProof from '../components/SocialProof.astro';
+import { generateOpenGraphTags } from '../config/social.ts';
+
+export interface Props {
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image?: string;
+  tags?: string[];
+}
+
+const { title, description, author, date, readTime, category, image, tags = [] } = Astro.props;
+
+// Format date for display
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long', 
+  day: 'numeric'
+});
+
+// Get current URL for sharing
+const currentUrl = Astro.url.pathname;
+const fullUrl = `https://intcreative.co${currentUrl}`;
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  image={image}
+>
+  <!-- Floating Social Share -->
+  <SocialShare 
+    url={fullUrl}
+    title={title}
+    description={description}
+    style="floating"
+    platforms={['twitter', 'linkedin', 'facebook', 'reddit']}
+    className="hidden lg:block"
+  />
+
+  <!-- Blog Post Header -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-12">
+      <!-- Breadcrumbs -->
+      <nav class="mb-6">
+        <ol class="flex items-center space-x-2 text-sm text-gray-600">
+          <li><a href="/" class="hover:text-sage-700 transition-colors duration-200">Home</a></li>
+          <li class="flex items-center">
+            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <a href="/blog" class="hover:text-sage-700 transition-colors duration-200">Blog</a>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-gray-500">{category}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Category Badge -->
+      <div class="mb-4">
+        <span class="inline-block bg-sage-100 text-sage-800 px-3 py-1 rounded-full text-sm font-medium">
+          {category}
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-forest-900 mb-6 leading-tight">
+        {title}
+      </h1>
+
+      <!-- Excerpt -->
+      <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+        {description}
+      </p>
+
+      <!-- Meta Info -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-b border-gray-200 py-4 mb-8">
+        <div class="flex items-center space-x-4 mb-4 sm:mb-0">
+          <!-- Author Avatar -->
+          <div class="w-12 h-12 bg-gradient-to-br from-sage-200 to-beige-200 rounded-full flex items-center justify-center">
+            <span class="text-forest-700 font-medium text-sm">
+              {author.split(' ').map(n => n[0]).join('')}
+            </span>
+          </div>
+          
+          <div>
+            <div class="font-semibold text-gray-900">{author}</div>
+            <div class="text-sm text-gray-600">
+              {formattedDate} • {readTime}
+            </div>
+          </div>
+        </div>
+
+        <!-- Inline Social Share -->
+        <SocialShare 
+          url={fullUrl}
+          title={title}
+          description={description}
+          style="minimal"
+          platforms={['twitter', 'linkedin', 'facebook']}
+          className="flex-shrink-0"
+        />
+      </div>
+
+      <!-- Featured Image -->
+      {image && (
+        <div class="mb-12">
+          <div class="bg-gradient-to-br from-sage-200 to-beige-200 aspect-video rounded-xl flex items-center justify-center">
+            <div class="text-forest-700 text-lg font-medium">Featured Image</div>
+          </div>
+        </div>
+      )}
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-8">
+          {tags.map((tag) => (
+            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Blog Content -->
+    <div class="prose prose-lg prose-sage max-w-none">
+      <slot />
+    </div>
+
+    <!-- Share After Content -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="bg-gray-50 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Found this helpful? Share it with your network!</h3>
+        <SocialShare 
+          url={fullUrl}
+          title={title}
+          description={description}
+          style="inline"
+          platforms={['twitter', 'linkedin', 'facebook', 'reddit', 'whatsapp', 'email']}
+        />
+        
+        <p class="text-sm text-gray-600 mt-4">
+          Follow us on 
+          <a href="https://linkedin.com/company/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 font-medium transition-colors duration-200">LinkedIn</a> and
+          <a href="https://twitter.com/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium transition-colors duration-200">Twitter</a> for more startup marketing insights.
+        </p>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="bg-beige-50 rounded-xl p-6 flex items-start space-x-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-sage-200 to-beige-200 rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-forest-700 font-bold text-lg">
+            {author.split(' ').map(n => n[0]).join('')}
+          </span>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 mb-2">About {author}</h4>
+          <p class="text-gray-600 text-sm mb-3">
+            Marketing strategist at INT Creative, helping startups scale from idea to market leader through data-driven growth systems.
+          </p>
+          <div class="flex items-center space-x-3">
+            <a href="https://linkedin.com/company/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <span class="text-gray-400">•</span>
+            <span class="text-sm text-gray-600">Follow for daily insights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Content & Social Proof -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Social Testimonials -->
+      <SocialProof type="mentions" />
+      
+      <!-- Newsletter CTA -->
+      <div class="mt-16 bg-forest-900 rounded-2xl p-8 text-center text-white">
+        <h3 class="text-2xl font-heading font-bold mb-4">Get More Insights Like This</h3>
+        <p class="text-beige-100 mb-6">Join our newsletter for weekly startup marketing strategies and growth case studies.</p>
+        <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="px-4 py-3 rounded-lg bg-forest-800 border border-forest-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sage-500 flex-1"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-xs text-beige-200">
+          Or follow us on social media for daily tips: 
+          <a href="https://linkedin.com/company/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">LinkedIn</a> • 
+          <a href="https://twitter.com/intcreative" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">Twitter</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Enhanced prose styles for better readability */
+  .prose-sage {
+    --tw-prose-body: theme('colors.gray.700');
+    --tw-prose-headings: theme('colors.forest.900');
+    --tw-prose-links: theme('colors.sage.700');
+    --tw-prose-bold: theme('colors.forest.900');
+    --tw-prose-counters: theme('colors.sage.600');
+    --tw-prose-bullets: theme('colors.sage.600');
+    --tw-prose-hr: theme('colors.gray.200');
+    --tw-prose-quotes: theme('colors.forest.900');
+    --tw-prose-quote-borders: theme('colors.sage.200');
+  }
+
+  .prose-sage a:hover {
+    color: theme('colors.sage.800');
+    text-decoration: underline;
+  }
+
+  /* Social share floating styles */
+  .social-share.floating {
+    position: fixed;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+  }
+
+  @media (max-width: 1024px) {
+    .social-share.floating {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Newsletter form handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('section form');
+    
+    newsletterForm?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]')?.value;
+      
+      if (email) {
+        alert('Thanks for subscribing! Check your email for confirmation.');
+        this.reset();
+        
+        // Track newsletter signup
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'newsletter_signup', {
+            source: 'blog_post',
+            email_provided: true
+          });
+        }
+      }
+    });
+
+    // Track social media clicks from author bio
+    const socialLinks = document.querySelectorAll('a[href*="linkedin.com"], a[href*="twitter.com"]');
+    socialLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const platform = this.href.includes('linkedin') ? 'linkedin' : 'twitter';
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'social_follow', {
+            platform: platform,
+            source: 'author_bio'
+          });
+        }
+      });
+    });
+  });
+</script>

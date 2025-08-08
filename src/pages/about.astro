@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import SocialFeed from '../components/SocialFeed.astro';
+import SocialProof from '../components/SocialProof.astro';
+import { SOCIAL_CONFIG } from '../config/social.ts';
+---
+
+<BaseLayout 
+  title="About Us" 
+  description="Learn about INT Creative's mission to help startups scale through data-driven marketing strategies. Meet our team and discover why we're the trusted growth partner for ambitious startups."
+>
+  <!-- Hero Section -->
+  <section class="pt-20 pb-16 bg-gradient-to-br from-beige-50 to-sage-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-forest-900 mb-6">
+          We Turn Startup Ideas Into 
+          <span class="text-sage-700">Market Leaders</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Founded by entrepreneurs who've been in your shoes, INT Creative specializes in helping startups navigate the complex world of growth marketing with strategies that actually work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-heading font-bold text-forest-900 mb-6">Our Story</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>
+              INT Creative was born from a simple observation: most marketing agencies don't understand the unique challenges startups face. Limited budgets, tight timelines, and the pressure to show immediate results create a perfect storm that traditional agencies aren't equipped to handle.
+            </p>
+            <p>
+              After helping launch three successful startups and witnessing countless others struggle with ineffective marketing, we knew there had to be a better way. That's why we created INT Creative - a marketing agency built specifically for the startup ecosystem.
+            </p>
+            <p>
+              We've been where you are. We understand the sleepless nights, the constant pivot decisions, and the need to make every dollar count. That's why we don't just provide marketing services - we become your growth partners, invested in your success from day one.
+            </p>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-sage-100 to-beige-100 p-8 rounded-2xl">
+          <div class="space-y-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-forest-900 mb-2">2019</div>
+              <div class="text-sage-700">Founded with a mission to democratize growth marketing</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-forest-900 mb-2">50+</div>
+              <div class="text-sage-700">Startups successfully scaled</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-forest-900 mb-2">$15M+</div>
+              <div class="text-sage-700">Revenue generated for our clients</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-forest-900 mb-2">3</div>
+              <div class="text-sage-700">Successful exits from our portfolio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          Our Core Values
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          These principles guide everything we do and ensure we deliver exceptional results for our startup clients.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-forest-100 text-forest-700 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Move Fast</h3>
+          <p class="text-gray-600">
+            In the startup world, speed is everything. We implement and iterate quickly to help you stay ahead of the competition.
+          </p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-sage-100 text-sage-700 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Data-Driven</h3>
+          <p class="text-gray-600">
+            Every decision is backed by data. We measure, analyze, and optimize continuously to maximize your ROI.
+          </p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-forest-200 text-forest-800 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Partnership</h3>
+          <p class="text-gray-600">
+            We don't just work for you - we work with you. Your success is our success, and we're invested in the long term.
+          </p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-sage-200 text-sage-800 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Budget Conscious</h3>
+          <p class="text-gray-600">
+            We understand startup budgets. Every strategy is designed to deliver maximum impact at minimal cost.
+          </p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-forest-100 text-forest-700 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Innovation</h3>
+          <p class="text-gray-600">
+            We stay ahead of marketing trends and leverage cutting-edge tools to give you a competitive advantage.
+          </p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-sage-100 text-sage-700 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Transparency</h3>
+          <p class="text-gray-600">
+            No black boxes or hidden strategies. We share our methods, results, and learnings so you understand exactly what's working.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          Meet Our Team
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Experienced startup operators who've been in the trenches and know what it takes to scale.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-sage-200 to-forest-200 rounded-full mx-auto mb-6 flex items-center justify-center">
+            <span class="text-2xl font-bold text-forest-800">JM</span>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-2 text-forest-900">Jake Miller</h3>
+          <p class="text-sage-700 font-medium mb-3">Founder & CEO</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Former startup founder with 2 successful exits. Specializes in growth strategy and lead generation for B2B SaaS companies.
+          </p>
+          <div class="flex justify-center space-x-3">
+            <a href="https://linkedin.com/in/jakemiller" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/jakemiller" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-beige-200 to-sage-200 rounded-full mx-auto mb-6 flex items-center justify-center">
+            <span class="text-2xl font-bold text-forest-800">SC</span>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-2 text-forest-900">Sarah Chen</h3>
+          <p class="text-sage-700 font-medium mb-3">Head of Strategy</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Former McKinsey consultant turned startup operator. Expert in go-to-market strategy and customer acquisition optimization.
+          </p>
+          <div class="flex justify-center space-x-3">
+            <a href="https://linkedin.com/in/sarahchen" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/sarahchen" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-forest-200 to-beige-200 rounded-full mx-auto mb-6 flex items-center justify-center">
+            <span class="text-2xl font-bold text-forest-800">DR</span>
+          </div>
+          <h3 class="text-xl font-heading font-semibold mb-2 text-forest-900">David Rodriguez</h3>
+          <p class="text-sage-700 font-medium mb-3">Creative Director</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Award-winning designer with 8+ years building brands for high-growth startups. Focuses on conversion-optimized design.
+          </p>
+          <div class="flex justify-center space-x-3">
+            <a href="https://linkedin.com/in/davidrodriguez" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-800 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://dribbble.com/davidrodriguez" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-600 transition-colors duration-200">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 13.363c-.367.72-1.003 1.347-1.847 1.816.473-2.748 1.063-6.738.815-9.544.953.552 1.807 1.266 2.491 2.135.043.055.085.111.125.169-1.044.238-2.069.6-2.692 1.309-.875.997-.955 2.25-.892 4.115zM16.06 6.787c.314 3.14-.561 7.373-1.216 10.392-.102-.046-.201-.095-.295-.147-.31-.17-.595-.368-.856-.588.856-2.748 1.295-6.43 1.181-9.227.063-.14.128-.285.186-.43zm-3.967 16.262c-.034-.009-.065-.022-.098-.033-2.176-.739-3.943-2.404-4.672-4.686 1.279-.508 2.696-.646 4.09-.376.408.08.808.184 1.206.302-.272 1.65-.403 3.146-.526 4.793zM9.099 17.15c-.413.014-.83-.021-1.242-.122-2.109-.517-3.847-2.075-4.599-4.09.247-.522.517-1.026.809-1.511.358-.596.745-1.165 1.161-1.704.914 2.171 2.075 4.704 3.871 7.427zm-.46-9.292c-.016-.045-.03-.09-.046-.134C7.32 6.027 6.212 4.651 5.281 3.064c.603-.232 1.23-.4 1.881-.5.021.006.042.014.064.019.906 1.65 1.813 3.704 2.413 5.275zm8.934.675c-.546-1.043-1.228-1.972-2.018-2.764-.024-.024-.049-.047-.074-.07.129-.291.263-.578.402-.86.675.463 1.312.992 1.888 1.573.299.302.58.625.836.966-.344.05-.693.091-1.034.155zM5.306 4.287c1.065 1.778 2.326 3.548 3.674 5.003-.914.26-1.861.391-2.821.391-.304 0-.606-.014-.906-.04C4.48 8.305 4.748 6.251 5.306 4.287zm6.694-3.228c-.87 0-1.714.125-2.522.353-.016-.006-.032-.01-.049-.014C8.318.652 7.139.282 5.914.282c.674-.137 1.36-.248 2.056-.266 1.010-.034 2.03.089 3.03.309-.001.212-.001.425 0 .638zm4.596 1.96c-.347-.354-.72-.68-1.115-.983-.223-.171-.456-.33-.693-.481.789-.326 1.63-.523 2.497-.567-.233.675-.447 1.362-.689 2.031z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Startups Choose Us -->
+  <section class="py-20 bg-gradient-to-br from-sage-100 to-beige-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          Why Startups Choose INT Creative
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We're not just another marketing agency - we're startup specialists who understand your unique challenges.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-forest-900 mb-2">Startup DNA</h3>
+              <p class="text-gray-600">We've built our own startups and know the emotional rollercoaster, resource constraints, and pressure to show quick wins.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-forest-900 mb-2">Proven Playbook</h3>
+              <p class="text-gray-600">Our strategies have helped 50+ startups scale from seed to Series A and beyond, with an average 250% increase in qualified leads.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-forest-900 mb-2">Flexible Partnership</h3>
+              <p class="text-gray-600">From equity partnerships to performance-based pricing, we offer flexible arrangements that align with your startup's needs and budget.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-heading font-bold text-forest-900 mb-6 text-center">Our Track Record</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-sage-700 mb-2">50+</div>
+              <div class="text-gray-600 text-sm">Startups Scaled</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-sage-700 mb-2">$15M+</div>
+              <div class="text-gray-600 text-sm">Revenue Generated</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-sage-700 mb-2">250%</div>
+              <div class="text-gray-600 text-sm">Avg. Lead Increase</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-sage-700 mb-2">95%</div>
+              <div class="text-gray-600 text-sm">Client Retention</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Feed Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-heading font-bold text-forest-900 mb-4">
+          Follow Our Journey
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Stay connected with behind-the-scenes insights, success stories, and daily startup marketing tips from our team.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Twitter Feed -->
+        <div>
+          <SocialFeed platform="twitter" count={3} showProfile={true} />
+        </div>
+        
+        <!-- LinkedIn Feed -->
+        <div>
+          <SocialFeed platform="linkedin" count={3} showProfile={true} />
+        </div>
+      </div>
+      
+      <!-- Social CTA -->
+      <div class="text-center mt-12 bg-white rounded-xl p-8 border border-gray-200">
+        <h3 class="text-xl font-semibold text-forest-900 mb-4">Join Our Community</h3>
+        <p class="text-gray-600 mb-6">
+          Connect with us on social media for daily startup marketing insights, case studies, and growth tips.
+        </p>
+        
+        <SocialIcons 
+          size="lg" 
+          style="colored" 
+          platforms={['linkedin', 'twitter', 'instagram', 'facebook']}
+          showLabels={true}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
+        />
+        
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <p class="text-sm text-gray-500 mb-2">
+            #{SOCIAL_CONFIG.sharing.hashtagsSuggested.join(' #')}
+          </p>
+          <div class="flex justify-center space-x-6 text-xs text-gray-600">
+            <div class="flex items-center space-x-1">
+              <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span>2.5K followers</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span>3.2K followers</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <svg class="w-3 h-3 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C8.396 0 7.989.016 6.756.072 5.526.127 4.718.372 4.037.7c-.707.275-1.305.646-1.901 1.244-.596.598-.969 1.195-1.244 1.902C.372 4.718.127 5.526.072 6.756.016 7.989 0 8.396 0 12.017c0 3.624.016 4.031.072 5.264.055 1.23.3 2.038.628 2.719.275.707.646 1.305 1.244 1.901.598.596 1.195.969 1.902 1.244.681.328 1.489.573 2.719.628 1.233.056 1.64.072 5.264.072 3.624 0 4.031-.016 5.264-.072 1.23-.055 2.038-.3 2.719-.628.707-.275 1.305-.646 1.901-1.244.596-.598.969-1.195 1.244-1.902.328-.681.573-1.489.628-2.719.056-1.233.072-1.64.072-5.264 0-3.624-.016-4.031-.072-5.264-.055-1.23-.3-2.038-.628-2.719-.275-.707-.646-1.305-1.244-1.901C19.06.646 18.463.275 17.756 0 17.075-.328 16.267-.573 15.037-.628 13.804-.684 13.397-.7 9.773-.7s-4.031.016-5.264.072zm-.117 21.674c-3.365 0-3.739-.015-5.048-.069-1.206-.054-1.86-.259-2.294-.429-.576-.224-.987-.49-1.42-.923-.432-.433-.7-.844-.923-1.42-.17-.434-.375-1.088-.429-2.294-.054-1.309-.069-1.683-.069-5.048s.015-3.739.069-5.048c.054-1.206.259-1.86.429-2.294.224-.576.49-.987.923-1.42.433-.432.844-.7 1.42-.923.434-.17 1.088-.375 2.294-.429C8.375.085 8.749.07 12.114.07s3.739.015 5.048.069c1.206.054 1.86.259 2.294.429.576.224.987.49 1.42.923.432.433.7.844.923 1.42.17.434.375 1.088.429 2.294.054 1.309.069 1.683.069 5.048s-.015 3.739-.069 5.048c-.054 1.206-.259 1.86-.429 2.294-.224.576-.49.987-.923 1.42-.433.432-.844.7-1.42.923-.434.17-1.088.375-2.294.429-1.309.054-1.683.069-5.048.069z"/>
+              </svg>
+              <span>1.8K followers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Social Proof Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SocialProof type="testimonials" layout="grid" />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-forest-900 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
+        Ready to Partner with Us?
+      </h2>
+      <p class="text-xl mb-8 text-beige-100">
+        Let's discuss how we can help scale your startup with proven marketing strategies that actually work.
+      </p>
+      <div class="mb-8">
+        <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
+          Schedule Your Strategy Call
+        </a>
+      </div>
+      
+      <!-- Social CTA -->
+      <div class="border-t border-forest-800 pt-8">
+        <p class="text-beige-200 text-sm mb-4">
+          Follow our journey and get daily startup marketing tips
+        </p>
+        <SocialIcons 
+          size="md" 
+          style="minimal" 
+          platforms={['linkedin', 'twitter', 'instagram']}
+          className="justify-center space-x-6"
+          iconClassName="bg-beige-50/10 hover:bg-beige-50/20 border border-beige-50/20 hover:border-beige-50/40"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

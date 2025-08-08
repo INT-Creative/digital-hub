@@ -18,20 +18,103 @@
   }
   
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply btn bg-forest-900 text-white hover:bg-forest-800 focus:ring-sage-500;
   }
   
   .btn-secondary {
-    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+    @apply btn bg-sage-600 text-white hover:bg-sage-700 focus:ring-sage-500;
   }
   
   .btn-outline {
-    @apply btn border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500;
+    @apply btn border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-white focus:ring-sage-500;
+  }
+  
+  /* Lead generation focused components */
+  .lead-magnet {
+    @apply bg-sage-50 border border-sage-200 p-6 rounded-xl text-center;
+  }
+  
+  .conversion-form {
+    @apply bg-white p-8 rounded-2xl shadow-lg border border-sage-100;
+  }
+  
+  .social-proof {
+    @apply flex items-center justify-center space-x-6 text-gray-600;
+  }
+  
+  /* Brand-specific utilities */
+  .text-brand-forest {
+    @apply text-forest-900;
+  }
+  
+  .text-brand-sage {
+    @apply text-sage-700;
+  }
+  
+  .bg-brand-gradient {
+    @apply bg-gradient-to-br from-forest-900 via-forest-800 to-sage-800;
+  }
+  
+  .bg-brand-light {
+    @apply bg-gradient-to-br from-sage-50 to-beige-50;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Social Media Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-fade-in-delayed {
+    animation: fadeIn 1.2s ease-out 0.4s both;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out 0.2s both;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Social sharing hover effects */
+  .social-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .social-hover:hover {
+    @apply transform scale-110 shadow-lg;
+  }
+  
+  /* Gradient text effect for social CTAs */
+  .text-social-gradient {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

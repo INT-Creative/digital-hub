@@ -1,0 +1,159 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "" } = Astro.props;
+
+import SocialIcons from './SocialIcons.astro';
+
+const navItems = [
+  { name: "Home", href: "/", current: currentPath === "/" },
+  { name: "About", href: "/about", current: currentPath === "/about" },
+  { name: "Services", href: "/services", current: currentPath.startsWith("/services") },
+  { name: "Portfolio", href: "/portfolio", current: currentPath === "/portfolio" },
+  { name: "Blog", href: "/blog", current: currentPath.startsWith("/blog") },
+  { name: "Contact", href: "/contact", current: currentPath === "/contact" },
+];
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img class="h-8 w-auto" src="/images/logo.svg" alt="INT Creative" />
+          <span class="ml-3 text-xl font-heading font-bold text-forest-900">INT Creative</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-center space-x-6">
+          <div class="flex items-baseline space-x-4">
+            {navItems.map((item) => (
+              <a
+                href={item.href}
+                class={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  item.current
+                    ? "bg-forest-100 text-forest-900"
+                    : "text-gray-700 hover:text-forest-900 hover:bg-gray-50"
+                }`}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+          
+          <!-- Social Icons in Header -->
+          <div class="border-l border-gray-200 pl-6">
+            <SocialIcons 
+              size="sm" 
+              style="minimal" 
+              platforms={['linkedin', 'twitter']}
+              className="space-x-2"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:block">
+        <a
+          href="/contact"
+          class="bg-forest-900 hover:bg-forest-800 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200"
+        >
+          Get Started
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-forest-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-forest-500"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <!-- Hamburger icon -->
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+              item.current
+                ? "bg-forest-100 text-forest-900"
+                : "text-gray-700 hover:text-forest-900 hover:bg-gray-50"
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+        <div class="pt-4 pb-3 border-t border-gray-200 space-y-4">
+          <!-- Mobile Social Icons -->
+          <div class="flex justify-center">
+            <SocialIcons 
+              size="sm" 
+              style="minimal" 
+              platforms={['linkedin', 'twitter', 'instagram']}
+              className="space-x-4"
+            />
+          </div>
+          
+          <a
+            href="/contact"
+            class="block bg-forest-900 hover:bg-forest-800 text-white px-3 py-2 rounded-lg font-medium text-center transition-colors duration-200"
+          >
+            Get Started
+          </a>
+          
+          <!-- Mobile Social CTA -->
+          <p class="text-center text-xs text-gray-500 px-3">
+            Follow us for daily startup marketing insights
+          </p>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = menuButton?.querySelector('svg:first-child');
+    const closeIcon = menuButton?.querySelector('svg:last-child');
+
+    menuButton?.addEventListener('click', function() {
+      const isOpen = mobileMenu?.classList.contains('hidden') === false;
+      
+      if (isOpen) {
+        mobileMenu?.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        menuButton.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileMenu?.classList.remove('hidden');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        menuButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

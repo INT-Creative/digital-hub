@@ -16,8 +16,5 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto'
   },
-  compressHTML: true,
-  experimental: {
-    optimizeHoistedScript: true
-  }
+  compressHTML: true
 });

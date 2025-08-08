@@ -1,43 +1,81 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialProof from '../components/SocialProof.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import { SOCIAL_CONFIG } from '../config/social.ts';
 ---
 
 <BaseLayout 
   title="Home" 
   description="INT Creative Hub - Professional marketing agency specializing in startup lead generation, brand development, and growth strategies. Scale your startup from idea to market leader."
 >
-  <main>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+    <section class="relative bg-gradient-to-br from-forest-900 via-forest-800 to-sage-800 text-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
         <div class="text-center max-w-4xl mx-auto">
           <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
             Scale Your Startup with 
-            <span class="text-secondary-400">Data-Driven Marketing</span>
+            <span class="text-sage-400">Data-Driven Marketing</span>
           </h1>
-          <p class="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
+          <p class="text-xl md:text-2xl mb-8 text-beige-100 animate-slide-up">
             We help startups generate qualified leads and build scalable growth systems that convert prospects into customers.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <a href="/contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up mb-8">
+            <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg">
               Get Free Strategy Call
             </a>
-            <a href="/portfolio" class="border-2 border-white text-white hover:bg-white hover:text-primary-700 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200">
+            <a href="/portfolio" class="border-2 border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-forest-900 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200">
               View Our Work
             </a>
+          </div>
+          
+          <!-- Social Media Call-to-Action -->
+          <div class="text-center animate-fade-in-delayed">
+            <p class="text-beige-200 text-sm mb-4">
+              Join 5K+ founders getting growth insights daily
+            </p>
+            <SocialIcons 
+              size="md" 
+              style="minimal" 
+              platforms={['linkedin', 'twitter', 'instagram']}
+              className="justify-center space-x-4"
+              iconClassName="bg-beige-50/10 hover:bg-beige-50/20 border border-beige-50/20 hover:border-beige-50/40"
+            />
           </div>
         </div>
       </div>
       
       <!-- Background Pattern -->
-      <div class="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-6"></div>
+      </div>
+    </section>
+
+    <!-- Enhanced Social Proof Section -->
+    <section class="py-16 bg-beige-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-sage-800 font-medium text-lg mb-4">Trusted by growing startups</p>
+          <div class="flex justify-center items-center space-x-12 opacity-60 mb-8">
+            <div class="text-forest-600 font-heading font-bold text-xl">TechStart</div>
+            <div class="text-forest-600 font-heading font-bold text-xl">GrowthCo</div>
+            <div class="text-forest-600 font-heading font-bold text-xl">ScaleUp</div>
+            <div class="text-forest-600 font-heading font-bold text-xl">InnovateLab</div>
+          </div>
+          
+          <!-- Social Media Stats -->
+          <div class="max-w-2xl mx-auto">
+            <SocialProof type="followers" showCounts={true} />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Services Preview -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
             How We Help Startups Grow
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -46,47 +84,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
-            <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-6">
+          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
+            <div class="w-12 h-12 bg-forest-100 text-forest-700 rounded-lg flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-heading font-semibold mb-4">Lead Generation</h3>
+            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Lead Generation</h3>
             <p class="text-gray-600 mb-4">
               Targeted campaigns that identify and convert high-quality prospects into paying customers using proven funnel strategies.
             </p>
-            <a href="/services/lead-generation" class="text-primary-600 font-medium hover:text-primary-700">
+            <a href="/services/lead-generation" class="text-sage-700 font-medium hover:text-sage-800">
               Learn more →
             </a>
           </div>
           
-          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
-            <div class="w-12 h-12 bg-secondary-100 text-secondary-600 rounded-lg flex items-center justify-center mb-6">
+          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
+            <div class="w-12 h-12 bg-sage-100 text-sage-700 rounded-lg flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-heading font-semibold mb-4">Brand Development</h3>
+            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Brand Development</h3>
             <p class="text-gray-600 mb-4">
               Strategic branding that resonates with your target market and differentiates you from competitors in crowded markets.
             </p>
-            <a href="/services/branding" class="text-primary-600 font-medium hover:text-primary-700">
+            <a href="/services/branding" class="text-sage-700 font-medium hover:text-sage-800">
               Learn more →
             </a>
           </div>
           
-          <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
-            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6">
+          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
+            <div class="w-12 h-12 bg-forest-200 text-forest-800 rounded-lg flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-heading font-semibold mb-4">Growth Strategy</h3>
+            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Growth Strategy</h3>
             <p class="text-gray-600 mb-4">
               Scalable marketing systems and automation that grow with your business from startup to enterprise scale.
             </p>
-            <a href="/services/growth-strategy" class="text-primary-600 font-medium hover:text-primary-700">
+            <a href="/services/growth-strategy" class="text-sage-700 font-medium hover:text-sage-800">
               Learn more →
             </a>
           </div>
@@ -94,25 +132,111 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-6">
+              Why Startups Choose INT Creative
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-forest-900 mb-2">Startup-Focused Expertise</h3>
+                  <p class="text-gray-600">We understand the unique challenges of scaling from 0 to 1, then 1 to 10, and beyond.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-forest-900 mb-2">Data-Driven Results</h3>
+                  <p class="text-gray-600">Every strategy is backed by real metrics and continuously optimized for maximum ROI.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-forest-900 mb-2">Budget-Conscious Solutions</h3>
+                  <p class="text-gray-600">Maximum impact with minimal spend - we know every dollar counts in the early stages.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gradient-to-br from-sage-100 to-beige-100 p-8 rounded-2xl">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-forest-900 mb-2">250%</div>
+              <div class="text-sage-700 font-medium mb-6">Average lead increase in first 90 days</div>
+              <div class="text-4xl font-bold text-forest-900 mb-2">$2.4M</div>
+              <div class="text-sage-700 font-medium mb-6">Total revenue generated for clients</div>
+              <div class="text-4xl font-bold text-forest-900 mb-2">95%</div>
+              <div class="text-sage-700 font-medium mb-6">Client retention rate</div>
+              
+              <!-- Social Sharing CTA -->
+              <div class="pt-6 border-t border-sage-200">
+                <p class="text-sage-700 text-sm mb-3">Share our success with your network</p>
+                <div class="flex justify-center space-x-3">
+                  <a href={`https://twitter.com/intent/tweet?text=Just discovered @intcreative - helping startups scale with data-driven marketing strategies. Check them out! ${SOCIAL_CONFIG.sharing.hashtagsSuggested.map(tag => `%23${tag}`).join('%20')}`} target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors duration-200">
+                    Tweet
+                  </a>
+                  <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://intcreative.co')}`} target="_blank" rel="noopener noreferrer" class="bg-blue-700 hover:bg-blue-800 text-white px-3 py-1 rounded text-xs font-medium transition-colors duration-200">
+                    Share
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SocialProof type="testimonials" layout="grid" />
+      </div>
+    </section>
+    
     <!-- CTA Section -->
-    <section class="py-20 bg-primary-600 text-white">
+    <section class="py-20 bg-forest-900 text-white">
       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
           Ready to Scale Your Startup?
         </h2>
-        <p class="text-xl mb-8 text-gray-200">
+        <p class="text-xl mb-8 text-beige-100">
           Get a free strategy call to discuss how we can accelerate your growth with proven marketing systems.
         </p>
-        <a href="/contact" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block">
-          Book Your Free Strategy Call
-        </a>
+        <div class="mb-8">
+          <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
+            Book Your Free Strategy Call
+          </a>
+        </div>
+        
+        <!-- Social CTA -->
+        <div class="border-t border-forest-800 pt-8">
+          <p class="text-beige-200 text-sm mb-4">
+            {SOCIAL_CONFIG.cta.follow} - connect with our community
+          </p>
+          <SocialIcons 
+            size="md" 
+            style="colored" 
+            platforms={['linkedin', 'twitter', 'instagram', 'facebook']}
+            className="justify-center space-x-4"
+          />
+        </div>
       </div>
     </section>
-  </main>
 </BaseLayout>
-
-<style>
-  .bg-grid-white\/10 {
-    background-image: url("data:image/svg+xml,%3csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='grid' width='32' height='32' patternUnits='userSpaceOnUse'%3e%3cpath d='m 32 0 l 0 32 M 0 32 l 32 0' fill='none' stroke='white' stroke-width='1' stroke-opacity='0.1'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23grid)' /%3e%3c/svg%3e");
-  }
-</style>
