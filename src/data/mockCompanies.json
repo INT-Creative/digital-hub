@@ -1,0 +1,242 @@
+{
+  "websiteDevelopment": {
+    "title": "Website Development Portfolio",
+    "description": "Modern, responsive websites that convert visitors into customers",
+    "showcases": [
+      {
+        "id": "techstart-solutions",
+        "companyName": "TechStart Solutions",
+        "industry": "B2B SaaS",
+        "companySize": "Seed Stage Startup",
+        "projectType": "Complete Website Redesign",
+        "duration": "6 weeks",
+        "challenge": "Outdated website with 0.8% conversion rate, no mobile optimization, and poor brand representation",
+        "solution": "Modern responsive design with clear value proposition, optimized user journey, and integrated lead capture",
+        "features": [
+          "Mobile-first responsive design",
+          "Interactive product demos",
+          "Multi-step lead capture forms",
+          "Blog and resource center",
+          "Customer testimonial showcase",
+          "A/B testing framework"
+        ],
+        "results": {
+          "conversionRate": "4.2%",
+          "conversionIncrease": "425%",
+          "pageLoadTime": "1.8s",
+          "mobileTraffic": "65%",
+          "leadGeneration": "+280%",
+          "bounceRate": "-45%"
+        },
+        "technologies": ["Next.js", "TailwindCSS", "Vercel", "Contentful CMS"],
+        "testimonial": {
+          "quote": "The new website transformed our online presence. We went from looking like a hobby project to a serious enterprise solution.",
+          "author": "Sarah Chen",
+          "position": "CEO & Founder"
+        },
+        "mockupUrl": "/portfolio/techstart-mockup.jpg",
+        "liveUrl": "https://techstart-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#2563eb",
+          "secondary": "#7c3aed",
+          "accent": "#06b6d4"
+        }
+      },
+      {
+        "id": "greenleaf-wellness",
+        "companyName": "GreenLeaf Wellness",
+        "industry": "Healthcare/Wellness",
+        "companySize": "Small Business",
+        "projectType": "E-commerce Website Development",
+        "duration": "8 weeks",
+        "challenge": "No online presence for successful local wellness brand, losing customers to online competitors",
+        "solution": "Full e-commerce platform with appointment booking, product sales, and educational content hub",
+        "features": [
+          "Online appointment scheduling",
+          "E-commerce with 200+ products",
+          "Membership portal",
+          "Educational blog platform",
+          "Email marketing integration",
+          "Customer review system"
+        ],
+        "results": {
+          "onlineRevenue": "$45K/month",
+          "appointments": "+180%",
+          "averageOrderValue": "$127",
+          "returningCustomers": "42%",
+          "emailSubscribers": "3,200+",
+          "organicTraffic": "+350%"
+        },
+        "technologies": ["Shopify Plus", "React", "Node.js", "Klaviyo"],
+        "testimonial": {
+          "quote": "We went from zero online sales to $45K monthly revenue in just 3 months. The ROI has been incredible.",
+          "author": "Dr. Michael Green",
+          "position": "Founder"
+        },
+        "mockupUrl": "/portfolio/greenleaf-mockup.jpg",
+        "liveUrl": "https://greenleaf-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#10b981",
+          "secondary": "#84cc16",
+          "accent": "#fbbf24"
+        }
+      },
+      {
+        "id": "fintech-pro",
+        "companyName": "FinTech Pro",
+        "industry": "Financial Technology",
+        "companySize": "Series A Startup",
+        "projectType": "Enterprise Landing Pages",
+        "duration": "4 weeks",
+        "challenge": "Complex financial product difficult to explain, low demo request rates from enterprise clients",
+        "solution": "Suite of targeted landing pages with interactive calculators, case studies, and clear ROI demonstrations",
+        "features": [
+          "Interactive ROI calculators",
+          "Industry-specific landing pages",
+          "Video testimonials",
+          "Security compliance badges",
+          "Live chat integration",
+          "Progressive form capture"
+        ],
+        "results": {
+          "demoRequests": "+290%",
+          "qualifiedLeads": "+175%",
+          "timeOnSite": "5:42 avg",
+          "enterpriseConversions": "12",
+          "dealPipeline": "$2.8M",
+          "costPerLead": "-60%"
+        },
+        "technologies": ["Astro", "TypeScript", "AWS", "HubSpot"],
+        "testimonial": {
+          "quote": "The landing pages helped us close 3 enterprise deals in the first quarter. Best investment we've made.",
+          "author": "Jennifer Wu",
+          "position": "VP of Sales"
+        },
+        "mockupUrl": "/portfolio/fintech-mockup.jpg",
+        "liveUrl": "https://fintech-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#1e40af",
+          "secondary": "#0f766e",
+          "accent": "#dc2626"
+        }
+      },
+      {
+        "id": "urban-eats",
+        "companyName": "Urban Eats Delivery",
+        "industry": "Food Delivery",
+        "companySize": "Local Business Chain",
+        "projectType": "Restaurant Platform & Ordering System",
+        "duration": "10 weeks",
+        "challenge": "Multiple restaurant locations with no unified online ordering, losing to app-based competitors",
+        "solution": "Custom multi-location ordering platform with real-time tracking, loyalty program, and menu management",
+        "features": [
+          "Multi-location management",
+          "Real-time order tracking",
+          "Loyalty rewards program",
+          "Dynamic menu system",
+          "Delivery zone mapping",
+          "Mobile-optimized ordering"
+        ],
+        "results": {
+          "onlineOrders": "2,400/month",
+          "revenueIncrease": "+65%",
+          "repeatCustomers": "58%",
+          "averageOrder": "$42",
+          "deliveryTime": "-22%",
+          "customerSatisfaction": "4.8/5"
+        },
+        "technologies": ["Vue.js", "Node.js", "MongoDB", "Stripe", "Twilio"],
+        "testimonial": {
+          "quote": "We finally have a platform that rivals the big delivery apps, but we keep 100% of our profits.",
+          "author": "Carlos Martinez",
+          "position": "Operations Director"
+        },
+        "mockupUrl": "/portfolio/urban-eats-mockup.jpg",
+        "liveUrl": "https://urbaneats-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#ea580c",
+          "secondary": "#dc2626",
+          "accent": "#facc15"
+        }
+      },
+      {
+        "id": "edutech-academy",
+        "companyName": "EduTech Academy",
+        "industry": "Online Education",
+        "companySize": "Growing EdTech Startup",
+        "projectType": "Learning Management Platform",
+        "duration": "12 weeks",
+        "challenge": "Generic course platform losing students to competitors with better user experience",
+        "solution": "Custom LMS with gamification, social learning features, and AI-powered recommendations",
+        "features": [
+          "Course creation tools",
+          "Student progress tracking",
+          "Gamification elements",
+          "Discussion forums",
+          "Live webinar integration",
+          "Mobile learning app"
+        ],
+        "results": {
+          "studentEnrollment": "+420%",
+          "courseCompletion": "78%",
+          "studentRetention": "+55%",
+          "monthlyRevenue": "$125K",
+          "activeUsers": "8,500+",
+          "npsScore": "72"
+        },
+        "technologies": ["React", "Django", "PostgreSQL", "Redis", "Zoom API"],
+        "testimonial": {
+          "quote": "The platform transformation helped us scale from 2,000 to 8,500 active students in 6 months.",
+          "author": "Dr. Emily Roberts",
+          "position": "CEO & Founder"
+        },
+        "mockupUrl": "/portfolio/edutech-mockup.jpg",
+        "liveUrl": "https://edutech-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#7c3aed",
+          "secondary": "#2563eb",
+          "accent": "#ec4899"
+        }
+      },
+      {
+        "id": "proptech-realty",
+        "companyName": "PropTech Realty",
+        "industry": "Real Estate Technology",
+        "companySize": "Mid-size Real Estate Firm",
+        "projectType": "Property Showcase Platform",
+        "duration": "7 weeks",
+        "challenge": "Static property listings losing to competitors with virtual tours and modern search capabilities",
+        "solution": "Immersive property platform with 3D tours, AI-powered matching, and instant scheduling",
+        "features": [
+          "3D virtual property tours",
+          "Advanced search filters",
+          "AI property matching",
+          "Instant showing scheduler",
+          "Mortgage calculator",
+          "Neighborhood insights"
+        ],
+        "results": {
+          "propertyInquiries": "+340%",
+          "showingRequests": "+225%",
+          "averageDealSize": "+18%",
+          "timeToClose": "-30%",
+          "agentProductivity": "+45%",
+          "clientSatisfaction": "4.9/5"
+        },
+        "technologies": ["Next.js", "Three.js", "Mapbox", "Supabase", "Calendly API"],
+        "testimonial": {
+          "quote": "Our agents close deals 30% faster now. The virtual tours alone saved us thousands in travel costs.",
+          "author": "Robert Thompson",
+          "position": "Managing Broker"
+        },
+        "mockupUrl": "/portfolio/proptech-mockup.jpg",
+        "liveUrl": "https://proptech-demo.intcreative.co",
+        "colorScheme": {
+          "primary": "#0891b2",
+          "secondary": "#0e7490",
+          "accent": "#f59e0b"
+        }
+      }
+    ]
+  }
+}
