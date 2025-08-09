@@ -2,20 +2,20 @@
 export const SOCIAL_CONFIG = {
   // Company social media handles (update these to match actual accounts)
   handles: {
-    twitter: 'intcreative',
-    linkedin: 'company/intcreative',
+    twitter: 'intcreative_co',
+    linkedin: 'in/jacobinternicola',
     instagram: 'intcreative',
-    facebook: 'intcreative',
+    facebook: 'profile.php?id=6157779911205',
     youtube: '@intcreative',
     tiktok: '@intcreative'
   },
   
   // Full URLs for social media profiles
   urls: {
-    twitter: 'https://twitter.com/intcreative',
-    linkedin: 'https://linkedin.com/company/intcreative',
+    twitter: 'https://x.com/intcreative_co',
+    linkedin: 'https://www.linkedin.com/in/jacobinternicola',
     instagram: 'https://instagram.com/intcreative',
-    facebook: 'https://facebook.com/intcreative',
+    facebook: 'https://www.facebook.com/profile.php?id=6157779911205',
     youtube: 'https://youtube.com/@intcreative',
     tiktok: 'https://tiktok.com/@intcreative'
   },
@@ -23,8 +23,8 @@ export const SOCIAL_CONFIG = {
   // Social sharing configuration
   sharing: {
     hashtagsSuggested: ['startup', 'marketing', 'leadgeneration', 'growth'],
-    twitterVia: 'intcreative',
-    linkedinCompanyId: 'intcreative' // Used for LinkedIn sharing
+    twitterVia: 'intcreative_co',
+    linkedinCompanyId: 'jacobinternicola' // Used for LinkedIn sharing
   },
   
   // Call-to-action messages
