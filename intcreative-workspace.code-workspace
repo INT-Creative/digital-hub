@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "name": "🏠 INT Creative Website",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "*.astro": "${capture}.astro",
+      "package.json": "package-lock.json, .prettierrc.json, .eslintrc.json, tsconfig.json",
+      "README.md": "SETUP.md, DEPLOYMENT.md, CONTRIBUTING.md, LAUNCH_CHECKLIST.md"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "astro-build.astro-vscode",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-typescript-next",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}
