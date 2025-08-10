@@ -1,0 +1,170 @@
+{
+  "brand": {
+    "name": "INT Creative",
+    "tagline": "Digital Solutions That Drive Growth",
+    "location": "Northeast Ohio (Cleveland • Akron • Canton)",
+    "positioning": "Boutique digital agency for local small businesses"
+  },
+  "visual-identity": {
+    "logo": {
+      "variations": ["horizontal", "stacked", "icon-only"],
+      "minimum-size": {
+        "digital": "24px height",
+        "print": "0.5 inch height"
+      },
+      "clear-space": "0.5x logo height on all sides",
+      "backgrounds": {
+        "preferred": ["white", "#F9F9F7"],
+        "acceptable": ["light colors with sufficient contrast"],
+        "avoid": ["busy patterns", "low contrast backgrounds"]
+      }
+    },
+    "typography": {
+      "primary-font": {
+        "name": "Playfair Display",
+        "category": "serif",
+        "weights": ["400", "700"],
+        "usage": "Headlines, hero text"
+      },
+      "secondary-font": {
+        "name": "Inter",
+        "category": "sans-serif",
+        "weights": ["400", "500", "600", "700"],
+        "usage": "Body text, UI elements"
+      },
+      "accent-font": {
+        "name": "Montserrat Alternates",
+        "category": "sans-serif",
+        "weights": ["500", "600"],
+        "usage": "Special callouts, buttons"
+      },
+      "hierarchy": {
+        "h1": "clamp(2rem, 5vw, 3.5rem)",
+        "h2": "clamp(1.5rem, 4vw, 2.5rem)",
+        "h3": "clamp(1.25rem, 3vw, 1.75rem)",
+        "body": "1rem",
+        "small": "0.875rem"
+      }
+    },
+    "spacing": {
+      "grid": "8px baseline",
+      "sections": {
+        "mobile": "32px",
+        "tablet": "48px",
+        "desktop": "64px"
+      },
+      "components": {
+        "padding": "16px standard, 24px generous",
+        "gap": "16px small, 24px medium, 32px large"
+      }
+    },
+    "imagery": {
+      "style": {
+        "mood": "Professional, approachable, modern with nature elements",
+        "lighting": "Natural, bright, optimistic",
+        "composition": "Clean, uncluttered, purposeful negative space",
+        "color-treatment": "Slightly desaturated, warm tones"
+      },
+      "subjects": {
+        "preferred": [
+          "Local business owners in action",
+          "Clean workspaces",
+          "Technology in natural settings",
+          "Northeast Ohio landmarks subtly included"
+        ],
+        "avoid": [
+          "Generic stock photos",
+          "Overly corporate imagery",
+          "Cluttered compositions",
+          "Cold, sterile tech imagery"
+        ]
+      },
+      "overlays": {
+        "text-on-image": "Use dark overlay (0.4-0.6 opacity) for legibility",
+        "brand-tint": "Subtle green tint (#0B3D2E at 10% opacity)"
+      }
+    },
+    "iconography": {
+      "style": "Line icons, 2px stroke",
+      "corners": "Rounded (2px radius)",
+      "complexity": "Simple, recognizable at small sizes",
+      "consistency": "All icons from same family/set"
+    }
+  },
+  "tone-of-voice": {
+    "personality": [
+      "Professional but not stuffy",
+      "Knowledgeable but not condescending", 
+      "Helpful and solution-oriented",
+      "Local and community-focused"
+    ],
+    "writing-style": {
+      "do": [
+        "Use active voice",
+        "Keep sentences concise",
+        "Focus on client benefits",
+        "Include local references",
+        "Use 'you' and 'your'"
+      ],
+      "avoid": [
+        "Industry jargon",
+        "Long, complex sentences",
+        "Feature-focused copy",
+        "Generic corporate speak",
+        "Exclamation marks"
+      ]
+    }
+  },
+  "applications": {
+    "digital": {
+      "website": {
+        "header-height": "80px desktop, 64px mobile",
+        "container-max-width": "1280px",
+        "border-radius": "8px standard, 16px cards",
+        "shadows": "0 2px 8px rgba(0,0,0,0.1)"
+      },
+      "social-media": {
+        "templates": "Consistent header/footer zones",
+        "hashtags": "#INTCreative #NortheastOhio #DigitalGrowth",
+        "posting-times": "8am, 12pm, 5pm EST"
+      },
+      "email": {
+        "width": "600px",
+        "header-height": "150px",
+        "footer-height": "100px",
+        "cta-style": "Rounded button, primary color"
+      }
+    },
+    "print": {
+      "business-cards": {
+        "size": "3.5x2 inches",
+        "finish": "Matte with spot UV on logo",
+        "paper": "16pt or thicker"
+      },
+      "letterhead": {
+        "margins": "1 inch all sides",
+        "logo-position": "Top left",
+        "footer": "Contact info centered"
+      }
+    }
+  },
+  "quality-standards": {
+    "images": {
+      "web": {
+        "format": "WebP with JPG fallback",
+        "quality": "85% compression",
+        "resolution": "2x for retina"
+      },
+      "print": {
+        "format": "PDF, EPS, or AI",
+        "resolution": "300 DPI minimum",
+        "color-mode": "CMYK"
+      }
+    },
+    "accessibility": {
+      "color-contrast": "WCAG AA minimum",
+      "alt-text": "Required for all images",
+      "focus-states": "Visible and branded"
+    }
+  }
+}

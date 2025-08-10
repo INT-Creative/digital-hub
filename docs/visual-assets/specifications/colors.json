@@ -1,0 +1,124 @@
+{
+  "brand": {
+    "primary": {
+      "forest-green": {
+        "hex": "#0B3D2E",
+        "rgb": "11, 61, 46",
+        "hsl": "163, 69%, 14%",
+        "usage": "Primary brand color, headers, CTAs"
+      },
+      "primary-green": {
+        "hex": "#1B3A2F",
+        "rgb": "27, 58, 47",
+        "hsl": "161, 36%, 17%",
+        "usage": "Secondary headers, active states"
+      }
+    },
+    "secondary": {
+      "sage-green": {
+        "hex": "#A8BFA3",
+        "rgb": "168, 191, 163",
+        "hsl": "109, 18%, 69%",
+        "usage": "Backgrounds, secondary elements"
+      },
+      "accent-moss": {
+        "hex": "#4A7C59",
+        "rgb": "74, 124, 89",
+        "hsl": "138, 25%, 39%",
+        "usage": "Accent elements, hover states"
+      }
+    },
+    "neutrals": {
+      "warm-beige": {
+        "hex": "#F5F0E6",
+        "rgb": "245, 240, 230",
+        "hsl": "40, 43%, 93%",
+        "usage": "Light backgrounds, cards"
+      },
+      "background-light": {
+        "hex": "#F9F9F7",
+        "rgb": "249, 249, 247",
+        "hsl": "60, 14%, 98%",
+        "usage": "Main background"
+      },
+      "deep-charcoal": {
+        "hex": "#1C1C1C",
+        "rgb": "28, 28, 28",
+        "hsl": "0, 0%, 11%",
+        "usage": "Text, dark backgrounds"
+      }
+    },
+    "accents": {
+      "soft-copper": {
+        "hex": "#C56B47",
+        "rgb": "197, 107, 71",
+        "hsl": "17, 52%, 53%",
+        "usage": "Highlights, important CTAs"
+      },
+      "gold-ochre": {
+        "hex": "#C29D49",
+        "rgb": "194, 157, 73",
+        "hsl": "42, 50%, 52%",
+        "usage": "Premium elements, badges"
+      }
+    }
+  },
+  "functional": {
+    "success": {
+      "hex": "#4A7C59",
+      "usage": "Success messages, confirmations"
+    },
+    "warning": {
+      "hex": "#C29D49",
+      "usage": "Warning messages, cautions"
+    },
+    "error": {
+      "hex": "#C56B47",
+      "usage": "Error messages, alerts"
+    },
+    "info": {
+      "hex": "#1B3A2F",
+      "usage": "Information messages, tips"
+    }
+  },
+  "gradients": {
+    "primary": {
+      "direction": "135deg",
+      "colors": ["#0B3D2E", "#1B3A2F", "#4A7C59"],
+      "usage": "Hero sections, premium elements"
+    },
+    "secondary": {
+      "direction": "90deg",
+      "colors": ["#A8BFA3", "#F5F0E6"],
+      "usage": "Soft backgrounds, cards"
+    },
+    "accent": {
+      "direction": "45deg",
+      "colors": ["#C56B47", "#C29D49"],
+      "usage": "CTAs, special offers"
+    }
+  },
+  "overlays": {
+    "dark": {
+      "hex": "#1C1C1C",
+      "opacity": "0.8",
+      "usage": "Image overlays for text readability"
+    },
+    "light": {
+      "hex": "#F9F9F7",
+      "opacity": "0.9",
+      "usage": "Light overlays for modals"
+    }
+  },
+  "accessibility": {
+    "contrast-ratios": {
+      "large-text": "3:1 minimum (AA)",
+      "normal-text": "4.5:1 minimum (AA)",
+      "enhanced": "7:1 minimum (AAA)"
+    },
+    "color-blind-safe": {
+      "avoid": "Red-green only distinctions",
+      "use": "Patterns, icons, or labels in addition to color"
+    }
+  }
+}

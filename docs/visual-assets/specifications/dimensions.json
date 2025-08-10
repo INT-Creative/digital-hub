@@ -1,0 +1,82 @@
+{
+  "social": {
+    "instagram": {
+      "square": "1080x1080",
+      "story": "1080x1920",
+      "reel": "1080x1920",
+      "portrait": "1080x1350"
+    },
+    "facebook": {
+      "post": "1200x630",
+      "cover": "1640x859",
+      "story": "1080x1920",
+      "event": "1920x1080"
+    },
+    "linkedin": {
+      "post": "1200x627",
+      "cover": "1584x396",
+      "article": "1280x720",
+      "profile": "400x400"
+    },
+    "twitter": {
+      "post": "1600x900",
+      "header": "1500x500"
+    },
+    "tiktok": {
+      "video": "1080x1920"
+    }
+  },
+  "web": {
+    "hero": "1920x1080",
+    "hero-mobile": "768x1024",
+    "thumbnail": "800x600",
+    "og-image": "1200x630",
+    "favicon": "32x32",
+    "apple-touch": "180x180",
+    "banner-large": "728x90",
+    "banner-medium": "300x250",
+    "banner-mobile": "320x50"
+  },
+  "print": {
+    "business-card": {
+      "size": "3.5x2 inches",
+      "dpi": 300,
+      "pixels": "1050x600"
+    },
+    "letterhead": {
+      "size": "8.5x11 inches",
+      "dpi": 300,
+      "pixels": "2550x3300"
+    },
+    "brochure-trifold": {
+      "size": "11x8.5 inches",
+      "dpi": 300,
+      "pixels": "3300x2550"
+    },
+    "poster-small": {
+      "size": "11x17 inches",
+      "dpi": 300,
+      "pixels": "3300x5100"
+    },
+    "poster-large": {
+      "size": "24x36 inches",
+      "dpi": 150,
+      "pixels": "3600x5400"
+    }
+  },
+  "email": {
+    "newsletter": {
+      "width": "600px",
+      "max-width": "100%"
+    },
+    "header": "600x200",
+    "banner": "600x150",
+    "signature": "300x100"
+  },
+  "icons": {
+    "small": "24x24",
+    "medium": "48x48",
+    "large": "96x96",
+    "extra-large": "192x192"
+  }
+}

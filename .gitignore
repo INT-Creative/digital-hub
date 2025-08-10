@@ -112,3 +112,9 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code Configuration (keep sensitive files private)
+.claude/settings.local.json
+.claude/*.local.*
+.claude/cache/
+.claude/tmp/
