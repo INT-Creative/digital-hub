@@ -40,14 +40,30 @@ These instructions govern all work by Claude Code and all subagents in this repo
 - [ ] Slugs match anchors
 - [ ] Copy kept in `src/data/services.ts`
 
-## Agent Roles (Project)
+## Agent Roles (Merged Business & Technical System)
+
+### Core Technical Agents
 - **planner**: orchestrates tasks; assigns to subagents; enforces this document.
 - **site-architect**: IA/SEO/copy. Owns `src/data/services.ts` content + JSON-LD suggestions.
 - **web-dev-astro**: implements Astro/Tailwind sections/pages; no client JS unless needed.
 - **qa-security**: a11y checks, anchors, build, basic link checks; optional security review.
+
+### Core Business Agents
+- **client-acquisition-specialist**: Generates qualified leads through LinkedIn outreach, free audits, and value-first engagement. Interfaces with technical agents for audit generation.
+- **content-authority-builder**: Creates SEO-optimized content, social media posts, and thought leadership pieces. Coordinates with site-architect for blog implementation.
+- **service-delivery-specialist**: Executes all client work using Mirror Loop Methodology™. Manages website builds, automation, design, and marketing services.
+- **sales-proposal-specialist**: Converts leads to clients with ROI-focused proposals. Creates packages, handles objections, and manages follow-up sequences.
+
+### Specialized Support Agents
 - **visual-asset-creator**: generates image prompts, specifications, and visual briefs. Creates placeholder SVGs. Owns `/docs/visual-assets/` and `/public/images/placeholders/`.
 - **automation-builder** (optional): creates automation SOPs/diagrams under `/docs/automation`.
 - **social-strategist** (optional): creates sample calendars under `/docs/social`.
+
+### Agent Coordination
+- Business agents handle client-facing activities and strategy
+- Technical agents implement website features and code
+- All agents follow INSTRUCTIONS.md as single source of truth
+- Agents collaborate through clearly defined handoff points
 
 ## Change Control
 - Before large edits, print a plan (files + acceptance criteria).

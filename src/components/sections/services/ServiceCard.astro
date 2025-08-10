@@ -1,0 +1,61 @@
+---
+import type { ServiceDetail } from '../../../types/services';
+
+export interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+---
+
+<div class="bg-beige-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-200">
+  <h3 class="text-2xl font-heading font-bold text-forest-900 mb-2">
+    {service.title}
+    {service.subtitle && (
+      <span class="text-base font-normal text-gray-600 block mt-1">
+        ({service.subtitle})
+      </span>
+    )}
+  </h3>
+  
+  <p class="text-gray-600 mb-6">
+    {service.description}
+  </p>
+  
+  <div class="space-y-3 mb-6">
+    <h4 class="font-semibold text-forest-900">Key Deliverables:</h4>
+    <ul class="space-y-2">
+      {service.deliverables.slice(0, 4).map((item) => (
+        <li class="flex items-start">
+          <span class="text-sage-600 mr-2 mt-0.5">•</span>
+          <span class={item.highlight ? "text-forest-900 font-medium" : "text-gray-700"}>
+            {item.text}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+  <div class="flex items-center justify-between">
+    {service.packageTier && (
+      <div class="text-sm text-sage-700 font-medium capitalize">
+        {service.packageTier} pricing
+      </div>
+    )}
+    <a 
+      href={`#${service.slug}`}
+      class="text-sage-600 hover:text-sage-700 font-medium text-sm inline-flex items-center group"
+    >
+      View details
+      <svg 
+        class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>

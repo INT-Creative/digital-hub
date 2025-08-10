@@ -1,0 +1,39 @@
+---
+import { servicesData } from '../../../data/services';
+import ServiceCard from './ServiceCard.astro';
+
+// Sort services by priority (automation, website-design, graphic-design, social-media)
+const priorityOrder = ['automation', 'website-design', 'graphic-design', 'social-media'];
+const sortedServices = servicesData.services.sort((a, b) => {
+  return priorityOrder.indexOf(a.slug) - priorityOrder.indexOf(b.slug);
+});
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+        Four straightforward services
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        No complex packages. Just what you need, when you need it.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {sortedServices.map((service) => (
+        <ServiceCard service={service} />
+      ))}
+    </div>
+    
+    <!-- Promise Section -->
+    <div class="mt-16 text-center bg-sage-50 rounded-2xl p-8 max-w-3xl mx-auto">
+      <h3 class="text-xl font-heading font-semibold text-forest-900 mb-3">
+        {servicesData.promise.title}
+      </h3>
+      <p class="text-gray-700">
+        {servicesData.promise.text}
+      </p>
+    </div>
+  </div>
+</section>

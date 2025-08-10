@@ -1,0 +1,130 @@
+---
+import type { ServiceDetail } from '../../../types/services';
+import { servicesData } from '../../../data/services';
+
+export interface Props {
+  detail: ServiceDetail;
+}
+
+const { detail } = Astro.props;
+---
+
+<section id={detail.slug} class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Service Header -->
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          {detail.title}
+          {detail.subtitle && (
+            <span class="text-xl font-normal text-gray-600 block mt-2">
+              {detail.subtitle}
+            </span>
+          )}
+        </h2>
+      </div>
+      
+      <!-- Hook -->
+      <div class="bg-sage-50 rounded-xl p-6 mb-12">
+        <p class="text-lg text-forest-900 leading-relaxed">
+          {detail.hook}
+        </p>
+      </div>
+      
+      <!-- Outcomes -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+          What You'll Get
+        </h3>
+        <ul class="space-y-3">
+          {detail.outcomes.map((outcome) => (
+            <li class="flex items-start">
+              <svg 
+                class="w-6 h-6 text-sage-600 mr-3 mt-0.5 flex-shrink-0" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">{outcome}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Deliverables -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+          Deliverables
+        </h3>
+        <div class="bg-white rounded-xl p-8">
+          <ul class="space-y-3">
+            {detail.deliverables.map((deliverable) => (
+              <li class="flex items-start">
+                <span class="text-sage-600 mr-3 mt-0.5">•</span>
+                <span class={deliverable.highlight ? "text-forest-900 font-medium" : "text-gray-700"}>
+                  {deliverable.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+          {detail.toolStack && (
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <p class="text-sm text-gray-600">
+                <span class="font-medium">Tools we use:</span> {detail.toolStack.join(', ')}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <!-- Process -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+          Our Process
+        </h3>
+        <div class="space-y-4">
+          {detail.process.map((step) => (
+            <div class="bg-white rounded-lg p-6 flex">
+              <div class="w-10 h-10 bg-sage-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                {step.number}
+              </div>
+              <div class="ml-4 flex-1">
+                <h4 class="font-semibold text-forest-900 mb-1">
+                  {step.title}
+                  {step.timeline && (
+                    <span class="text-sm font-normal text-gray-500 ml-2">
+                      • {step.timeline}
+                    </span>
+                  )}
+                </h4>
+                <p class="text-gray-600">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- CTA -->
+      <div class="text-center bg-forest-900 text-white rounded-2xl p-8">
+        <h3 class="text-2xl font-heading font-semibold mb-4">
+          Ready to Get Started?
+        </h3>
+        <p class="text-beige-100 mb-6">
+          Let's discuss how {detail.title.toLowerCase()} can help grow your business.
+        </p>
+        <a 
+          href={servicesData.globalCTA.primary.href}
+          class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg"
+        >
+          {servicesData.globalCTA.primary.text}
+        </a>
+        <p class="text-sm text-beige-200 mt-4">
+          {servicesData.globalCTA.helper}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
