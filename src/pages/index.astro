@@ -1,8 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SocialProof from '../components/social/SocialProof.astro';
-import SocialIcons from '../components/social/SocialIcons.astro';
-import { SOCIAL_CONFIG } from '../config/social.ts';
 ---
 
 <BaseLayout 
@@ -14,33 +11,15 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
         <div class="text-center max-w-4xl mx-auto">
           <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
-            <span class="text-sage-400">Bridging Marketing Strategy</span>
-            with Technical Implementation
+            Launch a website that turns visitors into leads
           </h1>
           <p class="text-xl md:text-2xl mb-8 text-beige-100 animate-slide-up">
-            I provide comprehensive business solutions combining website development, automation, design, and digital marketing to help growing businesses succeed.
+            I build conversion-focused sites and set up the lead-capture automations you actually need. Clear scope. Fast turnaround.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up mb-8">
+          <div class="flex justify-center animate-slide-up">
             <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg">
-              Start Your Project
+              Book a 15-min plan call
             </a>
-            <a href="/portfolio" class="border-2 border-beige-50 text-beige-50 hover:bg-beige-50 hover:text-forest-900 px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200">
-              View Our Work
-            </a>
-          </div>
-          
-          <!-- Social Media Call-to-Action -->
-          <div class="text-center animate-fade-in-delayed">
-            <p class="text-beige-200 text-sm mb-4">
-              Join 5K+ founders getting growth insights daily
-            </p>
-            <SocialIcons 
-              size="md" 
-              style="minimal" 
-              platforms={['linkedin', 'twitter', 'instagram']}
-              className="justify-center space-x-4"
-              iconClassName="bg-beige-50/10 hover:bg-beige-50/20 border border-beige-50/20 hover:border-beige-50/40"
-            />
           </div>
         </div>
       </div>
@@ -51,123 +30,84 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
       </div>
     </section>
 
-    <!-- Social Media Section -->
+    <!-- What You'll Get Section -->
     <section class="py-16 bg-beige-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <!-- Social Media Stats -->
-          <div class="max-w-2xl mx-auto">
-            <SocialProof type="followers" showCounts={true} />
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-forest-900 mb-8 text-center">
+            What you'll get
+          </h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-forest-900 mb-1">Modern, fast site (mobile-first)</h3>
+                <p class="text-gray-600">Built for speed and optimized for all devices</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-forest-900 mb-1">Clear CTA + booking or form</h3>
+                <p class="text-gray-600">Strategic placement to maximize conversions</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-forest-900 mb-1">Basic SEO and analytics/pixel</h3>
+                <p class="text-gray-600">Track what's working and improve visibility</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-forest-900 mb-1">Optional follow-up automations (email/SMS)</h3>
+                <p class="text-gray-600">Nurture leads automatically after they convert</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Preview -->
+    <!-- Mid-page CTA Section -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
-            How I Help Businesses Grow
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete business solutions from strategy to execution - websites, automation, design, and marketing that work together seamlessly.
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-            <div class="w-12 h-12 bg-forest-100 text-forest-700 rounded-lg flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Website Development</h3>
-            <p class="text-gray-600 mb-4">
-              Modern, responsive websites that look professional and convert visitors into customers.
-            </p>
-            <a href="/services" class="text-sage-700 font-medium hover:text-sage-800">
-              Learn more →
-            </a>
-          </div>
-          
-          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-            <div class="w-12 h-12 bg-sage-100 text-sage-700 rounded-lg flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Software Automation</h3>
-            <p class="text-gray-600 mb-4">
-              Custom applications and tools that streamline your business processes and save you time.
-            </p>
-            <a href="/services" class="text-sage-700 font-medium hover:text-sage-800">
-              Learn more →
-            </a>
-          </div>
-          
-          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-            <div class="w-12 h-12 bg-forest-200 text-forest-800 rounded-lg flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Graphic Design</h3>
-            <p class="text-gray-600 mb-4">
-              Visual identity and marketing materials that make your business look professional and memorable.
-            </p>
-            <a href="/services" class="text-sage-700 font-medium hover:text-sage-800">
-              Learn more →
-            </a>
-          </div>
-          
-          <div class="bg-beige-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-            <div class="w-12 h-12 bg-sage-200 text-sage-800 rounded-lg flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-heading font-semibold mb-4 text-forest-900">Digital Marketing</h3>
-            <p class="text-gray-600 mb-4">
-              Strategic online growth through targeted campaigns that bring you qualified leads and customers.
-            </p>
-            <a href="/services" class="text-sage-700 font-medium hover:text-sage-800">
-              Learn more →
-            </a>
-          </div>
-        </div>
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-6">
+          Ready to convert more visitors?
+        </h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Let's discuss your website needs and create a clear plan forward.
+        </p>
+        <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
+          Book a 15-min plan call
+        </a>
       </div>
     </section>
 
 
     
-    <!-- CTA Section -->
+    <!-- Footer CTA Section -->
     <section class="py-20 bg-forest-900 text-white">
       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
-          Ready to Scale Your Startup?
+          Get a website that actually generates leads
         </h2>
         <p class="text-xl mb-8 text-beige-100">
-          Get a free strategy call to discuss how we can accelerate your growth with proven marketing systems.
+          Stop losing potential customers to a website that doesn't convert.
         </p>
-        <div class="mb-8">
-          <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
-            Start Your Project
-          </a>
-        </div>
-        
-        <!-- Social CTA -->
-        <div class="border-t border-forest-800 pt-8">
-          <p class="text-beige-200 text-sm mb-4">
-            {SOCIAL_CONFIG.cta.follow} - connect with our community
-          </p>
-          <SocialIcons 
-            size="md" 
-            style="colored" 
-            platforms={['linkedin', 'twitter', 'instagram', 'facebook']}
-            className="justify-center space-x-4"
-          />
-        </div>
+        <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
+          Book a 15-min plan call
+        </a>
       </div>
     </section>
 </BaseLayout>

@@ -5,7 +5,7 @@ interface Props {
 
 const { currentPath = "" } = Astro.props;
 
-import SocialIcons from './SocialIcons.astro';
+import SocialIcons from '../social/SocialIcons.astro';
 
 const navItems = [
   { name: "Home", href: "/", current: currentPath === "/" },

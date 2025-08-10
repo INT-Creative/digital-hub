@@ -19,7 +19,7 @@ const {
   showCounts = false
 } = Astro.props;
 
-import { generateSharingURL } from '../config/social.ts';
+import { generateSharingURL } from '../../config/social.ts';
 
 // Get current page URL
 const fullUrl = url.startsWith('http') ? url : `https://intcreative.co${url}`;
