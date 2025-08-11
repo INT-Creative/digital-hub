@@ -1,39 +1,102 @@
 # INT Creative Hub
 
-**Professional Marketing Agency for Startup Success**
+**Digital Solutions Laboratory | Testing & Perfecting Services for Small Business Growth**
 
-INT Creative Hub is a cutting-edge marketing agency specializing in lead generation and growth strategies for startups and emerging businesses. We combine data-driven marketing tactics with creative storytelling to help startups scale from idea to market leader.
+INT Creative is a digital agency in active development, currently testing and refining our service offerings through real-world implementation. We're identifying the perfect niches where our automation, web design, and digital marketing services create maximum impact.
 
-## 🚀 What We Do
+## 🔬 Current Testing Phase
 
-- **Lead Generation**: Targeted campaigns that convert prospects into customers
-- **Brand Development**: Strategic branding that resonates with your target market  
-- **Digital Marketing**: SEO, PPC, social media, and content marketing
-- **Growth Strategy**: Scalable marketing systems for rapid business growth
-- **Startup Consulting**: Marketing guidance from idea validation to Series A+
-- **Technical Implementation**: Website development, automation, and design solutions
+We're actively seeking early partners to help validate and refine our services:
 
-## 🛠 Technology Stack
+- **Automation & Workflow Design**: Building efficient systems with Zapier/Make.com
+- **Website Design & Development**: Creating conversion-focused sites with Webflow/WordPress  
+- **Social Media Management**: Testing content strategies and engagement systems
+- **Graphic Design**: Developing brand identities and marketing materials
+- **Local SEO & Digital Marketing**: Optimizing for Northeast Ohio markets
+- **IT Consulting**: Providing technical solutions and integrations
 
-This website is built with modern technologies for optimal performance and SEO:
+## 🎯 Niche Discovery Focus Areas
 
-- **Framework**: [Astro](https://astro.build/) - Static site generator with partial hydration
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **TypeScript**: Full type safety for better development experience
-- **Deployment**: Vercel for fast global CDN delivery
-- **SEO**: Automatic sitemap generation and Open Graph meta tags
-- **Performance**: Optimized builds with inlined stylesheets and HTML compression
+We're actively testing our services with these potential niches:
 
-## 🏃‍♂️ Quick Start
+### Currently Exploring:
+- **Local Service Businesses**: HVAC, plumbing, electrical, landscaping
+- **Health & Wellness**: Med spas, dental practices, chiropractors, fitness studios
+- **Hospitality**: Restaurants, bars, cafes, food trucks
+- **Professional Services**: Law firms, accounting, real estate agents
+- **E-commerce**: Small online retailers, local product creators
 
-### Prerequisites
-- Node.js 18+ 
-- npm package manager
+### What We're Learning:
+- Which industries benefit most from automation
+- Where web design creates the highest ROI
+- Which niches need the most help with digital presence
+- How to package services for specific industry needs
+
+## 🤝 Partner With Us (Early Adopter Benefits)
+
+**We're looking for 5-10 businesses to be our founding clients:**
+- Heavily discounted rates during our testing phase
+- Direct access to the founder for strategy sessions
+- Your feedback shapes our service offerings
+- Case study opportunities with full transparency
+- No long-term contracts - month-to-month flexibility
+
+## 🛠 Our Approach: The Mirror Loop Methodology™
+
+We're developing a systematic approach to digital transformation:
+1. **DUMP**: Comprehensive discovery and data gathering
+2. **MIRROR**: Analysis and reflection on findings
+3. **RECURSE**: Iterative improvements and testing
+4. **INTEGRATE**: Seamless implementation across all channels
+
+## 💻 Technology Stack
+
+Our solutions leverage modern, cost-effective tools:
+
+- **Web Platforms**: Webflow, WordPress, Astro
+- **Automation**: Zapier, Make.com, custom APIs
+- **Design**: Figma, Adobe Creative Suite, Canva
+- **Analytics**: Google Analytics 4, Tag Manager
+- **CRM**: HubSpot Free, Airtable
+- **AI Integration**: ChatGPT, Claude, DALL-E for content and design
+
+## 📊 Current Experiments & Metrics
+
+We're transparently tracking what works:
+- **Outreach Response Rate**: Testing LinkedIn vs. Email vs. Cold Calling
+- **Service Demand**: Which services get the most interest
+- **Price Sensitivity**: Finding the sweet spot for each niche
+- **Time to Value**: How quickly we can show ROI
+- **Client Retention**: What keeps businesses coming back
+
+## 📍 Location
+
+**Based in Northeast Ohio** (Cleveland • Akron • Canton area)
+- Serving local businesses in-person
+- Remote services available nationwide
+- Focus on understanding local market dynamics
+
+## 📞 Get In Touch
+
+**Ready to be an early partner?**
+- Email: jake@intcreative.co
+- LinkedIn: [Connect with us](https://linkedin.com/company/intcreative)
+- Schedule a Call: [Coming Soon]
+
+## 🚀 For Developers
+
+This repository contains our agency website built with Astro:
+
+### Tech Stack
+- Framework: Astro (Static Site Generation)
+- Styling: Tailwind CSS
+- TypeScript: Full type safety
+- Deployment: Vercel/Netlify ready
 
 ### Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/intcreative/intcreative-hub.git
+git clone https://github.com/intcreative-hub/intcreative-hub.git
 cd intcreative-hub
 
 # Install dependencies
@@ -201,12 +264,51 @@ The site is configured for `https://intcreative.co` - update the following files
 - Run linting before committing (`npm run lint`)
 - Test builds before deploying (`npm run build`)
 
+## 🧪 Our Testing Philosophy
+
+**"Test small, fail fast, scale what works"**
+
+We believe in:
+- Starting with MVPs (Minimum Viable Products)
+- Getting real feedback from real businesses
+- Iterating based on actual results, not assumptions
+- Building long-term relationships, not quick transactions
+- Transparency about what we're learning
+
+## 🎯 Ideal Early Partners
+
+You might be perfect for our testing phase if you:
+- Run a small business (1-50 employees)
+- Have some budget for marketing ($500-$5,000/month)
+- Are open to trying new approaches
+- Can provide honest feedback
+- Want to grow but don't know where to start
+- Are located in Northeast Ohio (preferred but not required)
+
+## 📈 What's Next
+
+As we validate our services, we're building towards:
+- **Specialized packages** for each proven niche
+- **Automation templates** for common business workflows
+- **Industry-specific marketing playbooks**
+- **Partnership network** with complementary services
+- **Educational content** based on real results
+
+## 💡 Why This Approach?
+
+Instead of claiming to be experts at everything, we're:
+- Honestly testing what works
+- Building expertise through real implementation
+- Creating case studies with actual data
+- Developing services based on client needs, not assumptions
+- Keeping prices low while we learn together
+
 ## 📞 Contact & Support
 
-- **Website**: [intcreative.co](https://intcreative.co)
+- **Website**: [intcreative.co](https://intcreative.co) (Coming Soon)
 - **Email**: jake@intcreative.co
-- **LinkedIn**: [jacobinternicola](https://www.linkedin.com/in/jacobinternicola)
-- **Twitter**: [@intcreative_co](https://x.com/intcreative_co)
+- **LinkedIn**: [Connect with Jake](https://www.linkedin.com/in/jacobinternicola)
+- **GitHub**: You're here!
 
 ## 📄 License
 
@@ -214,4 +316,6 @@ This project is proprietary and confidential. All rights reserved by INT Creativ
 
 ---
 
-**Ready to scale your startup?** [Get in touch](mailto:jake@intcreative.co) to discuss how we can accelerate your growth.
+**INT Creative - Building Digital Solutions Through Real-World Testing** 🔬
+
+*Currently accepting early partners for our founding cohort. Limited spots available.*
