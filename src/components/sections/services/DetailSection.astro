@@ -24,11 +24,62 @@ const { detail } = Astro.props;
         </h2>
       </div>
       
-      <!-- Hook -->
-      <div class="bg-sage-50 rounded-xl p-6 mb-12">
-        <p class="text-lg text-forest-900 leading-relaxed">
+      <!-- Transformation Story -->
+      <div class="bg-gradient-to-r from-sage-50 to-beige-50 rounded-xl p-8 mb-12 border-l-4 border-sage-600">
+        <h3 class="text-lg font-semibold text-forest-900 mb-3">Your Transformation Journey</h3>
+        <p class="text-lg text-forest-900 leading-relaxed mb-4">
           {detail.hook}
         </p>
+        <div class="grid md:grid-cols-3 gap-4 mt-6 journey-progression">
+          <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+            <div class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-red-200 transition-colors duration-300">
+              <span class="relative z-10">1</span>
+              <div class="absolute inset-0 bg-gradient-to-br from-red-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            </div>
+            <div class="text-xs text-gray-600 font-medium group-hover:text-red-600 transition-colors duration-300">BEFORE</div>
+            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Struggling & Frustrated</div>
+            <!-- Pain indicator -->
+            <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="w-full h-1 bg-red-200 rounded-full overflow-hidden">
+                <div class="h-full bg-red-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+            <div class="w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-yellow-200 transition-colors duration-300">
+              <span class="relative z-10">2</span>
+              <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <!-- Working gears animation -->
+              <div class="absolute top-1 right-1 w-2 h-2 border border-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-spin transition-opacity duration-300"></div>
+            </div>
+            <div class="text-xs text-gray-600 font-medium group-hover:text-yellow-600 transition-colors duration-300">DURING</div>
+            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Guided Transformation</div>
+            <!-- Progress indicator -->
+            <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="w-full h-1 bg-yellow-200 rounded-full overflow-hidden">
+                <div class="h-full bg-yellow-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+            <div class="w-8 h-8 bg-sage-100 text-sage-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-sage-200 transition-colors duration-300">
+              <span class="relative z-10">3</span>
+              <div class="absolute inset-0 bg-gradient-to-br from-sage-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <!-- Success sparkle -->
+              <div class="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-sage-500 animate-pulse">✨</span>
+              </div>
+            </div>
+            <div class="text-xs text-gray-600 font-medium group-hover:text-sage-600 transition-colors duration-300">AFTER</div>
+            <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Confident & Growing</div>
+            <!-- Success indicator -->
+            <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="w-full h-1 bg-sage-200 rounded-full overflow-hidden">
+                <div class="h-full bg-sage-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
       <!-- Outcomes -->
@@ -107,23 +158,61 @@ const { detail } = Astro.props;
         </div>
       </div>
       
-      <!-- CTA -->
-      <div class="text-center bg-forest-900 text-white rounded-2xl p-8">
-        <h3 class="text-2xl font-heading font-semibold mb-4">
-          Ready to Get Started?
-        </h3>
-        <p class="text-beige-100 mb-6">
-          Let's discuss how {detail.title.toLowerCase()} can help grow your business.
-        </p>
-        <a 
-          href={servicesData.globalCTA.primary.href}
-          class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg"
-        >
-          {servicesData.globalCTA.primary.text}
-        </a>
-        <p class="text-sm text-beige-200 mt-4">
-          {servicesData.globalCTA.helper}
-        </p>
+      <!-- Transformation CTA -->
+      <div class="text-center bg-gradient-to-br from-forest-900 to-sage-800 text-white rounded-2xl p-8 relative overflow-hidden transformation-cta group">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-3 group-hover:skew-y-2 transition-transform duration-700"></div>
+        </div>
+        
+        <!-- Floating energy particles -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="energy-particle absolute top-4 left-4 w-1 h-1 bg-sage-400 rounded-full opacity-60 animate-energy-float-1"></div>
+          <div class="energy-particle absolute top-1/3 right-8 w-0.5 h-0.5 bg-beige-200 rounded-full opacity-40 animate-energy-float-2"></div>
+          <div class="energy-particle absolute bottom-6 left-1/4 w-1 h-1 bg-sage-300 rounded-full opacity-50 animate-energy-float-3"></div>
+          <div class="energy-particle absolute top-1/2 right-1/4 w-0.5 h-0.5 bg-beige-100 rounded-full opacity-30 animate-energy-float-4"></div>
+        </div>
+        
+        <div class="relative z-10">
+          <h3 class="text-2xl font-heading font-semibold mb-4 group-hover:scale-105 transition-transform duration-300">
+            Ready to Start Your Transformation?
+          </h3>
+          <p class="text-beige-100 mb-6 group-hover:text-beige-50 transition-colors duration-300">
+            Join the businesses that went from struggling to thriving with {detail.title.toLowerCase()}.
+          </p>
+          
+          <!-- Urgency Element -->
+          <div class="bg-sage-600/30 rounded-lg p-4 mb-6 backdrop-blur-sm border border-sage-500/20 group-hover:border-sage-400/30 transition-colors duration-300 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-sage-500/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <p class="text-sm text-beige-100 relative z-10">
+              <span class="font-semibold">Limited spots this month:</span> We only take on projects we can deliver with excellence.
+            </p>
+          </div>
+          
+          <a 
+            href={servicesData.globalCTA.primary.href}
+            class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform relative overflow-hidden transformation-button group/btn"
+          >
+            <span class="relative z-10">Begin My Transformation</span>
+            <!-- Button shine effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500"></div>
+            <!-- Success ripple -->
+            <div class="absolute inset-0 bg-sage-400/30 rounded-lg transform scale-0 group-hover/btn:scale-100 group-hover/btn:opacity-0 transition-all duration-400"></div>
+          </a>
+          <p class="text-sm text-beige-200 mt-4 group-hover:text-beige-100 transition-colors duration-300">
+            {servicesData.globalCTA.helper}
+          </p>
+        </div>
+        
+        <!-- Corner celebration elements -->
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div class="celebration-spark w-1 h-1 bg-sage-300 rounded-full animate-spark-1"></div>
+          <div class="celebration-spark w-0.5 h-0.5 bg-beige-200 rounded-full animate-spark-2" style="margin-left: 4px; margin-top: -2px;"></div>
+        </div>
+        <div class="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div class="celebration-spark w-0.5 h-0.5 bg-sage-400 rounded-full animate-spark-3"></div>
+          <div class="celebration-spark w-1 h-1 bg-beige-100 rounded-full animate-spark-4" style="margin-left: 6px; margin-top: -4px;"></div>
+        </div>
       </div>
     </div>
   </div>

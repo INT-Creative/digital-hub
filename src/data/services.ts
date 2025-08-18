@@ -1,67 +1,11 @@
 import type { ServicesData, ServiceDetail, FAQ } from '../types/services';
 
-const automationService: ServiceDetail = {
-  id: 'automation',
-  slug: 'automation',
-  title: 'Automation — Follow-Up Engine',
-  description: 'Set up systems that nurture leads automatically while you focus on delivery.',
-  hook: 'Stop losing leads to slow follow-up. Automated systems respond instantly, nurture consistently, and convert more prospects into paying customers.',
-  outcomes: [
-    'Never miss another lead with instant response systems',
-    'Convert 30% more prospects with consistent follow-up',
-    'Save 10+ hours per week on manual tasks',
-    'Track every interaction in one central system'
-  ],
-  deliverables: [
-    { text: 'HubSpot Free CRM setup and configuration', highlight: true },
-    { text: 'Missed-call text-back automation via Zapier' },
-    { text: 'Welcome email sequence (5 emails)' },
-    { text: 'Lead scoring and pipeline setup' },
-    { text: 'Basic reporting dashboard' },
-    { text: 'Team training and documentation' }
-  ],
-  process: [
-    {
-      number: 1,
-      title: 'Audit Current Process',
-      description: 'Map your existing lead flow and identify gaps where prospects fall through',
-      timeline: 'Day 1'
-    },
-    {
-      number: 2,
-      title: 'System Design',
-      description: 'Design automated workflows that match your business process',
-      timeline: 'Day 2-3'
-    },
-    {
-      number: 3,
-      title: 'Build & Configure',
-      description: 'Set up HubSpot CRM, connect Zapier automations, and create email templates',
-      timeline: 'Day 4-7'
-    },
-    {
-      number: 4,
-      title: 'Test & Refine',
-      description: 'Run test leads through the system and refine based on results',
-      timeline: 'Day 8-9'
-    },
-    {
-      number: 5,
-      title: 'Launch & Train',
-      description: 'Go live with your automation and train your team on the new system',
-      timeline: 'Day 10'
-    }
-  ],
-  packageTier: 'plus',
-  toolStack: ['HubSpot Free', 'Zapier', 'SMS Gateway']
-};
-
-const websiteDesignService: ServiceDetail = {
-  id: 'website-design',
-  slug: 'website-design',
-  title: 'Web Design — Conversion Site Sprint',
+const websiteDevelopmentService: ServiceDetail = {
+  id: 'website-development',
+  slug: 'website-development',
+  title: 'Website Development — Conversion Site Sprint',
   subtitle: '7-day turnaround',
-  description: 'Fast, focused website development that converts visitors into leads.',
+  description: 'Launch a website that turns visitors into leads with fast, focused development.',
   hook: 'Your website should be your hardest-working salesperson. Get a conversion-focused site that turns traffic into revenue in just 7 days.',
   outcomes: [
     'Professional site live in 7 days',
@@ -115,106 +59,49 @@ const websiteDesignService: ServiceDetail = {
   toolStack: ['Webflow', 'Google Analytics', 'HubSpot Forms']
 };
 
-const graphicDesignService: ServiceDetail = {
-  id: 'graphic-design',
-  slug: 'graphic-design',
-  title: 'Digital Design — Brand Starter Kit',
-  description: 'Essential brand assets to look professional across all channels.',
-  hook: 'First impressions matter. Get a cohesive brand identity that builds trust and stands out in your market.',
-  outcomes: [
-    'Consistent brand across all touchpoints',
-    'Professional look that builds credibility',
-    'Social media templates for quick content creation',
-    'Brand guidelines to maintain consistency as you grow'
-  ],
-  deliverables: [
-    { text: 'Logo with 3 variations (full, mark, wordmark)', highlight: true },
-    { text: 'Color palette with hex codes and usage guide' },
-    { text: 'Typography selection (2-3 fonts)' },
-    { text: '5 social media templates (Canva editable)' },
-    { text: 'Email signature design' },
-    { text: 'One-page brand guidelines PDF' }
-  ],
-  process: [
-    {
-      number: 1,
-      title: 'Brand Discovery',
-      description: 'Explore your vision, values, and visual preferences',
-      timeline: 'Day 1'
-    },
-    {
-      number: 2,
-      title: 'Concept Development',
-      description: 'Create 3 distinct brand directions to choose from',
-      timeline: 'Day 2-3'
-    },
-    {
-      number: 3,
-      title: 'Refinement',
-      description: 'Perfect your chosen direction based on feedback',
-      timeline: 'Day 4-5'
-    },
-    {
-      number: 4,
-      title: 'Asset Creation',
-      description: 'Build out full suite of brand materials',
-      timeline: 'Day 6-7'
-    },
-    {
-      number: 5,
-      title: 'Delivery',
-      description: 'Provide all files and usage documentation',
-      timeline: 'Day 8'
-    }
-  ],
-  packageTier: 'starter',
-  toolStack: ['Adobe Creative Suite', 'Canva Pro', 'Brand Guidelines Template']
-};
-
-const socialMediaService: ServiceDetail = {
-  id: 'social-media',
-  slug: 'social-media',
-  title: 'Social Media — Ad Starter Package',
-  subtitle: 'Optional add-on',
-  description: 'Simple, trackable ads that bring qualified traffic to your site.',
-  hook: 'Turn social scrollers into paying customers. Get ads that actually work without the complexity or massive budgets.',
+const digitalMarketingService: ServiceDetail = {
+  id: 'digital-marketing',
+  slug: 'digital-marketing',
+  title: 'Digital Marketing — Campaign Management',
+  description: 'Launch campaigns that turn clicks into customers with targeted advertising and automation.',
+  hook: 'Turn social scrollers into paying customers. Get ads that actually work without the complexity or massive budgets, plus automated follow-up to nurture every lead.',
   outcomes: [
     'Qualified traffic to your website within 48 hours',
     'Lower cost per lead with tested ad variations',
-    'Retargeting to stay top-of-mind with prospects',
-    'Clear data on what messaging resonates'
+    'Automated follow-up that never misses a prospect',
+    'Clear data on what messaging and channels drive sales'
   ],
   deliverables: [
-    { text: 'Facebook/Instagram pixel setup and verification', highlight: true },
-    { text: '1 dedicated landing page optimized for conversions' },
-    { text: '3 ad creative variations for testing' },
-    { text: 'Audience targeting based on your ideal customer' },
-    { text: 'Retargeting campaign for website visitors' },
+    { text: 'Facebook/Instagram ad campaigns with targeting setup', highlight: true },
+    { text: 'Custom landing pages optimized for conversions' },
+    { text: 'HubSpot CRM setup and lead scoring' },
+    { text: 'Automated email sequences (5-7 emails)' },
+    { text: 'Zapier automations for lead routing' },
     { text: 'Weekly performance reports with insights' }
   ],
   process: [
     {
       number: 1,
       title: 'Strategy Session',
-      description: 'Define your ideal customer and campaign goals',
+      description: 'Define your ideal customer, campaign goals, and automation needs',
       timeline: 'Day 1'
     },
     {
       number: 2,
-      title: 'Landing Page',
-      description: 'Create focused page designed to convert ad traffic',
+      title: 'Landing Page & CRM',
+      description: 'Create focused pages and set up automated lead management',
       timeline: 'Day 2-3'
     },
     {
       number: 3,
-      title: 'Ad Creation',
-      description: 'Design and write ads that stop the scroll',
+      title: 'Ad Creation & Automation',
+      description: 'Design ads and build follow-up sequences',
       timeline: 'Day 4-5'
     },
     {
       number: 4,
       title: 'Campaign Launch',
-      description: 'Set up targeting, budgets, and go live',
+      description: 'Set up targeting, budgets, and automation workflows',
       timeline: 'Day 6'
     },
     {
@@ -224,8 +111,120 @@ const socialMediaService: ServiceDetail = {
       timeline: 'Ongoing'
     }
   ],
-  packageTier: 'custom',
-  toolStack: ['Meta Business Suite', 'Webflow', 'Google Analytics']
+  packageTier: 'premium',
+  toolStack: ['Meta Business Suite', 'HubSpot Free', 'Zapier', 'Webflow']
+};
+
+const graphicDesignService: ServiceDetail = {
+  id: 'graphic-design',
+  slug: 'graphic-design',
+  title: 'Graphic Design — Professional Brand Identity',
+  description: 'Professional brand visuals and marketing materials that make businesses look trustworthy and credible.',
+  hook: 'First impressions matter. Get a cohesive brand identity that builds trust and stands out in your market, with marketing materials that actually help close deals instead of just filling space.',
+  outcomes: [
+    'Consistent professional brand across all touchpoints',
+    'Marketing materials that build credibility and trust',
+    'Social media templates for quick, on-brand content creation',
+    'Brand guidelines to maintain consistency as you scale'
+  ],
+  deliverables: [
+    { text: 'Complete logo suite (primary, secondary, mark, wordmark)', highlight: true },
+    { text: 'Brand color palette with hex codes and usage guidelines' },
+    { text: 'Typography system (primary and secondary fonts)' },
+    { text: '10 social media templates (Instagram, Facebook, LinkedIn)' },
+    { text: 'Business card and letterhead designs' },
+    { text: 'Comprehensive brand guidelines document' }
+  ],
+  process: [
+    {
+      number: 1,
+      title: 'Brand Discovery Session',
+      description: 'Deep dive into your brand vision, values, and target market preferences',
+      timeline: 'Day 1'
+    },
+    {
+      number: 2,
+      title: 'Concept Development',
+      description: 'Create 3 distinct brand direction concepts with mood boards',
+      timeline: 'Day 2-3'
+    },
+    {
+      number: 3,
+      title: 'Design Refinement',
+      description: 'Perfect your chosen direction with detailed feedback incorporation',
+      timeline: 'Day 4-5'
+    },
+    {
+      number: 4,
+      title: 'Asset Creation',
+      description: 'Build complete suite of brand materials and templates',
+      timeline: 'Day 6-8'
+    },
+    {
+      number: 5,
+      title: 'Delivery & Training',
+      description: 'Provide all files, templates, and brand usage training',
+      timeline: 'Day 9'
+    }
+  ],
+  packageTier: 'starter',
+  toolStack: ['Adobe Creative Suite', 'Canva Pro', 'Brand Strategy Framework']
+};
+
+const marketingAutomationService: ServiceDetail = {
+  id: 'marketing-automation',
+  slug: 'marketing-automation',
+  title: 'Marketing Automation — Business Process Systems',
+  description: 'Custom automation systems that eliminate repetitive tasks and streamline workflows.',
+  hook: 'Escape daily manual tasks with custom automation that handles operations, customer service, and lead nurturing 24/7 while your team focuses on growth.',
+  outcomes: [
+    'Automated lead nurturing that never misses a prospect',
+    'Streamlined client onboarding that saves 10+ hours per new customer',
+    'Business processes that run themselves around the clock',
+    'Clear workflows that scale with your team growth'
+  ],
+  deliverables: [
+    { text: 'HubSpot CRM automation workflows (lead scoring, nurturing)', highlight: true },
+    { text: 'Zapier integrations connecting your existing tools' },
+    { text: 'Automated email sequences for different customer journeys' },
+    { text: 'Client onboarding automation with task management' },
+    { text: 'Appointment booking and reminder systems' },
+    { text: 'Custom process documentation and training' }
+  ],
+  process: [
+    {
+      number: 1,
+      title: 'Process Audit',
+      description: 'Map your current workflows and identify automation opportunities',
+      timeline: 'Day 1-2'
+    },
+    {
+      number: 2,
+      title: 'System Design',
+      description: 'Create automation blueprints and tool integration plan',
+      timeline: 'Day 3-4'
+    },
+    {
+      number: 3,
+      title: 'Build & Connect',
+      description: 'Set up automations and integrate with existing systems',
+      timeline: 'Day 5-8'
+    },
+    {
+      number: 4,
+      title: 'Test & Refine',
+      description: 'Run test scenarios and optimize automation logic',
+      timeline: 'Day 9-10'
+    },
+    {
+      number: 5,
+      title: 'Launch & Train',
+      description: 'Go live with systems and train your team on management',
+      timeline: 'Day 11-12'
+    }
+  ],
+  packageTier: 'premium',
+  toolStack: ['HubSpot', 'Zapier', 'Calendly', 'ActiveCampaign']
 };
 
 const faqs: FAQ[] = [
@@ -284,10 +283,10 @@ export const servicesData: ServicesData = {
     }
   },
   services: [
-    automationService,
-    websiteDesignService,
+    websiteDevelopmentService,
+    digitalMarketingService,
     graphicDesignService,
-    socialMediaService
+    marketingAutomationService
   ],
   faqs,
   location: {

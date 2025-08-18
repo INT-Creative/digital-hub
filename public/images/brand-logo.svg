@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo symbol representing growth and connectivity -->
+  <defs>
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F0E6;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="growthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A7C59;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main central node (represents the business/hub) -->
+  <circle cx="40" cy="40" r="6" fill="url(#nodeGradient)">
+    <animate attributeName="r" values="6;7;6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Connected nodes (represent different services/connections) -->
+  <circle cx="20" cy="20" r="4" fill="url(#nodeGradient)" opacity="0.8"/>
+  <circle cx="60" cy="20" r="4" fill="url(#nodeGradient)" opacity="0.8"/>
+  <circle cx="60" cy="60" r="4" fill="url(#nodeGradient)" opacity="0.8"/>
+  <circle cx="20" cy="60" r="4" fill="url(#nodeGradient)" opacity="0.8"/>
+  
+  <!-- Growth indicator node -->
+  <circle cx="70" cy="30" r="3" fill="url(#growthGradient)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Connection lines (represent systems and integration) -->
+  <g stroke="url(#nodeGradient)" stroke-width="2" opacity="0.6" fill="none">
+    <path d="M 34 34 L 26 26"/>
+    <path d="M 46 34 L 54 26"/>
+    <path d="M 46 46 L 54 54"/>
+    <path d="M 34 46 L 26 54"/>
+  </g>
+  
+  <!-- Growth trend line (represents measurable growth) -->
+  <path d="M 50 40 Q 58 35 67 30" stroke="url(#growthGradient)" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M 64 27 L 70 30 L 67 36" stroke="url(#growthGradient)" stroke-width="2" fill="none"/>
+</svg>

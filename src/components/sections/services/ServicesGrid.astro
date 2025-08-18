@@ -12,28 +12,51 @@ const sortedServices = servicesData.services.sort((a, b) => {
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
-        Four straightforward services
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4 transformation-section-title">
+        Choose Your Transformation Path
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        No complex packages. Just what you need, when you need it.
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+        Each service transforms a specific business challenge into a competitive advantage. Start with what hurts most, or combine them for complete business transformation.
       </p>
+      <!-- Transformation path indicator -->
+      <div class="flex justify-center items-center space-x-2 mb-8">
+        <div class="w-2 h-2 bg-red-400 rounded-full path-indicator animate-path-1"></div>
+        <div class="w-16 h-0.5 bg-gradient-to-r from-red-400 via-yellow-400 to-sage-500 path-arrow"></div>
+        <div class="w-2 h-2 bg-yellow-400 rounded-full path-indicator animate-path-2"></div>
+        <div class="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-sage-500 path-arrow"></div>
+        <div class="w-2 h-2 bg-sage-500 rounded-full path-indicator animate-path-3"></div>
+      </div>
     </div>
     
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {sortedServices.map((service) => (
-        <ServiceCard service={service} />
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto transformation-grid">
+      {sortedServices.map((service, index) => (
+        <div 
+          class="transformation-card-wrapper" 
+          style={`animation-delay: ${index * 200}ms`}
+        >
+          <ServiceCard service={service} />
+        </div>
       ))}
     </div>
     
     <!-- Promise Section -->
-    <div class="mt-16 text-center bg-sage-50 rounded-2xl p-8 max-w-3xl mx-auto">
-      <h3 class="text-xl font-heading font-semibold text-forest-900 mb-3">
+    <div class="mt-16 text-center bg-sage-50 rounded-2xl p-8 max-w-3xl mx-auto promise-section relative overflow-hidden group">
+      <div class="absolute inset-0 bg-gradient-to-r from-sage-100/0 via-sage-200/30 to-sage-100/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      <h3 class="text-xl font-heading font-semibold text-forest-900 mb-3 relative z-10 group-hover:scale-105 transition-transform duration-300">
         {servicesData.promise.title}
       </h3>
-      <p class="text-gray-700">
+      <p class="text-gray-700 relative z-10 group-hover:text-gray-900 transition-colors duration-300">
         {servicesData.promise.text}
       </p>
+      <!-- Promise sparkles -->
+      <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="promise-sparkle w-1 h-1 bg-sage-400 rounded-full animate-promise-sparkle-1"></div>
+        <div class="promise-sparkle w-0.5 h-0.5 bg-sage-500 rounded-full animate-promise-sparkle-2" style="margin-left: 6px; margin-top: -4px;"></div>
+      </div>
+      <div class="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="promise-sparkle w-0.5 h-0.5 bg-sage-300 rounded-full animate-promise-sparkle-3"></div>
+        <div class="promise-sparkle w-1 h-1 bg-sage-400 rounded-full animate-promise-sparkle-4" style="margin-left: 8px; margin-top: -6px;"></div>
+      </div>
     </div>
   </div>
 </section>

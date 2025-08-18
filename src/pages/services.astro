@@ -5,8 +5,8 @@ import DetailSection from '../components/sections/services/DetailSection.astro';
 import FAQSection from '../components/sections/services/FAQSection.astro';
 import { servicesData } from '../data/services';
 
-// Get services in the specific order
-const serviceOrder = ['automation', 'website-design', 'graphic-design', 'social-media'];
+// Get services in the same order as the homepage slideshow
+const serviceOrder = ['website-development', 'digital-marketing', 'graphic-design', 'marketing-automation'];
 const orderedServices = serviceOrder.map(slug => 
   servicesData.services.find(s => s.slug === slug)
 ).filter(Boolean);
@@ -46,7 +46,7 @@ const faqSchema = {
 
 <BaseLayout 
   title="Services | INT Creative" 
-  description="Professional web design, automation, graphic design, and social media services for businesses in Northeast Ohio and remote clients. Get custom solutions that drive real results."
+  description="Professional website development, digital marketing, graphic design, and marketing automation services for businesses in Northeast Ohio and remote clients. Get custom solutions that drive real results."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   
@@ -55,12 +55,53 @@ const faqSchema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">
-          Services
+          Your Business Transformation Starts Here
         </h1>
-        <p class="text-xl text-beige-100 mb-4">
-          We help growing businesses build sustainable marketing systems that actually work. 
-          From conversion-focused websites to automated follow-up engines, we deliver practical solutions that drive real results.
+        <p class="text-xl text-beige-100 mb-8">
+          From struggling with scattered marketing to running a system that scales—choose your transformation path below.
         </p>
+        
+        <!-- Transformation Promise Timeline -->
+        <div class="bg-sage-600/20 rounded-xl p-6 mb-8 backdrop-blur-sm relative overflow-hidden timeline-container">
+          <h2 class="text-lg font-semibold text-beige-50 mb-4 transformation-section-title">Your Transformation Timeline</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="timeline-box bg-white/10 rounded-lg p-3 relative overflow-hidden cursor-pointer transition-all duration-300" data-timeline="7" data-preview="Professional website live">
+              <div class="text-2xl font-bold text-sage-300 timeline-number">7</div>
+              <div class="text-sm text-beige-200">Days to Website</div>
+              <div class="timeline-progress absolute bottom-0 left-0 w-full h-1 bg-sage-400/30">
+                <div class="timeline-fill h-full bg-sage-300 transform -translate-x-full transition-transform duration-1000"></div>
+              </div>
+            </div>
+            <div class="timeline-box bg-white/10 rounded-lg p-3 relative overflow-hidden cursor-pointer transition-all duration-300" data-timeline="14" data-preview="Complete brand identity ready">
+              <div class="text-2xl font-bold text-sage-300 timeline-number">14</div>
+              <div class="text-sm text-beige-200">Days to Brand</div>
+              <div class="timeline-progress absolute bottom-0 left-0 w-full h-1 bg-sage-400/30">
+                <div class="timeline-fill h-full bg-sage-300 transform -translate-x-full transition-transform duration-1000"></div>
+              </div>
+            </div>
+            <div class="timeline-box bg-white/10 rounded-lg p-3 relative overflow-hidden cursor-pointer transition-all duration-300" data-timeline="21" data-preview="Automated systems running">
+              <div class="text-2xl font-bold text-sage-300 timeline-number">21</div>
+              <div class="text-sm text-beige-200">Days to Automation</div>
+              <div class="timeline-progress absolute bottom-0 left-0 w-full h-1 bg-sage-400/30">
+                <div class="timeline-fill h-full bg-sage-300 transform -translate-x-full transition-transform duration-1000"></div>
+              </div>
+            </div>
+            <div class="timeline-box bg-white/10 rounded-lg p-3 relative overflow-hidden cursor-pointer transition-all duration-300" data-timeline="90" data-preview="Predictable growth achieved">
+              <div class="text-2xl font-bold text-sage-300 timeline-number">90</div>
+              <div class="text-sm text-beige-200">Days to Marketing Mastery</div>
+              <div class="timeline-progress absolute bottom-0 left-0 w-full h-1 bg-sage-400/30">
+                <div class="timeline-fill h-full bg-sage-300 transform -translate-x-full transition-transform duration-1000"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating momentum indicators -->
+          <div class="absolute top-2 right-2 opacity-20">
+            <div class="momentum-particle w-2 h-2 bg-beige-100 rounded-full animate-float-1"></div>
+            <div class="momentum-particle w-1 h-1 bg-sage-300 rounded-full animate-float-2" style="margin-left: 20px; margin-top: -8px;"></div>
+            <div class="momentum-particle w-1.5 h-1.5 bg-beige-100 rounded-full animate-float-3" style="margin-left: -10px; margin-top: 15px;"></div>
+          </div>
+        </div>
+        
         <p class="text-lg text-beige-200">
           {servicesData.location.headline} ({servicesData.location.cities.join(' • ')}), {servicesData.location.availability}.
         </p>
@@ -81,20 +122,313 @@ const faqSchema = {
   <!-- FAQ Section -->
   <FAQSection />
 
+  <!-- Whimsical Transformation JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Timeline Hero Interactions
+      const timelineBoxes = document.querySelectorAll('.timeline-box');
+      
+      timelineBoxes.forEach((box, index) => {
+        box.addEventListener('mouseenter', function() {
+          // Stagger timeline fill animations
+          setTimeout(() => {
+            const fill = box.querySelector('.timeline-fill');
+            if (fill) {
+              fill.style.transform = 'translateX(0)';
+            }
+          }, index * 100);
+          
+          // Add momentum to floating particles
+          const particles = document.querySelectorAll('.momentum-particle');
+          particles.forEach(particle => {
+            particle.style.animationPlayState = 'running';
+          });
+        });
+        
+        box.addEventListener('mouseleave', function() {
+          const fill = box.querySelector('.timeline-fill');
+          if (fill) {
+            fill.style.transform = 'translateX(-100%)';
+          }
+        });
+        
+        // Click celebration effect
+        box.addEventListener('click', function() {
+          box.classList.add('clicked-celebration');
+          setTimeout(() => {
+            box.classList.remove('clicked-celebration');
+          }, 600);
+        });
+      });
+      
+      // Transformation Card Enhanced Interactions
+      const transformationCards = document.querySelectorAll('.transformation-card');
+      
+      transformationCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          // Stagger pain point fade and outcome reveal
+          const painPoints = card.querySelectorAll('.pain-point');
+          const outcomes = card.querySelectorAll('.outcome-item');
+          
+          painPoints.forEach((point, index) => {
+            setTimeout(() => {
+              point.style.opacity = '0.4';
+            }, index * 150);
+          });
+          
+          outcomes.forEach((outcome, index) => {
+            setTimeout(() => {
+              outcome.style.transform = 'translateX(0)';
+              outcome.style.opacity = '1';
+            }, index * 150 + 300);
+          });
+          
+          // Add celebration particles after transformation shows
+          setTimeout(() => {
+            const celebration = card.querySelector('.celebration-container');
+            if (celebration) {
+              celebration.style.opacity = '1';
+            }
+          }, 800);
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          // Reset states
+          const painPoints = card.querySelectorAll('.pain-point');
+          const outcomes = card.querySelectorAll('.outcome-item');
+          
+          painPoints.forEach(point => {
+            point.style.opacity = '1';
+          });
+          
+          outcomes.forEach(outcome => {
+            outcome.style.transform = 'translateX(2px)';
+            outcome.style.opacity = '0.8';
+          });
+          
+          const celebration = card.querySelector('.celebration-container');
+          if (celebration) {
+            celebration.style.opacity = '0';
+          }
+        });
+        
+        // Click transformation celebration
+        card.addEventListener('click', function() {
+          // Create burst effect
+          const burst = document.createElement('div');
+          burst.className = 'transformation-burst';
+          burst.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background: #4A7C59;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+          `;
+          
+          card.appendChild(burst);
+          
+          // Animate burst
+          burst.animate([
+            { width: '4px', height: '4px', opacity: 1 },
+            { width: '100px', height: '100px', opacity: 0 }
+          ], {
+            duration: 600,
+            easing: 'ease-out'
+          }).onfinish = () => {
+            burst.remove();
+          };
+        });
+      });
+      
+      // Journey Step Progression
+      const journeySteps = document.querySelectorAll('.journey-step');
+      
+      journeySteps.forEach((step, index) => {
+        step.addEventListener('mouseenter', function() {
+          // Sequential activation
+          journeySteps.forEach((s, i) => {
+            if (i <= index) {
+              setTimeout(() => {
+                s.classList.add('journey-active');
+              }, i * 200);
+            }
+          });
+        });
+      });
+      
+      // CTA Button Enhancements
+      const ctaButtons = document.querySelectorAll('.cta-button, .transformation-button');
+      
+      ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          // Particle burst preview
+          const particles = button.querySelectorAll('.particle-burst');
+          particles.forEach(particle => {
+            particle.style.animationPlayState = 'running';
+          });
+        });
+        
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Success celebration before navigation
+          button.style.transform = 'scale(0.95)';
+          
+          // Create success ripple
+          const ripple = document.createElement('div');
+          ripple.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(74, 124, 89, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+          `;
+          
+          button.appendChild(ripple);
+          
+          ripple.animate([
+            { width: '0', height: '0', opacity: 1 },
+            { width: '200px', height: '200px', opacity: 0 }
+          ], {
+            duration: 500,
+            easing: 'ease-out'
+          }).onfinish = () => {
+            ripple.remove();
+            // Navigate after celebration
+            window.location.href = button.href;
+          };
+          
+          setTimeout(() => {
+            button.style.transform = 'scale(1)';
+          }, 150);
+        });
+      });
+      
+      // Intersection Observer for entrance animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            
+            if (element.classList.contains('timeline-box')) {
+              const index = Array.from(element.parentNode.children).indexOf(element);
+              setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+              }, index * 100);
+            }
+            
+            if (element.classList.contains('transformation-card')) {
+              element.style.opacity = '1';
+              element.style.transform = 'translateY(0)';
+            }
+          }
+        });
+      }, observerOptions);
+      
+      // Observe elements for entrance animations
+      document.querySelectorAll('.timeline-box, .transformation-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+      });
+      
+      // Add CSS for celebration effects
+      const style = document.createElement('style');
+      style.textContent = `
+        .clicked-celebration {
+          animation: clickCelebration 0.6s ease-out;
+        }
+        
+        @keyframes clickCelebration {
+          0% { transform: scale(1); }
+          30% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+        
+        .journey-active .journey-circle {
+          animation: journeyActivation 0.5s ease-out;
+          background-color: rgba(74, 124, 89, 0.2) !important;
+        }
+        
+        @keyframes journeyActivation {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+        
+        .transformation-burst {
+          animation: burstExplosion 0.6s ease-out;
+        }
+        
+        @keyframes burstExplosion {
+          0% {
+            width: 4px;
+            height: 4px;
+            opacity: 1;
+            background: #4A7C59;
+          }
+          50% {
+            width: 60px;
+            height: 60px;
+            opacity: 0.6;
+            background: radial-gradient(circle, #4A7C59 0%, #5a8e6b 50%, transparent 70%);
+          }
+          100% {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+            background: radial-gradient(circle, transparent 0%, transparent 100%);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+
   <!-- Footer CTA -->
-  <section class="py-20 bg-forest-900 text-white">
-    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+  <section class="py-20 bg-gradient-to-br from-forest-900 to-sage-800 text-white relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-6"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
-        Ready to Grow Your Business?
+        Complete Your Business Transformation
       </h2>
       <p class="text-xl mb-8 text-beige-100">
-        Let's discuss your goals and create a custom solution that fits your needs.
+        Stop wondering "what if" and start your transformation journey today. Join the businesses that went from struggling to thriving.
       </p>
+      
+      <!-- Urgency Indicator -->
+      <div class="bg-sage-600/30 rounded-lg p-4 mb-8 backdrop-blur-sm max-w-2xl mx-auto">
+        <p class="text-beige-100">
+          <span class="font-semibold text-beige-50">⚡ Limited availability:</span> We only accept new transformation projects when we can guarantee exceptional results.
+        </p>
+      </div>
+      
       <a 
         href="/contact" 
-        class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg"
+        class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
       >
-        Book a 20-min discovery call
+        Start My Transformation Journey
       </a>
       <p class="text-sm text-beige-200 mt-4">
         {servicesData.globalCTA.helper}

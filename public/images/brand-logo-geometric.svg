@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Alternative geometric logo concept -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F0E6;stop-opacity:0.85" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0B3D2E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Geometric base structure -->
+  <g transform="translate(40, 40)">
+    <!-- Central hexagon (hub) -->
+    <polygon points="-12,0 -6,-10.4 6,-10.4 12,0 6,10.4 -6,10.4" 
+             fill="url(#primaryGradient)" 
+             stroke="url(#accentGradient)" 
+             stroke-width="1.5"
+             opacity="0.9">
+      <animateTransform 
+        attributeName="transform" 
+        type="rotate" 
+        values="0;360;0" 
+        dur="12s" 
+        repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Surrounding elements (services/connections) -->
+    <g>
+      <!-- Top connection -->
+      <circle cx="0" cy="-22" r="4" fill="url(#primaryGradient)" opacity="0.8">
+        <animate attributeName="cy" values="-22;-25;-22" dur="3s" repeatCount="indefinite" begin="0s"/>
+      </circle>
+      <line x1="0" y1="-12" x2="0" y2="-18" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.6"/>
+      
+      <!-- Right connection -->
+      <circle cx="22" cy="0" r="4" fill="url(#primaryGradient)" opacity="0.8">
+        <animate attributeName="cx" values="22;25;22" dur="3s" repeatCount="indefinite" begin="1s"/>
+      </circle>
+      <line x1="12" y1="0" x2="18" y2="0" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.6"/>
+      
+      <!-- Bottom-right connection -->
+      <circle cx="15" cy="18" r="4" fill="url(#primaryGradient)" opacity="0.8">
+        <animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite" begin="2s"/>
+      </circle>
+      <line x1="6" y1="10" x2="11" y2="14" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.6"/>
+      
+      <!-- Bottom-left connection -->
+      <circle cx="-15" cy="18" r="4" fill="url(#primaryGradient)" opacity="0.8">
+        <animate attributeName="cy" values="18;21;18" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      </circle>
+      <line x1="-6" y1="10" x2="-11" y2="14" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.6"/>
+    </g>
+    
+    <!-- Growth indicator -->
+    <g transform="translate(25, -15)">
+      <path d="M 0 8 L 8 0 L 8 4 L 15 4" 
+            stroke="url(#accentGradient)" 
+            stroke-width="2.5" 
+            fill="none" 
+            stroke-linecap="round">
+        <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <circle cx="15" cy="4" r="2" fill="url(#accentGradient)">
+        <animate attributeName="r" values="1.5;3;1.5" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+</svg>
