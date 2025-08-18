@@ -6,21 +6,83 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Home" 
   description="INT Creative Hub - Professional marketing agency specializing in startup lead generation, brand development, and growth strategies. Scale your startup from idea to market leader."
 >
-    <!-- Hero Section -->
+    <!-- Hero Slideshow Section -->
     <section class="relative bg-gradient-to-br from-forest-900 via-forest-800 to-sage-800 text-white overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
         <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
-            Launch a website that turns visitors into leads
-          </h1>
-          <p class="text-xl md:text-2xl mb-8 text-beige-100 animate-slide-up">
-            I build conversion-focused sites and set up the lead-capture automations you actually need. Clear scope. Fast turnaround.
-          </p>
-          <div class="flex justify-center animate-slide-up">
-            <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg">
-              Book a 15-min plan call
-            </a>
+          
+          <!-- Slideshow Container -->
+          <div id="hero-slideshow" class="relative">
+            <!-- Slide 1: Web Development -->
+            <div class="slide active" data-slide="1">
+              <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 slide-title">
+                Launch a website that turns visitors into leads
+              </h1>
+              <p class="text-xl md:text-2xl mb-8 text-beige-100 slide-subtitle">
+                I build conversion-focused sites and set up the lead-capture automations you actually need. Clear scope. Fast turnaround.
+              </p>
+            </div>
+            
+            <!-- Slide 2: Digital Marketing -->
+            <div class="slide" data-slide="2">
+              <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 slide-title">
+                Launch campaigns that turn clicks into customers
+              </h1>
+              <p class="text-xl md:text-2xl mb-8 text-beige-100 slide-subtitle">
+                Targeted ad campaigns that bring qualified leads, not just vanity metrics. Get properly tracked campaigns with optimized landing pages and clear ROI reporting so you know exactly what's working.
+              </p>
+            </div>
+            
+            <!-- Slide 3: Graphic Design -->
+            <div class="slide" data-slide="3">
+              <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 slide-title">
+                Create visuals that turn browsers into buyers
+              </h1>
+              <p class="text-xl md:text-2xl mb-8 text-beige-100 slide-subtitle">
+                Professional brand visuals and marketing materials that make businesses look trustworthy and credible. Logos, social media graphics, and print materials that actually help close deals instead of just filling space.
+              </p>
+            </div>
+            
+            <!-- Slide 4: SaaS Software Automation -->
+            <div class="slide" data-slide="4">
+              <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 slide-title">
+                Build systems that turn tasks into time
+              </h1>
+              <p class="text-xl md:text-2xl mb-8 text-beige-100 slide-subtitle">
+                Custom automation systems that eliminate repetitive tasks and streamline workflows. Automated lead nurturing, client onboarding sequences, and business processes that run themselves so you can focus on growth.
+              </p>
+            </div>
           </div>
+          
+          <!-- Slideshow Navigation -->
+          <div class="slideshow-navigation relative z-10 mb-8">
+            <!-- Navigation Dots -->
+            <div class="slideshow-indicators flex justify-center space-x-3 mb-6">
+              <button class="indicator active" data-slide="1" aria-label="Go to slide 1"></button>
+              <button class="indicator" data-slide="2" aria-label="Go to slide 2"></button>
+              <button class="indicator" data-slide="3" aria-label="Go to slide 3"></button>
+              <button class="indicator" data-slide="4" aria-label="Go to slide 4"></button>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="slideshow-arrow slideshow-arrow-prev" aria-label="Previous slide">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button class="slideshow-arrow slideshow-arrow-next" aria-label="Next slide">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Hero CTA - Outside slideshow container to prevent click interference -->
+        <div class="relative z-30 flex justify-center mt-8">
+          <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg">
+            Ready to Become Your Industry's Main Character?
+          </a>
         </div>
       </div>
       
@@ -28,50 +90,89 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-6"></div>
       </div>
+      
+      <!-- Progress Bar -->
+      <div class="slideshow-progress"></div>
     </section>
 
-    <!-- What You'll Get Section -->
-    <section class="py-16 bg-beige-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-forest-900 mb-8 text-center">
-            What you'll get
+    <!-- Your Business Transformation Section -->
+    <section class="py-20 bg-beige-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-12 text-center">
+            Your Business Transformation
           </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Modern, fast site (mobile-first)</h3>
-                <p class="text-gray-600">Built for speed and optimized for all devices</p>
+          <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Benefit 1: Double Conversions -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 transform hover:-translate-y-1">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-forest-900 to-sage-800 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-beige-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-forest-900 mb-3">
+                Double Your Website Conversions in 90 Days
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Transform your slow, confusing website into a revenue-generating machine that converts visitors into paying customers at 2x your current rate.
+              </p>
+              <div class="inline-flex items-center px-3 py-1 bg-sage-600/10 text-sage-700 text-sm font-medium rounded-full">
+                90-day guarantee
               </div>
             </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Clear CTA + booking or form</h3>
-                <p class="text-gray-600">Strategic placement to maximize conversions</p>
+
+            <!-- Benefit 2: Cut Costs -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 transform hover:-translate-y-1">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-forest-900 to-sage-800 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-beige-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-forest-900 mb-3">
+                Cut Customer Acquisition Costs by 40% While Scaling Revenue
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Stop burning money on ads that don't convert and start building predictable revenue streams with integrated marketing and automation systems.
+              </p>
+              <div class="inline-flex items-center px-3 py-1 bg-sage-600/10 text-sage-700 text-sm font-medium rounded-full">
+                ROI guaranteed
               </div>
             </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Basic SEO and analytics/pixel</h3>
-                <p class="text-gray-600">Track what's working and improve visibility</p>
+
+            <!-- Benefit 3: ROI Tracking -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 transform hover:-translate-y-1">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-forest-900 to-sage-800 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-beige-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-forest-900 mb-3">
+                Get Crystal-Clear ROI Tracking That Shows Every Dollar's Impact
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Say goodbye to "marketing black holes" with real-time dashboards showing exactly which campaigns generate revenue and where every marketing dollar goes.
+              </p>
+              <div class="inline-flex items-center px-3 py-1 bg-sage-600/10 text-sage-700 text-sm font-medium rounded-full">
+                Real-time reporting
               </div>
             </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Optional follow-up automations (email/SMS)</h3>
-                <p class="text-gray-600">Nurture leads automatically after they convert</p>
+
+            <!-- Benefit 4: Automation -->
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 transform hover:-translate-y-1">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-forest-900 to-sage-800 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-beige-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-forest-900 mb-3">
+                Build a Business That Runs Itself (Even When You're Not There)
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Escape daily manual tasks with custom automation that handles operations, customer service, and lead nurturing 24/7 while your team focuses on growth.
+              </p>
+              <div class="inline-flex items-center px-3 py-1 bg-sage-600/10 text-sage-700 text-sm font-medium rounded-full">
+                24/7 automation
               </div>
             </div>
           </div>
@@ -89,7 +190,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Let's discuss your website needs and create a clear plan forward.
         </p>
         <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
-          Book a 15-min plan call
+          Claim Your Free Growth Audit (Limited Spots This Month)
         </a>
       </div>
     </section>
@@ -106,8 +207,208 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Stop losing potential customers to a website that doesn't convert.
         </p>
         <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
-          Book a 15-min plan call
+          Book Your Growth Call (Results in 30 Days or Less)
         </a>
       </div>
     </section>
+
+    <script is:inline>
+      // Hero Slideshow Functionality
+      class HeroSlideshow {
+        constructor() {
+          this.currentSlide = 1;
+          this.totalSlides = 4;
+          this.autoAdvanceInterval = 6000;
+          this.isPlaying = true;
+          this.autoAdvanceTimer = null;
+          this.slides = document.querySelectorAll('.slide');
+          this.indicators = document.querySelectorAll('.indicator');
+          this.prevButton = document.querySelector('.slideshow-arrow-prev');
+          this.nextButton = document.querySelector('.slideshow-arrow-next');
+          this.progressBar = document.querySelector('.slideshow-progress');
+          
+          this.init();
+        }
+        
+        init() {
+          this.setupEventListeners();
+          this.startAutoAdvance();
+          this.showArrowsOnHover();
+        }
+        
+        setupEventListeners() {
+          // Indicator clicks
+          this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+              this.goToSlide(index + 1);
+            });
+          });
+          
+          // Arrow clicks
+          this.prevButton?.addEventListener('click', () => {
+            this.previousSlide();
+          });
+          
+          this.nextButton?.addEventListener('click', () => {
+            this.nextSlide();
+          });
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.previousSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+            if (e.key === ' ') {
+              e.preventDefault();
+              this.toggleAutoAdvance();
+            }
+          });
+          
+          // Pause on hover
+          const heroSection = document.querySelector('#hero-slideshow').parentElement;
+          heroSection.addEventListener('mouseenter', () => {
+            this.pauseAutoAdvance();
+          });
+          
+          heroSection.addEventListener('mouseleave', () => {
+            this.resumeAutoAdvance();
+          });
+          
+          // Touch support for mobile
+          this.setupTouchEvents();
+        }
+        
+        showArrowsOnHover() {
+          const heroSection = document.querySelector('#hero-slideshow').parentElement;
+          heroSection.addEventListener('mouseenter', () => {
+            this.prevButton.style.opacity = '1';
+            this.nextButton.style.opacity = '1';
+          });
+          
+          heroSection.addEventListener('mouseleave', () => {
+            this.prevButton.style.opacity = '0';
+            this.nextButton.style.opacity = '0';
+          });
+        }
+        
+        setupTouchEvents() {
+          let touchStartX = 0;
+          let touchEndX = 0;
+          
+          const heroSection = document.querySelector('#hero-slideshow');
+          
+          heroSection.addEventListener('touchstart', (e) => {
+            // Don't interfere with links, buttons, or interactive elements
+            if (e.target.closest('a, button, [role="button"]')) {
+              return;
+            }
+            touchStartX = e.changedTouches[0].screenX;
+          });
+          
+          heroSection.addEventListener('touchend', (e) => {
+            // Don't interfere with links, buttons, or interactive elements
+            if (e.target.closest('a, button, [role="button"]')) {
+              return;
+            }
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+          });
+        }
+        
+        handleSwipe(startX, endX) {
+          const swipeThreshold = 50;
+          const diffX = startX - endX;
+          
+          if (Math.abs(diffX) > swipeThreshold) {
+            if (diffX > 0) {
+              this.nextSlide(); // Swipe left = next
+            } else {
+              this.previousSlide(); // Swipe right = previous
+            }
+          }
+        }
+        
+        goToSlide(slideNumber) {
+          // Remove active class from current slide and indicator
+          document.querySelector('.slide.active')?.classList.remove('active');
+          document.querySelector('.indicator.active')?.classList.remove('active');
+          
+          // Add active class to new slide and indicator
+          const newSlide = document.querySelector(`[data-slide="${slideNumber}"]`);
+          const newIndicator = document.querySelector(`.indicator[data-slide="${slideNumber}"]`);
+          
+          if (newSlide && newIndicator) {
+            newSlide.classList.add('active');
+            newIndicator.classList.add('active');
+            this.currentSlide = slideNumber;
+          }
+          
+          this.restartAutoAdvance();
+        }
+        
+        nextSlide() {
+          const nextSlide = this.currentSlide >= this.totalSlides ? 1 : this.currentSlide + 1;
+          this.goToSlide(nextSlide);
+        }
+        
+        previousSlide() {
+          const prevSlide = this.currentSlide <= 1 ? this.totalSlides : this.currentSlide - 1;
+          this.goToSlide(prevSlide);
+        }
+        
+        startAutoAdvance() {
+          if (!this.isPlaying) return;
+          
+          this.autoAdvanceTimer = setInterval(() => {
+            this.nextSlide();
+          }, this.autoAdvanceInterval);
+          
+          // Restart progress bar animation
+          if (this.progressBar) {
+            this.progressBar.style.animation = 'none';
+            this.progressBar.offsetHeight; // Trigger reflow
+            this.progressBar.style.animation = `progressBar ${this.autoAdvanceInterval}ms linear infinite`;
+          }
+        }
+        
+        pauseAutoAdvance() {
+          if (this.autoAdvanceTimer) {
+            clearInterval(this.autoAdvanceTimer);
+            this.autoAdvanceTimer = null;
+          }
+          
+          if (this.progressBar) {
+            this.progressBar.style.animationPlayState = 'paused';
+          }
+        }
+        
+        resumeAutoAdvance() {
+          if (this.isPlaying && !this.autoAdvanceTimer) {
+            this.startAutoAdvance();
+          }
+          
+          if (this.progressBar) {
+            this.progressBar.style.animationPlayState = 'running';
+          }
+        }
+        
+        restartAutoAdvance() {
+          this.pauseAutoAdvance();
+          this.startAutoAdvance();
+        }
+        
+        toggleAutoAdvance() {
+          this.isPlaying = !this.isPlaying;
+          if (this.isPlaying) {
+            this.resumeAutoAdvance();
+          } else {
+            this.pauseAutoAdvance();
+          }
+        }
+      }
+      
+      // Initialize slideshow when DOM is loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        new HeroSlideshow();
+      });
+    </script>
 </BaseLayout>
