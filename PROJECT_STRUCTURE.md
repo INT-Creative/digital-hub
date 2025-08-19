@@ -3,9 +3,9 @@
 ## Overview
 The INT Creative website is organized with a clear separation of concerns, making it easy to maintain and scale. This structure supports the transformation-focused consultant positioning with enhanced UI components and systematic content organization.
 
-**Last Updated**: January 2025  
+**Last Updated**: January 2025 (Post Services Transformation v2.0.0)  
 **Framework**: Astro + TailwindCSS + TypeScript  
-**Design System**: Service-specific color theming with micro-interactions
+**Design System**: Service-specific color theming with professional navigation system
 
 ## Directory Structure
 
@@ -18,8 +18,11 @@ intcreative-dev/
 │   │
 │   ├── components/          # Reusable Astro components
 │   │   ├── common/          # Common UI components
-│   │   │   ├── Navigation.astro
-│   │   │   └── Footer.astro
+│   │   │   ├── Navigation.astro           # Main navigation with services dropdown
+│   │   │   ├── Footer.astro
+│   │   │   └── Breadcrumbs.astro          # Navigation breadcrumbs (NEW)
+│   │   ├── navigation/      # Navigation-specific components (NEW)
+│   │   │   └── ServicesDropdown.astro     # Professional services dropdown (NEW)
 │   │   ├── social/          # Social media components
 │   │   │   ├── SocialFeed.astro
 │   │   │   ├── SocialIcons.astro
@@ -27,9 +30,12 @@ intcreative-dev/
 │   │   │   └── SocialShare.astro
 │   │   └── sections/        # Enhanced page section components
 │   │       ├── services/    # Service-related components
-│   │       │   ├── ServiceCard.astro        # Enhanced with animations
-│   │       │   ├── ServicesGrid.astro       # Service display grid
-│   │       │   └── DetailSection.astro     # Service detail components
+│   │       │   ├── ServiceCard.astro         # Enhanced with animations
+│   │       │   ├── ServicesGrid.astro        # Service display grid
+│   │       │   ├── ServicesOverviewGrid.astro # Landing page overview grid (NEW)
+│   │       │   ├── RelatedServices.astro     # Service cross-linking (NEW)
+│   │       │   ├── DetailSection.astro      # Service detail components
+│   │       │   └── FAQSection.astro         # Services FAQ section
 │   │       ├── about/       # About page specific components
 │   │       │   ├── ProcessStep.astro       # INT Approach step cards
 │   │       │   ├── ServiceCards.astro      # 4-service grid with theming
@@ -47,13 +53,19 @@ intcreative-dev/
 │   │   └── processSteps.ts      # INT Approach methodology data
 │   │
 │   ├── layouts/             # Page layout templates
-│   │   ├── BaseLayout.astro    # Main layout wrapper
-│   │   └── BlogPostLayout.astro # Blog post layout
+│   │   ├── BaseLayout.astro       # Main layout wrapper
+│   │   ├── BlogPostLayout.astro   # Blog post layout
+│   │   └── ServicePageLayout.astro # Individual service page template (NEW)
 │   │
 │   ├── pages/               # Route pages (file-based routing)
 │   │   ├── index.astro      # Homepage
 │   │   ├── about.astro      # About page
-│   │   ├── services.astro   # Services page
+│   │   ├── services.astro   # Services landing page (ENHANCED)
+│   │   ├── services/        # Individual service pages (NEW)
+│   │   │   ├── website-development.astro
+│   │   │   ├── digital-marketing.astro
+│   │   │   ├── graphic-design.astro
+│   │   │   └── marketing-automation.astro
 │   │   ├── portfolio.astro  # Portfolio page
 │   │   ├── blog.astro       # Blog listing page
 │   │   ├── contact.astro    # Contact page
