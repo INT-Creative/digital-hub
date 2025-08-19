@@ -6,32 +6,35 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
 ---
 
 <BaseLayout 
-  title="Contact Us" 
-  description="Ready to scale your startup? Get a free strategy call with INT Creative and discover how we can accelerate your growth with proven marketing strategies."
+  title="Get Started | INT Creative" 
+  description="Transform your Northeast Ohio service business in 14 days or less. Founding client spots available with 20% off. Direct access to Jake, no account managers."
 >
   <!-- Hero Section -->
   <section class="pt-20 pb-16 bg-gradient-to-br from-forest-900 to-sage-800 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">
-          Let's Scale Your Startup 
-          <span class="text-sage-400">Together</span>
+          Transform Your Service Business in 
+          <span class="text-sage-400">14 Days or Less</span>
         </h1>
-        <p class="text-xl text-beige-100 mb-8">
-          Ready to join 50+ startups who've achieved an average 250% increase in qualified leads? Let's discuss your growth goals and create a custom strategy.
+        <p class="text-xl text-beige-100 mb-4">
+          New consultancy. Proven methods. Founding client spots available.
+        </p>
+        <p class="text-lg text-beige-200 mb-8 max-w-3xl mx-auto">
+          I'm Jake from INT Creative. I'm building a different kind of digital consultancy for Northeast Ohio service businesses. No bloated agency fees. No junior account managers. Just direct access to someone who understands both technology and local service businesses.
         </p>
         <div class="flex justify-center space-x-8 text-center">
           <div>
-            <div class="text-2xl font-bold text-sage-400">24hr</div>
-            <div class="text-beige-200 text-sm">Response Time</div>
+            <div class="text-2xl font-bold text-sage-400">7-14</div>
+            <div class="text-beige-200 text-sm">Day Delivery</div>
           </div>
           <div>
-            <div class="text-2xl font-bold text-sage-400">Free</div>
-            <div class="text-beige-200 text-sm">Strategy Call</div>
+            <div class="text-2xl font-bold text-sage-400">Fixed</div>
+            <div class="text-beige-200 text-sm">Pricing</div>
           </div>
           <div>
-            <div class="text-2xl font-bold text-sage-400">No</div>
-            <div class="text-beige-200 text-sm">Obligation</div>
+            <div class="text-2xl font-bold text-sage-400">Direct</div>
+            <div class="text-beige-200 text-sm">Communication</div>
           </div>
         </div>
       </div>
@@ -45,10 +48,10 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
         <!-- Contact Form -->
         <div>
           <h2 class="text-3xl font-heading font-bold text-forest-900 mb-6">
-            Get Your Free Strategy Call
+            Claim Your Founding Client Spot
           </h2>
           <p class="text-gray-600 mb-8">
-            Tell us about your startup and we'll create a custom growth strategy during our call. No sales pitch - just actionable insights you can implement immediately.
+            Tell me about your service business and I'll create a custom transformation plan during our consultation. No sales pitch - just practical insights you can use to grow your business.
           </p>
           
           <form id="contact-form" class="space-y-6">
@@ -85,65 +88,101 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
                 name="email" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
-                placeholder="john@startup.com"
+                placeholder="john@abcplumbing.com"
               />
             </div>
             
             <div>
-              <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company Name *</label>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Business Name *</label>
               <input 
                 type="text" 
                 id="company" 
                 name="company" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
-                placeholder="Your Awesome Startup"
+                placeholder="ABC Plumbing, Smith Dental, etc."
               />
             </div>
             
             <div class="grid md:grid-cols-2 gap-6">
               <div>
-                <label for="stage" class="block text-sm font-medium text-gray-700 mb-2">Startup Stage *</label>
+                <label for="businessType" class="block text-sm font-medium text-gray-700 mb-2">Business Type *</label>
                 <select 
-                  id="stage" 
-                  name="stage" 
+                  id="businessType" 
+                  name="businessType" 
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
                 >
-                  <option value="">Select stage</option>
-                  <option value="pre-seed">Pre-seed</option>
-                  <option value="seed">Seed</option>
-                  <option value="series-a">Series A</option>
-                  <option value="series-b">Series B+</option>
-                  <option value="other">Other</option>
+                  <option value="">Select your industry</option>
+                  <option value="hvac">HVAC</option>
+                  <option value="plumbing">Plumbing</option>
+                  <option value="electrical">Electrical</option>
+                  <option value="dental">Dental Practice</option>
+                  <option value="legal">Legal/Law Firm</option>
+                  <option value="real-estate">Real Estate</option>
+                  <option value="restaurant">Restaurant/Bar</option>
+                  <option value="salon">Salon/Spa</option>
+                  <option value="landscaping">Landscaping</option>
+                  <option value="other">Other Service Business</option>
                 </select>
               </div>
               <div>
-                <label for="monthlyBudget" class="block text-sm font-medium text-gray-700 mb-2">Monthly Marketing Budget</label>
+                <label for="projectBudget" class="block text-sm font-medium text-gray-700 mb-2">Project Budget</label>
                 <select 
-                  id="monthlyBudget" 
-                  name="monthlyBudget"
+                  id="projectBudget" 
+                  name="projectBudget"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
                 >
-                  <option value="">Select budget</option>
-                  <option value="under-5k">Under $5K</option>
-                  <option value="5k-15k">$5K - $15K</option>
-                  <option value="15k-50k">$15K - $50K</option>
-                  <option value="50k-plus">$50K+</option>
-                  <option value="equity">Open to equity partnership</option>
+                  <option value="">Select budget range</option>
+                  <option value="under-2k">Under $2K</option>
+                  <option value="2k-5k">$2K - $5K</option>
+                  <option value="5k-10k">$5K - $10K</option>
+                  <option value="10k-plus">$10K+</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="timeline" class="block text-sm font-medium text-gray-700 mb-2">When do you want to start?</label>
+                <select 
+                  id="timeline" 
+                  name="timeline"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="asap">Need help ASAP</option>
+                  <option value="1-3-months">Next 1-3 months</option>
+                  <option value="planning">Just exploring options</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="interests" class="block text-sm font-medium text-gray-700 mb-2">I'm interested in:</label>
+                <select 
+                  id="interests" 
+                  name="interests"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
+                >
+                  <option value="">Select option</option>
+                  <option value="founding-client">Founding client program (20% discount)</option>
+                  <option value="standard-services">Standard services</option>
+                  <option value="free-audit">Free website audit first</option>
+                  <option value="consultation-only">Just a consultation</option>
                 </select>
               </div>
             </div>
             
             <div>
-              <label for="challenges" class="block text-sm font-medium text-gray-700 mb-2">Biggest Marketing Challenges *</label>
+              <label for="challenges" class="block text-sm font-medium text-gray-700 mb-2">What's your biggest challenge right now? *</label>
               <textarea 
                 id="challenges" 
                 name="challenges" 
                 rows="4" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
-                placeholder="Tell us about your current marketing challenges, goals, and what you've tried before..."
+                placeholder="e.g., Outdated website, need more leads, competitors outranking us, no online presence, etc."
               ></textarea>
             </div>
             
@@ -151,20 +190,24 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
               <label for="services" class="block text-sm font-medium text-gray-700 mb-2">Services Interested In</label>
               <div class="grid md:grid-cols-2 gap-3 mt-2">
                 <label class="flex items-center">
-                  <input type="checkbox" name="services" value="lead-generation" class="rounded text-sage-600 focus:ring-sage-500"/>
-                  <span class="ml-2 text-sm text-gray-700">Lead Generation</span>
+                  <input type="checkbox" name="services" value="website-development" class="rounded text-sage-600 focus:ring-sage-500"/>
+                  <span class="ml-2 text-sm text-gray-700">Website Development ($2,500-$7,500)</span>
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" name="services" value="brand-development" class="rounded text-sage-600 focus:ring-sage-500"/>
-                  <span class="ml-2 text-sm text-gray-700">Brand Development</span>
+                  <input type="checkbox" name="services" value="digital-marketing" class="rounded text-sage-600 focus:ring-sage-500"/>
+                  <span class="ml-2 text-sm text-gray-700">Digital Marketing ($2,000-$5,000)</span>
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" name="services" value="growth-strategy" class="rounded text-sage-600 focus:ring-sage-500"/>
-                  <span class="ml-2 text-sm text-gray-700">Growth Strategy</span>
+                  <input type="checkbox" name="services" value="graphic-design" class="rounded text-sage-600 focus:ring-sage-500"/>
+                  <span class="ml-2 text-sm text-gray-700">Graphic Design ($1,200-$3,500)</span>
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" name="services" value="content-marketing" class="rounded text-sage-600 focus:ring-sage-500"/>
-                  <span class="ml-2 text-sm text-gray-700">Content Marketing</span>
+                  <input type="checkbox" name="services" value="marketing-automation" class="rounded text-sage-600 focus:ring-sage-500"/>
+                  <span class="ml-2 text-sm text-gray-700">Marketing Automation ($1,500-$4,000)</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" name="services" value="free-audit" class="rounded text-sage-600 focus:ring-sage-500"/>
+                  <span class="ml-2 text-sm text-gray-700">Free Website Audit (First 10 businesses)</span>
                 </label>
               </div>
             </div>
@@ -173,16 +216,16 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
               <label class="flex items-start">
                 <input type="checkbox" name="newsletter" value="yes" class="mt-1 rounded text-sage-600 focus:ring-sage-500"/>
                 <span class="ml-3 text-sm text-gray-600">
-                  Yes, I'd like to receive startup marketing insights and case studies via email. (You can unsubscribe anytime)
+                  Yes, I'd like to receive local business marketing insights and practical tips via email. (You can unsubscribe anytime)
                 </span>
               </label>
               
               <label class="flex items-start">
                 <input type="checkbox" name="socialFollow" value="yes" class="mt-1 rounded text-sage-600 focus:ring-sage-500"/>
                 <span class="ml-3 text-sm text-gray-600">
-                  I'd also like to follow INT Creative on 
+                  I'd also like to follow Jake on 
                   <a href={SOCIAL_CONFIG.urls.linkedin} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">LinkedIn</a> and
-                  <a href={SOCIAL_CONFIG.urls.twitter} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium transition-colors duration-200">Twitter</a> for daily tips
+                  <a href={SOCIAL_CONFIG.urls.twitter} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium transition-colors duration-200">Twitter</a> for local business tips
                 </span>
               </label>
             </div>
@@ -191,7 +234,7 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
               type="submit" 
               class="w-full bg-sage-600 hover:bg-sage-700 text-white py-4 px-6 rounded-lg font-medium text-lg transition-colors duration-200 shadow-lg"
             >
-              Schedule My Free Strategy Call
+              Claim My Founding Client Spot
             </button>
             
             <p class="text-sm text-gray-500 text-center">
@@ -202,56 +245,101 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
         
         <!-- Benefits & Info -->
         <div class="lg:pl-8">
+          <!-- Founding Client Program -->
+          <div class="bg-sage-50 p-8 rounded-2xl mb-8 border-2 border-sage-200">
+            <h3 class="text-2xl font-heading font-bold text-forest-900 mb-4">
+              Founding Client Program
+            </h3>
+            <p class="text-gray-700 mb-6 text-sm">
+              As a new consultancy, I'm looking for 5 founding clients who want exceptional service at beta pricing. You'll get:
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <div class="w-5 h-5 bg-sage-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-700"><strong>20% off all services</strong></span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 bg-sage-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-700">Direct input on service development</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 bg-sage-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-700">Weekly progress updates</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 bg-sage-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-700">First priority on all work</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 bg-sage-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-700">Lifetime access to preferred pricing</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- How I Work -->
           <div class="bg-beige-50 p-8 rounded-2xl mb-8">
             <h3 class="text-2xl font-heading font-bold text-forest-900 mb-6">
-              What You'll Get in Your Strategy Call
+              How I Work
             </h3>
             <div class="space-y-4">
               <div class="flex items-start">
                 <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
+                  <span class="text-white text-xs font-bold">1</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-forest-900 mb-1">Custom Growth Audit</h4>
-                  <p class="text-gray-600 text-sm">We'll analyze your current marketing and identify the biggest opportunities for growth.</p>
+                  <h4 class="font-semibold text-forest-900 mb-1">Discovery</h4>
+                  <p class="text-gray-600 text-sm">I start with understanding your business, not pushing packages. Every project begins with your goals.</p>
                 </div>
               </div>
               
               <div class="flex items-start">
                 <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
+                  <span class="text-white text-xs font-bold">2</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-forest-900 mb-1">90-Day Action Plan</h4>
-                  <p class="text-gray-600 text-sm">Specific steps you can take in the next 90 days to improve your marketing results.</p>
+                  <h4 class="font-semibold text-forest-900 mb-1">Design</h4>
+                  <p class="text-gray-600 text-sm">Modern, fast websites that actually convert visitors to customers. No fluff, just results.</p>
                 </div>
               </div>
               
               <div class="flex items-start">
                 <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
+                  <span class="text-white text-xs font-bold">3</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-forest-900 mb-1">Competitive Analysis</h4>
-                  <p class="text-gray-600 text-sm">Insights into what your competitors are doing and how to differentiate your startup.</p>
+                  <h4 class="font-semibold text-forest-900 mb-1">Development</h4>
+                  <p class="text-gray-600 text-sm">Built for speed, mobile-first, and easy for you to update. You own everything we create.</p>
                 </div>
               </div>
               
               <div class="flex items-start">
                 <div class="w-6 h-6 bg-sage-600 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-                  <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
+                  <span class="text-white text-xs font-bold">4</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-forest-900 mb-1">Resource Recommendations</h4>
-                  <p class="text-gray-600 text-sm">Tools, templates, and resources to help you execute marketing strategies effectively.</p>
+                  <h4 class="font-semibold text-forest-900 mb-1">Delivery</h4>
+                  <p class="text-gray-600 text-sm">14 days or less, with training so you're never stuck. Plus 30 days of support included.</p>
                 </div>
               </div>
             </div>
@@ -260,13 +348,13 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
           <!-- Contact Info -->
           <div class="space-y-6">
             <div>
-              <h3 class="text-lg font-semibold text-forest-900 mb-3">Other Ways to Reach Us</h3>
+              <h3 class="text-lg font-semibold text-forest-900 mb-3">Other Ways to Reach Me</h3>
               <div class="space-y-3">
                 <div class="flex items-center">
                   <svg class="w-5 h-5 text-sage-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                  <span class="text-gray-700">hello@intcreative.co</span>
+                  <span class="text-gray-700">jake@intcreative.co</span>
                 </div>
                 <div class="flex items-center">
                   <svg class="w-5 h-5 text-sage-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,14 +367,14 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
-                  <span class="text-gray-700">Columbus, OH (Remote-First)</span>
+                  <span class="text-gray-700">Serving Cleveland, Akron, Canton and all of Northeast Ohio</span>
                 </div>
               </div>
             </div>
             
             <!-- Enhanced Social Media Section -->
             <div>
-              <h3 class="text-lg font-semibold text-forest-900 mb-3">Connect With Us</h3>
+              <h3 class="text-lg font-semibold text-forest-900 mb-3">Connect With Me</h3>
               <p class="text-gray-600 text-sm mb-4">
                 {SOCIAL_CONFIG.cta.connect} for daily insights and behind-the-scenes content.
               </p>
@@ -348,39 +436,39 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
-          Questions? We Have Answers
+          Questions? I Have Answers
         </h2>
         <p class="text-xl text-gray-600">
-          Common questions about working with INT Creative and our process.
+          Common questions about working with me and my process.
         </p>
       </div>
       
       <div class="space-y-6">
         <div class="bg-white p-6 rounded-xl shadow-sm">
+          <h3 class="text-lg font-semibold text-forest-900 mb-2">Why should I work with a new consultancy?</h3>
+          <p class="text-gray-600">
+            You get founder-level attention, better pricing, and help shape services that actually meet your needs. Plus, your success is critical to mine - I can't afford to deliver anything less than exceptional results.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <h3 class="text-lg font-semibold text-forest-900 mb-2">Do you have examples of past work?</h3>
+          <p class="text-gray-600">
+            I'm launching INT Creative after years of helping businesses with their digital presence. During our consultation, I'll show you detailed analyses of what's working in your industry and exactly how I'll approach your project.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm">
           <h3 class="text-lg font-semibold text-forest-900 mb-2">What happens after I submit this form?</h3>
           <p class="text-gray-600">
-            You'll receive a calendar link within 24 hours to schedule your free strategy call. Before the call, we'll research your startup and prepare custom insights.
-          </p>
-        </div>
-        
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <h3 class="text-lg font-semibold text-forest-900 mb-2">Is there really no sales pitch on the call?</h3>
-          <p class="text-gray-600">
-            Absolutely. The first call is purely educational. We'll share actionable insights regardless of whether we work together. If there's a fit, we'll discuss options at the end.
-          </p>
-        </div>
-        
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <h3 class="text-lg font-semibold text-forest-900 mb-2">What if I'm pre-revenue or have a tiny budget?</h3>
-          <p class="text-gray-600">
-            We work with startups at all stages. We have flexible pricing options including performance-based and equity arrangements for qualified startups with high growth potential.
+            You'll receive a calendar link within 24 hours to schedule your free consultation. Before our call, I'll research your business and competitors to prepare practical insights.
           </p>
         </div>
         
         <div class="bg-white p-6 rounded-xl shadow-sm">
           <h3 class="text-lg font-semibold text-forest-900 mb-2">How quickly can we get started?</h3>
           <p class="text-gray-600">
-            Most clients start seeing initial improvements within 30 days of beginning our partnership. We can typically begin implementation within 1-2 weeks of signing an agreement.
+            Most projects start within 1-2 weeks of our initial consultation. You'll see your new website or marketing system live within 14 days, with training so you're never stuck.
           </p>
         </div>
         
@@ -388,7 +476,7 @@ import { SOCIAL_CONFIG } from '../config/social.ts';
           <div class="text-center">
             <h3 class="text-lg font-semibold text-forest-900 mb-3">Stay Connected for More Insights</h3>
             <p class="text-gray-600 mb-4 text-sm">
-              Follow us on social media for daily startup marketing tips, case studies, and industry insights.
+              Follow Jake on social media for daily local business marketing tips, practical insights, and industry updates.
             </p>
             
             <div class="flex justify-center space-x-4 mb-4">
