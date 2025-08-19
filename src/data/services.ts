@@ -230,42 +230,42 @@ const marketingAutomationService: ServiceDetail = {
 const faqs: FAQ[] = [
   {
     question: 'What makes you different from other agencies?',
-    answer: 'We focus on practical, measurable results for small businesses. No jargon, no fluff — just systems that work. We use proven tools like Webflow for websites, HubSpot Free for CRM, and Zapier for automation to keep costs low and results high.',
+    answer: 'I focus on practical, measurable results for service businesses. No jargon, no fluff — just systems that work. I use proven tools like Webflow for websites, HubSpot Free for CRM, and Zapier for automation to keep costs low and results high.',
     category: 'general'
   },
   {
-    question: 'How quickly can we see results?',
+    question: 'How quickly can I see results?',
     answer: 'Websites go live in 7 days. Automation systems start working immediately. Ad campaigns can drive traffic within 48 hours. Most clients see meaningful improvements in lead flow within 30 days.',
     category: 'general'
   },
   {
-    question: 'Do you work with businesses outside Northeast Ohio?',
-    answer: 'Yes! While we\'re based in Northeast Ohio (Cleveland • Akron • Canton), we work with clients nationwide. Local clients benefit from in-person strategy sessions, but all our services are delivered effectively remotely.',
+    question: 'What\'s your service area?',
+    answer: 'I work with service businesses across the United States through proven remote processes. Based in Northeast Ohio, I serve clients nationwide with the same quality and attention. Northeast Ohio clients enjoy the added benefit of optional in-person meetings when beneficial.',
     category: 'general'
   },
   {
     question: 'What if I need something not listed in your services?',
-    answer: 'We offer custom solutions tailored to your specific needs. Schedule a quick call and we\'ll create a custom scope with a fixed quote. No surprises, just clear pricing for exactly what you need.',
+    answer: 'I offer custom solutions tailored to your specific needs. Schedule a quick call and I\'ll create a custom scope with a fixed quote. No surprises, just clear pricing for exactly what you need.',
     category: 'pricing'
   },
   {
     question: 'Do you require long-term contracts?',
-    answer: 'No contracts required. Most of our services are project-based with clear deliverables and timelines. For ongoing services like ad management, we work month-to-month so you\'re never locked in.',
+    answer: 'No contracts required. Most of my services are project-based with clear deliverables and timelines. For ongoing services like ad management, I work month-to-month so you\'re never locked in.',
     category: 'pricing'
   },
   {
     question: 'What happens after the project is complete?',
-    answer: 'You own everything we create. We provide training and documentation so you can manage it yourself, or we can discuss ongoing support options. Many clients start with a project then move to monthly support.',
+    answer: 'You own everything I create. I provide training and documentation so you can manage it yourself, or we can discuss ongoing support options. Many clients start with a project then move to monthly support.',
     category: 'process'
   },
   {
     question: 'Can you work with my existing website/tools?',
-    answer: 'Absolutely. We can optimize your current setup or build from scratch. During our discovery call, we\'ll assess what you have and recommend the most cost-effective path forward.',
+    answer: 'Absolutely. I can optimize your current setup or build from scratch. During my discovery call, I\'ll assess what you have and recommend the most cost-effective path forward.',
     category: 'technical'
   },
   {
     question: 'How do you keep costs manageable for small businesses?',
-    answer: 'We use free and low-cost tools whenever possible (HubSpot Free, Canva, Zapier starter plans). Our fixed-price projects mean no surprise bills. We focus on high-ROI activities that directly impact your revenue.',
+    answer: 'I use free and low-cost tools whenever possible (HubSpot Free, Canva, Zapier starter plans). My fixed-price projects mean no surprise bills. I focus on high-ROI activities that directly impact your revenue.',
     category: 'pricing'
   }
 ];
@@ -290,9 +290,9 @@ export const servicesData: ServicesData = {
   ],
   faqs,
   location: {
-    headline: 'Based in Northeast Ohio',
-    cities: ['Cleveland', 'Akron', 'Canton'],
-    availability: 'working locally and remotely'
+    headline: 'Serving Nationwide',
+    cities: ['Remote delivery', 'Northeast Ohio local support'],
+    availability: 'working with clients across the United States'
   },
   globalCTA: {
     primary: {
@@ -302,7 +302,7 @@ export const servicesData: ServicesData = {
     helper: 'Custom scope, fixed quote after a quick call.'
   },
   promise: {
-    title: 'Our Promise',
-    text: 'If we miss the agreed timeline, you get a project credit. Simple as that.'
+    title: 'My Promise',
+    text: 'If I miss the agreed timeline, you get a project credit. Simple as that.'
   }
 };
