@@ -1,0 +1,300 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/common/Breadcrumbs.astro';
+import RelatedServices from '../components/sections/services/RelatedServices.astro';
+import { servicesData } from '../data/services';
+import type { ServiceDetail } from '../types/services';
+
+export interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+
+// Generate Service schema for SEO
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.title,
+  "description": service.description,
+  "provider": {
+    "@type": "Organization",
+    "name": "INT Creative",
+    "url": "https://intcreative.co"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Northeast Ohio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    }
+  },
+  "serviceType": service.title,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": service.title + " Services",
+    "itemListElement": service.deliverables.map((deliverable, index) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": deliverable.text
+      },
+      "position": index + 1
+    }))
+  }
+};
+
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://intcreative.co"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://intcreative.co/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": service.title,
+      "item": `https://intcreative.co/services/${service.slug}`
+    }
+  ]
+};
+---
+
+<BaseLayout 
+  title={`${service.title} | INT Creative`}
+  description={service.description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  
+  <!-- Breadcrumbs -->
+  <Breadcrumbs 
+    items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services' },
+      { label: service.title, href: `/services/${service.slug}` }
+    ]}
+  />
+
+  <!-- Hero Section -->
+  <section class="pt-20 pb-16 bg-gradient-to-br from-forest-900 to-sage-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+          {service.title}
+          {service.subtitle && (
+            <span class="text-xl font-normal text-beige-100 block mt-2">
+              {service.subtitle}
+            </span>
+          )}
+        </h1>
+        <p class="text-xl text-beige-100 mb-8">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Service Content -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Transformation Story -->
+        <div class="bg-gradient-to-r from-sage-50 to-beige-50 rounded-xl p-8 mb-12 border-l-4 border-sage-600">
+          <h2 class="text-lg font-semibold text-forest-900 mb-3">Your Transformation Journey</h2>
+          <p class="text-lg text-forest-900 leading-relaxed mb-4">
+            {service.hook}
+          </p>
+          <div class="grid md:grid-cols-3 gap-4 mt-6 journey-progression">
+            <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-red-200 transition-colors duration-300">
+                <span class="relative z-10">1</span>
+                <div class="absolute inset-0 bg-gradient-to-br from-red-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              </div>
+              <div class="text-xs text-gray-600 font-medium group-hover:text-red-600 transition-colors duration-300">BEFORE</div>
+              <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Struggling & Frustrated</div>
+              <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="w-full h-1 bg-red-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-red-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-yellow-200 transition-colors duration-300">
+                <span class="relative z-10">2</span>
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                <div class="absolute top-1 right-1 w-2 h-2 border border-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-spin transition-opacity duration-300"></div>
+              </div>
+              <div class="text-xs text-gray-600 font-medium group-hover:text-yellow-600 transition-colors duration-300">DURING</div>
+              <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Guided Transformation</div>
+              <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="w-full h-1 bg-yellow-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-yellow-400 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center journey-step group cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="w-8 h-8 bg-sage-100 text-sage-600 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold journey-circle relative overflow-hidden group-hover:bg-sage-200 transition-colors duration-300">
+                <span class="relative z-10">3</span>
+                <div class="absolute inset-0 bg-gradient-to-br from-sage-200/50 to-transparent transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                <div class="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span class="text-sage-500 animate-pulse">✨</span>
+                </div>
+              </div>
+              <div class="text-xs text-gray-600 font-medium group-hover:text-sage-600 transition-colors duration-300">AFTER</div>
+              <div class="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Confident & Growing</div>
+              <div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="w-full h-1 bg-sage-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-sage-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Outcomes -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+            What You'll Get
+          </h2>
+          <ul class="space-y-3">
+            {service.outcomes.map((outcome) => (
+              <li class="flex items-start">
+                <svg 
+                  class="w-6 h-6 text-sage-600 mr-3 mt-0.5 flex-shrink-0" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-700">{outcome}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Deliverables -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+            Deliverables
+          </h2>
+          <div class="bg-white rounded-xl p-8">
+            <ul class="space-y-3">
+              {service.deliverables.map((deliverable) => (
+                <li class="flex items-start">
+                  <span class="text-sage-600 mr-3 mt-0.5">•</span>
+                  <span class={deliverable.highlight ? "text-forest-900 font-medium" : "text-gray-700"}>
+                    {deliverable.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {service.toolStack && (
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-600">
+                  <span class="font-medium">Tools we use:</span> {service.toolStack.join(', ')}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <!-- Process -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-heading font-semibold text-forest-900 mb-6">
+            Our Process
+          </h2>
+          <div class="space-y-4">
+            {service.process.map((step) => (
+              <div class="bg-white rounded-lg p-6 flex">
+                <div class="w-10 h-10 bg-sage-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                  {step.number}
+                </div>
+                <div class="ml-4 flex-1">
+                  <h3 class="font-semibold text-forest-900 mb-1">
+                    {step.title}
+                    {step.timeline && (
+                      <span class="text-sm font-normal text-gray-500 ml-2">
+                        • {step.timeline}
+                      </span>
+                    )}
+                  </h3>
+                  <p class="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Transformation CTA -->
+        <div class="text-center bg-gradient-to-br from-forest-900 to-sage-800 text-white rounded-2xl p-8 relative overflow-hidden transformation-cta group">
+          <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-3 group-hover:skew-y-2 transition-transform duration-700"></div>
+          </div>
+          
+          <div class="absolute inset-0 pointer-events-none">
+            <div class="energy-particle absolute top-4 left-4 w-1 h-1 bg-sage-400 rounded-full opacity-60 animate-energy-float-1"></div>
+            <div class="energy-particle absolute top-1/3 right-8 w-0.5 h-0.5 bg-beige-200 rounded-full opacity-40 animate-energy-float-2"></div>
+            <div class="energy-particle absolute bottom-6 left-1/4 w-1 h-1 bg-sage-300 rounded-full opacity-50 animate-energy-float-3"></div>
+            <div class="energy-particle absolute top-1/2 right-1/4 w-0.5 h-0.5 bg-beige-100 rounded-full opacity-30 animate-energy-float-4"></div>
+          </div>
+          
+          <div class="relative z-10">
+            <h3 class="text-2xl font-heading font-semibold mb-4 group-hover:scale-105 transition-transform duration-300">
+              Ready to Start Your Transformation?
+            </h3>
+            <p class="text-beige-100 mb-6 group-hover:text-beige-50 transition-colors duration-300">
+              Join the businesses that went from struggling to thriving with {service.title.toLowerCase()}.
+            </p>
+            
+            <div class="bg-sage-600/30 rounded-lg p-4 mb-6 backdrop-blur-sm border border-sage-500/20 group-hover:border-sage-400/30 transition-colors duration-300 relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-r from-sage-500/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <p class="text-sm text-beige-100 relative z-10">
+                <span class="font-semibold">Limited spots this month:</span> We only take on projects we can deliver with excellence.
+              </p>
+            </div>
+            
+            <a 
+              href={servicesData.globalCTA.primary.href}
+              class="inline-block bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform relative overflow-hidden transformation-button group/btn"
+            >
+              <span class="relative z-10">Begin My Transformation</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500"></div>
+              <div class="absolute inset-0 bg-sage-400/30 rounded-lg transform scale-0 group-hover/btn:scale-100 group-hover/btn:opacity-0 transition-all duration-400"></div>
+            </a>
+            <p class="text-sm text-beige-200 mt-4 group-hover:text-beige-100 transition-colors duration-300">
+              {servicesData.globalCTA.helper}
+            </p>
+          </div>
+          
+          <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="celebration-spark w-1 h-1 bg-sage-300 rounded-full animate-spark-1"></div>
+            <div class="celebration-spark w-0.5 h-0.5 bg-beige-200 rounded-full animate-spark-2" style="margin-left: 4px; margin-top: -2px;"></div>
+          </div>
+          <div class="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="celebration-spark w-0.5 h-0.5 bg-sage-400 rounded-full animate-spark-3"></div>
+            <div class="celebration-spark w-1 h-1 bg-beige-100 rounded-full animate-spark-4" style="margin-left: 6px; margin-top: -4px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <RelatedServices currentService={service.slug} />
+</BaseLayout>

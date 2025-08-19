@@ -1,15 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ServicesGrid from '../components/sections/services/ServicesGrid.astro';
-import DetailSection from '../components/sections/services/DetailSection.astro';
+import ServicesOverviewGrid from '../components/sections/services/ServicesOverviewGrid.astro';
 import FAQSection from '../components/sections/services/FAQSection.astro';
 import { servicesData } from '../data/services';
 
-// Get services in the same order as the homepage slideshow
-const serviceOrder = ['website-development', 'digital-marketing', 'graphic-design', 'marketing-automation'];
-const orderedServices = serviceOrder.map(slug => 
-  servicesData.services.find(s => s.slug === slug)
-).filter(Boolean);
 
 // Generate JSON-LD FAQPage schema with 3 Q&As
 const faqSchema = {
@@ -109,15 +103,8 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- Services Grid -->
-  <ServicesGrid />
-
-  <!-- Service Detail Sections -->
-  {orderedServices.map((service, index) => (
-    <div class={index % 2 === 0 ? '' : 'bg-white'}>
-      <DetailSection detail={service} />
-    </div>
-  ))}
+  <!-- Services Overview Grid -->
+  <ServicesOverviewGrid />
 
   <!-- FAQ Section -->
   <FAQSection />

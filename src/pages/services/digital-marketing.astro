@@ -1,0 +1,13 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import { servicesData } from '../../data/services';
+
+// Find the digital marketing service data
+const service = servicesData.services.find(s => s.slug === 'digital-marketing');
+
+if (!service) {
+  return Astro.redirect('/services');
+}
+---
+
+<ServicePageLayout service={service} />

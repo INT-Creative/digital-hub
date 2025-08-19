@@ -6,11 +6,11 @@ interface Props {
 const { currentPath = "" } = Astro.props;
 
 import SocialIcons from '../social/SocialIcons.astro';
+import ServicesDropdown from '../navigation/ServicesDropdown.astro';
 
 const navItems = [
   { name: "Home", href: "/", current: currentPath === "/" },
   { name: "About", href: "/about", current: currentPath === "/about" },
-  { name: "Services", href: "/services", current: currentPath.startsWith("/services") },
   { name: "Portfolio", href: "/portfolio", current: currentPath === "/portfolio" },
   { name: "Blog", href: "/blog", current: currentPath.startsWith("/blog") },
   { name: "Contact", href: "/contact", current: currentPath === "/contact" },
@@ -44,6 +44,8 @@ const navItems = [
                 {item.name}
               </a>
             ))}
+            <!-- Services Dropdown -->
+            <ServicesDropdown currentPath={currentPath} />
           </div>
           
           <!-- Social Icons in Header -->
@@ -104,6 +106,8 @@ const navItems = [
             {item.name}
           </a>
         ))}
+        <!-- Mobile Services Accordion -->
+        <ServicesDropdown currentPath={currentPath} />
         <div class="pt-4 pb-3 border-t border-gray-200 space-y-4">
           <!-- Mobile Social Icons -->
           <div class="flex justify-center">
