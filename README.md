@@ -1,19 +1,19 @@
 # INT Creative Hub
 
-**Digital Solutions Laboratory | Testing & Perfecting Services for Small Business Growth**
+**Lead-Gen Websites & Marketing Automation for Local Service Businesses**
 
-INT Creative is a digital agency in active development, currently testing and refining our service offerings through real-world implementation. We're identifying the perfect niches where our automation, web design, and digital marketing services create maximum impact.
+INT Creative is a one-person digital consultancy specializing in transformation-focused solutions for small businesses. Based in Cleveland, Ohio, we help local service businesses turn their websites into lead-generating machines through strategic web design, marketing automation, and targeted digital campaigns.
 
-## 🔬 Current Testing Phase
+## 🚀 Core Services
 
-We're actively seeking early partners to help validate and refine our services:
+Our established service offerings focus on business transformation:
 
-- **Automation & Workflow Design**: Building efficient systems with Zapier/Make.com
-- **Website Design & Development**: Creating conversion-focused sites with Webflow/WordPress  
-- **Social Media Management**: Testing content strategies and engagement systems
-- **Graphic Design**: Developing brand identities and marketing materials
-- **Local SEO & Digital Marketing**: Optimizing for Northeast Ohio markets
-- **IT Consulting**: Providing technical solutions and integrations
+- **Website Development**: Conversion-focused sites that capture leads 24/7 ($2,500-$7,500)
+- **Marketing Automation**: Systems that handle follow-up and nurture prospects ($1,500-$4,000)
+- **Graphic Design**: Professional brand identity and marketing materials ($1,200-$3,500)
+- **Digital Marketing**: Campaigns that turn clicks into customers ($2,000-$5,000)
+
+All projects include 2 revision rounds, 30-day support, and fixed-fee pricing with no surprises.
 
 ## 🎯 Niche Discovery Focus Areas
 
@@ -32,22 +32,25 @@ We're actively testing our services with these potential niches:
 - Which niches need the most help with digital presence
 - How to package services for specific industry needs
 
-## 🤝 Partner With Us (Early Adopter Benefits)
+## 🤝 Why Choose INT Creative
 
-**We're looking for 5-10 businesses to be our founding clients:**
-- Heavily discounted rates during our testing phase
-- Direct access to the founder for strategy sessions
-- Your feedback shapes our service offerings
-- Case study opportunities with full transparency
-- No long-term contracts - month-to-month flexibility
+**One-person shop advantages over agencies:**
+- Direct access to the strategist AND implementer
+- No miscommunication or account managers
+- 40-60% cost savings vs. agency overhead
+- Personal investment in your success
+- Monday/Wednesday/Friday progress updates by 5 PM EST
+- Response time that beats most agencies
 
-## 🛠 Our Approach: The Mirror Loop Methodology™
+## 🛠 The INT Approach
 
-We're developing a systematic approach to digital transformation:
-1. **DUMP**: Comprehensive discovery and data gathering
-2. **MIRROR**: Analysis and reflection on findings
-3. **RECURSE**: Iterative improvements and testing
-4. **INTEGRATE**: Seamless implementation across all channels
+Our proven 3-step methodology transforms businesses, not just websites:
+
+1. **INVESTIGATE**: 15-minute strategic discovery call and business audit → One-page brief next business day
+2. **NARROW**: Lock scope with sitemap, wireframes, copy outline, integrations → Fixed fee, timeline, one revision included
+3. **TRANSFORM**: Design, build, connect automations, QA, and launch → Complete handoff with CMS access, analytics, training, 30-day support
+
+Timeline: Most projects complete in 7-14 days depending on scope and integrations.
 
 ## 💻 Technology Stack
 
@@ -264,35 +267,38 @@ The site is configured for `https://intcreative.co` - update the following files
 - Run linting before committing (`npm run lint`)
 - Test builds before deploying (`npm run build`)
 
-## 🧪 Our Testing Philosophy
+## 🎯 Our Business Philosophy
 
-**"Test small, fail fast, scale what works"**
+**"Transformation through practical implementation"**
 
-We believe in:
-- Starting with MVPs (Minimum Viable Products)
-- Getting real feedback from real businesses
-- Iterating based on actual results, not assumptions
-- Building long-term relationships, not quick transactions
-- Transparency about what we're learning
+We focus on:
+- Measurable results, not vanity metrics
+- Building systems that work 24/7 while you sleep
+- Direct communication without corporate bureaucracy
+- Fixed-fee projects with transparent pricing
+- Long-term partnerships based on proven results
 
-## 🎯 Ideal Early Partners
+## 🎯 Ideal Clients
 
-You might be perfect for our testing phase if you:
-- Run a small business (1-50 employees)
-- Have some budget for marketing ($500-$5,000/month)
-- Are open to trying new approaches
-- Can provide honest feedback
-- Want to grow but don't know where to start
-- Are located in Northeast Ohio (preferred but not required)
+Perfect fit for our services:
+- Local service businesses (HVAC, plumbing, electrical, landscaping)
+- Professional services (law, accounting, real estate, consulting)
+- Health & wellness (med spas, dental, chiropractic, fitness)
+- Small business owners ready to invest in growth ($2,500-$10,000 projects)
+- Need lead generation that works around the clock
+- Want direct communication with the person doing the work
+- Located in Northeast Ohio or working remotely nationwide
 
-## 📈 What's Next
+## 📈 Current Focus Areas
 
-As we validate our services, we're building towards:
-- **Specialized packages** for each proven niche
-- **Automation templates** for common business workflows
-- **Industry-specific marketing playbooks**
-- **Partnership network** with complementary services
-- **Educational content** based on real results
+**Active client work:**
+- Lead-generation website optimization
+- Marketing automation workflow development  
+- Local SEO and Google Business Profile optimization
+- Email marketing and CRM integration
+- Conversion rate optimization and analytics setup
+
+**Serving Northeast Ohio and remote clients nationwide**
 
 ## 💡 Why This Approach?
 

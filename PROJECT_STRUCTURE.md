@@ -1,7 +1,11 @@
 # Project Structure
 
 ## Overview
-The INT Creative website is organized with a clear separation of concerns, making it easy to maintain and scale.
+The INT Creative website is organized with a clear separation of concerns, making it easy to maintain and scale. This structure supports the transformation-focused consultant positioning with enhanced UI components and systematic content organization.
+
+**Last Updated**: January 2025  
+**Framework**: Astro + TailwindCSS + TypeScript  
+**Design System**: Service-specific color theming with micro-interactions
 
 ## Directory Structure
 
@@ -21,13 +25,26 @@ intcreative-dev/
 │   │   │   ├── SocialIcons.astro
 │   │   │   ├── SocialProof.astro
 │   │   │   └── SocialShare.astro
-│   │   └── sections/        # Page section components (future)
+│   │   └── sections/        # Enhanced page section components
+│   │       ├── services/    # Service-related components
+│   │       │   ├── ServiceCard.astro        # Enhanced with animations
+│   │       │   ├── ServicesGrid.astro       # Service display grid
+│   │       │   └── DetailSection.astro     # Service detail components
+│   │       ├── about/       # About page specific components
+│   │       │   ├── ProcessStep.astro       # INT Approach step cards
+│   │       │   ├── ServiceCards.astro      # 4-service grid with theming
+│   │       │   └── FAQSection.astro        # About-specific FAQs
+│   │       └── shared/      # Cross-page components
+│   │           ├── CTASection.astro        # Strategic CTA blocks
+│   │           └── PricingCard.astro       # Pricing transparency cards
 │   │
 │   ├── config/              # Configuration files
 │   │   └── social.ts        # Social media configuration
 │   │
 │   ├── data/                # Data files and content
-│   │   └── mockCompanies.json  # Mock company portfolio data
+│   │   ├── services.ts          # Service definitions with transformation content
+│   │   ├── mockCompanies.json   # Mock company portfolio data
+│   │   └── processSteps.ts      # INT Approach methodology data
 │   │
 │   ├── layouts/             # Page layout templates
 │   │   ├── BaseLayout.astro    # Main layout wrapper
@@ -47,7 +64,9 @@ intcreative-dev/
 │   │   └── global.css       # Global CSS styles
 │   │
 │   ├── types/               # TypeScript type definitions
-│   │   └── portfolio.ts     # Portfolio data types
+│   │   ├── portfolio.ts         # Portfolio data types
+│   │   ├── services.ts          # Service and process type definitions
+│   │   └── common.ts            # Shared interface definitions
 │   │
 │   ├── utils/               # Utility functions
 │   │   └── dataLoader.ts    # Data loading utilities
@@ -63,7 +82,19 @@ intcreative-dev/
 ├── tailwind.config.mjs     # TailwindCSS configuration
 ├── tsconfig.json           # TypeScript configuration
 ├── package.json            # Project dependencies
-└── vercel.json            # Vercel deployment config
+├── vercel.json            # Vercel deployment config
+├──
+├── Documentation Files
+├── README.md              # Main project documentation
+├── PROJECT_STRUCTURE.md   # This file - project organization
+├── WEBSITE_AUDIT.md      # Website audit and recommendations
+├── ABOUT_PAGE_ENHANCEMENTS.md  # About page transformation documentation
+├── INT_APPROACH_METHODOLOGY.md # INT Approach process framework
+├── transformation-content-strategy.md # Content strategy for transformations
+├── customer-journey-maps.md    # User psychology and decision-making research
+├── WHIMSY_ENHANCEMENTS.md # UI animation and delight documentation
+├── LOGO_DESIGN_SPECIFICATIONS.md # Brand identity guidelines
+└── HERO-GRAPHICS-IMPLEMENTATION.md # Homepage visual elements
 ```
 
 ## Key Architectural Decisions

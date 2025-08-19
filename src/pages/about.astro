@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-  title="About Us" 
-  description="Learn about INT Creative's mission to help startups scale through data-driven marketing strategies. Meet our team and discover why we're the trusted growth partner for ambitious startups."
+  title="About Jake Internicola | Web Design + Automation for Small Businesses | Cleveland, OH" 
+  description="Meet Jake Internicola, Cleveland's lead-gen website specialist. Get conversion-focused websites and marketing automation for local service businesses. One-person shop, direct communication, 7-14 day turnaround."
 >
   <!-- Hero Section -->
   <section class="pt-20 pb-16 bg-gradient-to-br from-beige-50 to-sage-50">
@@ -41,39 +41,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- What I Do in Plain English -->
         <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-8">
           <h2 class="text-2xl font-heading font-bold text-forest-900 mb-6 text-center">What I Do (In Plain English)</h2>
-          <div class="grid md:grid-cols-3 gap-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <!-- Websites -->
-            <a href="/services#website-development" class="group bg-gradient-to-br from-sage-50 to-beige-50 rounded-lg p-6 hover:shadow-md transition-all duration-300 border border-sage-100 hover:border-sage-200">
-              <div class="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="/services#website-development" class="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 hover:shadow-lg hover:shadow-blue-200/50 transition-all duration-300 border border-blue-100 hover:border-blue-200 h-full flex flex-col service-card-websites">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 icon-container">
+                <svg class="w-6 h-6 text-white transition-all duration-300 group-hover:rotate-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-sage-700 transition-colors duration-300">Websites</h3>
-              <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Conversion-focused sites that capture leads 24/7</p>
+              <div class="flex-1 flex flex-col">
+                <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-blue-700 transition-colors duration-300">Websites</h3>
+                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 flex-1">Conversion-focused sites that capture leads 24/7</p>
+              </div>
             </a>
             
             <!-- Automations -->
-            <a href="/services#marketing-automation" class="group bg-gradient-to-br from-sage-50 to-beige-50 rounded-lg p-6 hover:shadow-md transition-all duration-300 border border-sage-100 hover:border-sage-200">
-              <div class="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="/services#marketing-automation" class="group bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg p-6 hover:shadow-lg hover:shadow-orange-200/50 transition-all duration-300 border border-orange-100 hover:border-orange-200 h-full flex flex-col service-card-automation">
+              <div class="w-12 h-12 bg-gradient-to-br from-orange-600 to-amber-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 icon-container">
+                <svg class="w-6 h-6 text-white transition-all duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-sage-700 transition-colors duration-300">Automations</h3>
-              <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Systems that handle follow-up and nurture prospects</p>
+              <div class="flex-1 flex flex-col">
+                <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-orange-700 transition-colors duration-300">Automations</h3>
+                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 flex-1">Systems that handle follow-up and nurture prospects</p>
+              </div>
             </a>
             
-            <!-- Tracking -->
-            <a href="/services#digital-marketing" class="group bg-gradient-to-br from-sage-50 to-beige-50 rounded-lg p-6 hover:shadow-md transition-all duration-300 border border-sage-100 hover:border-sage-200">
-              <div class="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Graphic Design -->
+            <a href="/services#graphic-design" class="group bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-lg p-6 hover:shadow-lg hover:shadow-purple-200/50 transition-all duration-300 border border-purple-100 hover:border-purple-200 h-full flex flex-col service-card-design">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-fuchsia-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 icon-container">
+                <svg class="w-6 h-6 text-white transition-all duration-300 group-hover:-rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-purple-700 transition-colors duration-300">Graphic Design</h3>
+                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 flex-1">Professional brand visuals that build trust and credibility</p>
+              </div>
+            </a>
+            
+            <!-- Digital Marketing -->
+            <a href="/services#digital-marketing" class="group bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 hover:shadow-lg hover:shadow-green-200/50 transition-all duration-300 border border-green-100 hover:border-green-200 h-full flex flex-col service-card-marketing">
+              <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 icon-container">
+                <svg class="w-6 h-6 text-white transition-all duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-sage-700 transition-colors duration-300">Tracking</h3>
-              <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Clear data on what's working and what's not</p>
+              <div class="flex-1 flex flex-col">
+                <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-green-700 transition-colors duration-300">Digital Marketing</h3>
+                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 flex-1">Campaigns that turn clicks into customers with targeted advertising</p>
+              </div>
             </a>
           </div>
         </div>
@@ -119,44 +138,143 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-heading font-bold text-forest-900 mb-8">How I work</h2>
-        <div class="space-y-6">
-          <div class="flex items-start">
-            <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-              <span class="text-forest-700 font-semibold">1</span>
+        <h2 class="text-3xl font-heading font-bold text-forest-900 mb-2 text-center">The INT Approach</h2>
+        <p class="text-gray-600 text-center mb-12">A proven 3-step process that transforms your business, not just your website</p>
+        
+        <div class="space-y-8">
+          <!-- Step 1: Investigate -->
+          <div class="relative">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100 hover:shadow-lg hover:shadow-blue-200/50 transition-all duration-300 process-step-investigate">
+              <div class="flex items-start">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 process-icon-investigate">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center mb-3">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold mr-4">Step 1</span>
+                    <span class="text-blue-600 font-medium text-sm">INVESTIGATE</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-forest-900 mb-3">15-minute strategic discovery call</h3>
+                  <p class="text-gray-700 mb-4">Skip the generic questionnaires. I dig into your specific business goals, competitive landscape, and constraint reality in one focused call. Strategic questions that uncover what will actually move the needle for your business.</p>
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <p class="text-blue-800 font-semibold mb-1">You get:</p>
+                    <p class="text-gray-600">One-page strategic brief delivered the next business day outlining exactly what success looks like and the fastest path to get there.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-semibold text-forest-900 mb-2">Quick call to understand your goals</h3>
-              <p class="text-gray-600">We'll discuss your business, target audience, and what success looks like for you.</p>
+            
+            <!-- Connecting Arrow -->
+            <div class="flex justify-center mt-6 mb-6">
+              <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center process-arrow">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
             </div>
           </div>
-          <div class="flex items-start">
-            <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-              <span class="text-forest-700 font-semibold">2</span>
+          
+          <!-- Step 2: Narrow -->
+          <div class="relative">
+            <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-8 border border-orange-100 hover:shadow-lg hover:shadow-orange-200/50 transition-all duration-300 process-step-narrow">
+              <div class="flex items-start">
+                <div class="w-16 h-16 bg-gradient-to-br from-orange-600 to-amber-600 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 process-icon-narrow">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center mb-3">
+                    <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold mr-4">Step 2</span>
+                    <span class="text-orange-600 font-medium text-sm">NARROW</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-forest-900 mb-3">Lock scope and eliminate guesswork</h3>
+                  <p class="text-gray-700 mb-4">Analysis paralysis kills momentum. I create detailed sitemap, wireframe key pages, outline all copy, and map every integration you need. Fixed fee, locked timeline, zero scope creep.</p>
+                  <div class="bg-white rounded-lg p-4 border border-orange-200">
+                    <p class="text-orange-800 font-semibold mb-1">You get:</p>
+                    <p class="text-gray-600">Complete project blueprint with fixed pricing and timeline. One revision round included because good strategy rarely needs major changes.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-semibold text-forest-900 mb-2">Draft structure and copy for sign-off</h3>
-              <p class="text-gray-600">I'll create a clear plan and copy that focuses on conversion, not fluff.</p>
+            
+            <!-- Connecting Arrow -->
+            <div class="flex justify-center mt-6 mb-6">
+              <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center process-arrow">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
             </div>
           </div>
-          <div class="flex items-start">
-            <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-              <span class="text-forest-700 font-semibold">3</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-forest-900 mb-2">Build, test, and connect your tools</h3>
-              <p class="text-gray-600">Fast development with proper testing and integration of your existing tools.</p>
+          
+          <!-- Step 3: Transform -->
+          <div class="relative">
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border border-green-100 hover:shadow-lg hover:shadow-green-200/50 transition-all duration-300 process-step-transform">
+              <div class="flex items-start">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 process-icon-transform">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center mb-3">
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mr-4">Step 3</span>
+                    <span class="text-green-600 font-medium text-sm">TRANSFORM</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-forest-900 mb-3">Build, launch, and transform your business</h3>
+                  <p class="text-gray-700 mb-4">Fast development with proper testing because speed without quality is worthless. I connect your automations, set up analytics events that matter, and QA everything twice. Your lead-capture system goes live working 24/7.</p>
+                  <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <p class="text-green-800 font-semibold mb-2">Complete handoff includes:</p>
+                    <ul class="text-gray-600 space-y-1">
+                      <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>CMS access with training</li>
+                      <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Analytics events tracking what matters</li>
+                      <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Loom walkthrough explaining everything</li>
+                      <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Owner maintenance checklist</li>
+                      <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>30-day bug-fix guarantee</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-2">Two revision rounds included for polish, not major changes.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex items-start">
-            <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
-              <span class="text-forest-700 font-semibold">4</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-forest-900 mb-2">Handoff with a short Loom and a checklist</h3>
-              <p class="text-gray-600">Clear documentation so you know how everything works and what to do next.</p>
-            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Mid-Page CTA -->
+  <section class="py-16 bg-gradient-to-br from-sage-100 to-forest-50">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-sage-200">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          Ready to transform your business?
+        </h2>
+        <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+          Let's discuss your specific goals and create a custom plan that turns your website into a lead-generating machine.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            Book Your 15-Minute Strategy Call
+          </a>
+          <div class="text-center sm:text-left">
+            <p class="text-sm text-gray-600">
+              <span class="font-semibold">No sales pitch.</span> Just strategic questions and actionable insights.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">Usually worth $200 • Yours free</p>
           </div>
+        </div>
+        <div class="flex items-center justify-center text-sm text-gray-500">
+          <svg class="w-4 h-4 mr-2 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          Your information is secure and never shared
         </div>
       </div>
     </div>
@@ -166,78 +284,399 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-heading font-bold text-forest-900 mb-8">What clients can expect</h2>
-        <div class="bg-white p-8 rounded-xl shadow-sm">
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Clear project timeline</h3>
-                <p class="text-gray-600">Typical turnaround is 7-14 days depending on scope. You'll know the deadline upfront.</p>
+        <h2 class="text-3xl font-heading font-bold text-forest-900 mb-8 text-center">What clients can expect</h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-sage-100">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Project Expectations Column -->
+            <div>
+              <h3 class="text-xl font-semibold text-forest-900 mb-6 flex items-center">
+                <svg class="w-6 h-6 text-sage-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Project Promises
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-forest-900 mb-1">Clear timeline (7-14 days)</h4>
+                    <p class="text-gray-600 text-sm">Depends on pages needed and integrations. You'll know the exact deadline after our discovery call.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-forest-900 mb-1">2 revision rounds included</h4>
+                    <p class="text-gray-600 text-sm">Additional revisions available at $150 per round. Major scope changes quoted separately.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-forest-900 mb-1">30-day support guarantee</h4>
+                    <p class="text-gray-600 text-sm">Bug fixes and technical issues covered. Content changes billed at $95/hour.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-sage-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-forest-900 mb-1">Scheduled progress updates</h4>
+                    <p class="text-gray-600 text-sm">Monday, Wednesday, and Friday by 5 PM EST. Always know where your project stands.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">2 rounds of revisions</h3>
-                <p class="text-gray-600">Included in the project price. Additional revisions quoted separately.</p>
+            
+            <!-- Investment Transparency Column -->
+            <div>
+              <h3 class="text-xl font-semibold text-forest-900 mb-6 flex items-center">
+                <svg class="w-6 h-6 text-forest-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+                Investment Levels
+              </h3>
+              <div class="bg-gradient-to-br from-sage-50 to-beige-50 p-6 rounded-lg border border-sage-200">
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center py-2 border-b border-sage-200">
+                    <span class="font-medium text-forest-900">Website Development</span>
+                    <span class="font-semibold text-forest-800">$2,500 - $7,500</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-sage-200">
+                    <span class="font-medium text-forest-900">Marketing Automation</span>
+                    <span class="font-semibold text-forest-800">$1,500 - $4,000</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-sage-200">
+                    <span class="font-medium text-forest-900">Brand Identity Design</span>
+                    <span class="font-semibold text-forest-800">$1,200 - $3,500</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-sage-200">
+                    <span class="font-medium text-forest-900">Digital Marketing Setup</span>
+                    <span class="font-semibold text-forest-800">$2,000 - $5,000</span>
+                  </div>
+                  <div class="mt-4 p-4 bg-white rounded-lg border border-sage-200">
+                    <p class="text-sm text-gray-700 mb-2">
+                      <span class="font-semibold text-forest-900">Fixed quotes</span> provided after our 15-minute discovery call
+                    </p>
+                    <p class="text-xs text-gray-600">
+                      Most clients invest $3,200-$4,500 for a complete business transformation including website, basic automation, and analytics setup.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">30-day support window</h3>
-                <p class="text-gray-600">Bug fixes and minor adjustments included post-launch.</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Regular progress updates</h3>
-                <p class="text-gray-600">Check-ins every 2-3 days during active development.</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-sage-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <div>
-                <h3 class="font-semibold text-forest-900 mb-1">Transparent pricing</h3>
-                <p class="text-gray-600">Fixed project fees quoted upfront. No hidden costs or surprise charges.</p>
-              </div>
-            </div>
+          </div>
+          
+          <!-- Bottom Promise -->
+          <div class="mt-8 pt-6 border-t border-sage-200 text-center">
+            <p class="text-lg font-semibold text-forest-900 mb-2">My Promise to You</p>
+            <p class="text-gray-700">
+              If I miss the agreed timeline, you get a project credit. Simple as that. No excuses, no complicated terms—just accountability.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
+  <!-- About-Specific FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-heading font-bold text-forest-900 mb-4 text-center">Common Questions</h2>
+      <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        Answers to the most common concerns about working with a one-person shop and the INT Creative process.
+      </p>
+      
+      <div class="space-y-6">
+        <!-- FAQ Item 1 -->
+        <div class="bg-gradient-to-br from-sage-50 to-beige-50 rounded-xl p-6 border border-sage-100">
+          <h3 class="text-xl font-semibold text-forest-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-sage-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            What are the benefits of working with a one-person shop vs. an agency?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            You get direct access to the strategist AND implementer—no miscommunication, no account managers, no getting lost in the shuffle. I'm personally invested in your success because my reputation depends on your results. Plus, you save 40-60% on costs since there's no agency overhead to cover.
+          </p>
+        </div>
 
+        <!-- FAQ Item 2 -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+          <h3 class="text-xl font-semibold text-forest-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            How do you ensure projects stay on track without a team?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            I use the same project management systems that agencies use, but more efficiently. You get Monday/Wednesday/Friday updates by 5 PM EST, detailed project timelines, and direct access to me via text or email. Many clients say I'm more responsive than the agencies they've worked with before.
+          </p>
+        </div>
 
+        <!-- FAQ Item 3 -->
+        <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
+          <h3 class="text-xl font-semibold text-forest-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-orange-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            What if you're unavailable or get sick during my project?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            I maintain a network of trusted contractors for emergencies, and I've never missed a deadline in 2+ years. If something unexpected happens, you're covered by my timeline guarantee—if I miss the agreed deadline for any reason, you get a project credit. Your investment is protected.
+          </p>
+        </div>
 
-  
+        <!-- FAQ Item 4 -->
+        <div class="bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-xl p-6 border border-purple-100">
+          <h3 class="text-xl font-semibold text-forest-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-purple-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            How hands-on will I need to be during the process?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Minimal involvement required. After our initial discovery call and scope approval, I handle 90% of the work independently. You'll review and approve key milestones (content draft, design mockup, final site), but I don't need daily input. Most clients spend less than 2 hours total throughout the project.
+          </p>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
+          <h3 class="text-xl font-semibold text-forest-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+            What happens if we need revisions after the project?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Two revision rounds are included in every project for fine-tuning and polish. Additional revisions are $150 per round for minor changes. Major scope changes (new pages, features) are quoted separately. You also get 30 days of bug-fix support included—no charge for technical issues.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA Section -->
   <section class="py-20 bg-forest-900 text-white">
     <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
-        Ready to get started?
+        Ready to transform your business?
       </h2>
       <p class="text-xl mb-8 text-beige-100">
-        Let's discuss your website needs and create a plan that fits your budget.
+        Let's discuss your specific goals and create a custom plan that turns your website into a lead-generating machine.
       </p>
-      <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg">
-        Book a 15-min plan call
-      </a>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <a href="/contact" class="bg-sage-600 hover:bg-sage-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-200 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          Book Your 15-Minute Strategy Call
+        </a>
+        <span class="text-beige-200 hidden sm:inline">or</span>
+        <a href="/services" class="border-2 border-sage-400 text-sage-300 hover:bg-sage-600 hover:text-white px-8 py-4 rounded-lg font-medium text-lg transition-all duration-200 inline-block hover:border-sage-600">
+          Explore All Services
+        </a>
+      </div>
+      <p class="text-sm text-beige-200 max-w-md mx-auto">
+        See detailed <a href="/services" class="underline hover:text-white transition-colors">service breakdowns</a> and project examples, or jump straight to your strategy call.
+      </p>
     </div>
   </section>
+
+  <style>
+    /* Service Card Enhancements */
+    .service-card-websites:hover .icon-container {
+      animation: websitePulse 2s ease-in-out infinite;
+    }
+    
+    .service-card-automation:hover .icon-container {
+      animation: gearRotate 3s linear infinite;
+    }
+    
+    .service-card-design:hover .icon-container {
+      animation: designPulse 2s ease-in-out infinite;
+    }
+    
+    .service-card-marketing:hover .icon-container {
+      animation: chartGrow 1.5s ease-in-out infinite;
+    }
+    
+    /* Card entrance animation */
+    .service-card-websites { animation: slideInUp 0.6s ease-out 0.1s both; }
+    .service-card-automation { animation: slideInUp 0.6s ease-out 0.2s both; }
+    .service-card-design { animation: slideInUp 0.6s ease-out 0.3s both; }
+    .service-card-marketing { animation: slideInUp 0.6s ease-out 0.4s both; }
+    
+    @keyframes websitePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+    }
+    
+    @keyframes gearRotate {
+      from { transform: rotate(0deg) scale(1.1); }
+      to { transform: rotate(360deg) scale(1.1); }
+    }
+    
+    @keyframes designPulse {
+      0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+        background: linear-gradient(135deg, #9333ea, #c084fc);
+      }
+      50% { 
+        box-shadow: 0 0 0 6px rgba(147, 51, 234, 0);
+        background: linear-gradient(135deg, #a855f7, #d946ef);
+      }
+    }
+    
+    @keyframes chartGrow {
+      0%, 100% { transform: scale(1.1) translateY(0); }
+      25% { transform: scale(1.15) translateY(-2px); }
+      50% { transform: scale(1.1) translateY(-1px); }
+      75% { transform: scale(1.15) translateY(-3px); }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Enhanced hover states */
+    .service-card-websites:hover {
+      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+      transform: translateY(-4px);
+    }
+    
+    .service-card-automation:hover {
+      background: linear-gradient(135deg, #fed7aa 0%, #fef3c7 100%);
+      transform: translateY(-4px);
+    }
+    
+    .service-card-design:hover {
+      background: linear-gradient(135deg, #f3e8ff 0%, #fdf4ff 100%);
+      transform: translateY(-4px);
+    }
+    
+    .service-card-marketing:hover {
+      background: linear-gradient(135deg, #dcfce7 0%, #ecfdf5 100%);
+      transform: translateY(-4px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .service-card-websites,
+      .service-card-automation,
+      .service-card-design,
+      .service-card-marketing {
+        animation: slideInUp 0.6s ease-out both;
+      }
+    }
+    
+    /* Process Step Enhancements */
+    .process-step-investigate { animation: slideInUp 0.8s ease-out 0.2s both; }
+    .process-step-narrow { animation: slideInUp 0.8s ease-out 0.4s both; }
+    .process-step-transform { animation: slideInUp 0.8s ease-out 0.6s both; }
+    .process-arrow { animation: slideInUp 0.6s ease-out 0.5s both; }
+    
+    /* Process Icon Animations */
+    .process-icon-investigate:hover {
+      animation: investigatePulse 2s ease-in-out infinite;
+    }
+    
+    .process-icon-narrow:hover {
+      animation: narrowFocus 2s ease-in-out infinite;
+    }
+    
+    .process-icon-transform:hover {
+      animation: transformCelebrate 1.5s ease-in-out infinite;
+    }
+    
+    .process-arrow:hover {
+      animation: arrowBounce 1s ease-in-out infinite;
+    }
+    
+    @keyframes investigatePulse {
+      0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+        transform: scale(1);
+      }
+      50% { 
+        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+        transform: scale(1.05);
+      }
+    }
+    
+    @keyframes narrowFocus {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(0.95); }
+      50% { transform: scale(1.1); }
+      75% { transform: scale(0.95); }
+    }
+    
+    @keyframes transformCelebrate {
+      0% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.05) rotate(-3deg); }
+      50% { transform: scale(1.1) rotate(0deg); }
+      75% { transform: scale(1.05) rotate(3deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+    
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    
+    /* Enhanced Process Step Hover Effects */
+    .process-step-investigate:hover {
+      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+      transform: translateY(-2px);
+      border-color: #93c5fd;
+    }
+    
+    .process-step-narrow:hover {
+      background: linear-gradient(135deg, #fed7aa 0%, #fef3c7 100%);
+      transform: translateY(-2px);
+      border-color: #fdba74;
+    }
+    
+    .process-step-transform:hover {
+      background: linear-gradient(135deg, #dcfce7 0%, #ecfdf5 100%);
+      transform: translateY(-2px);
+      border-color: #86efac;
+    }
+    
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .service-card-websites,
+      .service-card-automation,
+      .service-card-design,
+      .service-card-marketing,
+      .process-step-investigate,
+      .process-step-narrow,
+      .process-step-transform,
+      .process-arrow {
+        animation: none;
+      }
+      
+      .service-card-websites:hover .icon-container,
+      .service-card-automation:hover .icon-container,
+      .service-card-design:hover .icon-container,
+      .service-card-marketing:hover .icon-container,
+      .process-icon-investigate:hover,
+      .process-icon-narrow:hover,
+      .process-icon-transform:hover,
+      .process-arrow:hover {
+        animation: none;
+      }
+    }
+  </style>
 </BaseLayout>
