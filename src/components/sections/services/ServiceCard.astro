@@ -43,7 +43,7 @@ const transformationContent = {
   }
 };
 
-const content = transformationContent[service.slug] || transformationContent['website-development'];
+const content = transformationContent[service.slug as keyof typeof transformationContent] || transformationContent['website-development'];
 ---
 
 <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 border border-gray-100 transform hover:-translate-y-2 transformation-card group relative overflow-hidden service-specific-${service.slug}" data-service={service.slug}>
@@ -65,7 +65,7 @@ const content = transformationContent[service.slug] || transformationContent['we
   <div class="mb-4 before-state">
     <h4 class="text-sm font-semibold text-gray-500 uppercase mb-2">Before (Current Pain)</h4>
     <ul class="space-y-1">
-      {content.painPoints.map((pain, index) => (
+      {content.painPoints.map((pain: string, index: number) => (
         <li class="flex items-start text-sm text-gray-600 pain-point opacity-100 group-hover:opacity-60 transition-all duration-300" style={`transition-delay: ${index * 100}ms`}>
           <span class="text-red-400 mr-2 mt-0.5 pain-x transform group-hover:rotate-45 transition-transform duration-300">×</span>
           <span class="pain-text relative">{pain}</span>
@@ -78,7 +78,7 @@ const content = transformationContent[service.slug] || transformationContent['we
   <div class="mb-6 after-state">
     <h4 class="text-sm font-semibold text-sage-700 uppercase mb-2">After (Transformation)</h4>
     <ul class="space-y-1">
-      {content.outcomes.map((outcome, index) => (
+      {content.outcomes.map((outcome: string, index: number) => (
         <li class="flex items-start text-sm text-gray-700 outcome-item transform translate-x-2 group-hover:translate-x-0 opacity-80 group-hover:opacity-100 transition-all duration-300" style={`transition-delay: ${index * 100}ms`}>
           <span class="text-sage-600 mr-2 mt-0.5 checkmark transform scale-100 group-hover:scale-125 transition-transform duration-300">✓</span>
           <span class="outcome-text relative">

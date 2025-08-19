@@ -4,9 +4,12 @@
     "es2022": true,
     "node": true
   },
+  "globals": {
+    "gtag": "readonly"
+  },
   "extends": [
     "eslint:recommended",
-    "@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:astro/recommended"
   ],
   "parser": "@typescript-eslint/parser",

@@ -143,13 +143,14 @@ const company = [
     
     newsletterForm?.addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = this.querySelector('input[type="email"]')?.value;
+      const form = this as HTMLFormElement;
+      const email = form.querySelector('input[type="email"]') as HTMLInputElement;
       
       // Here you would typically send to your email service
       // For now, just show a simple alert
-      if (email) {
+      if (email?.value) {
         alert('Thanks for subscribing! We\'ll send you our latest insights.');
-        this.reset();
+        form.reset();
       }
     });
   });
