@@ -1,0 +1,108 @@
+---
+// Legal Disclaimer Component for Portfolio Content
+// Ensures FTC compliance across all portfolio-related content
+
+export interface Props {
+  type?: 'banner' | 'section' | 'inline';
+  showIcon?: boolean;
+  className?: string;
+}
+
+const { 
+  type = 'section',
+  showIcon = true,
+  className = ''
+} = Astro.props;
+---
+
+{type === 'banner' && (
+  <div class={`bg-amber-100 border-b border-amber-200 py-3 ${className}`}>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center text-center">
+        {showIcon && (
+          <svg class="w-5 h-5 text-amber-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+          </svg>
+        )}
+        <span class="text-sm font-medium text-amber-800">
+          <strong>Demonstration Portfolio:</strong> These case studies are fictional and created for demonstration purposes. 
+          <a href="#legal-disclaimer" class="underline hover:no-underline">See full disclosure.</a>
+        </span>
+      </div>
+    </div>
+  </div>
+)}
+
+{type === 'section' && (
+  <section id="legal-disclaimer" class={`py-12 bg-gray-100 border-t border-gray-200 ${className}`}>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-300">
+        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+          {showIcon && (
+            <svg class="w-6 h-6 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+          )}
+          Legal Disclosure - Demonstration Portfolio
+        </h3>
+        <div class="text-sm text-gray-700 space-y-3">
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+            <p class="font-bold text-amber-800 mb-2">⚠️ IMPORTANT: All portfolio content is fictional and created for demonstration purposes only.</p>
+          </div>
+          
+          <h4 class="font-semibold text-gray-900">What This Means:</h4>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Fictional Companies:</strong> All company names, client details, and contact information are fictional</li>
+            <li><strong>Fictional Testimonials:</strong> All testimonials and quotes are fictional and not from real clients</li>
+            <li><strong>Hypothetical Results:</strong> All metrics, results, and outcomes are hypothetical examples</li>
+            <li><strong>No Client Relationships:</strong> No actual client relationships or projects are represented</li>
+            <li><strong>Conceptual Timelines:</strong> All timelines, budgets, and deliverables are conceptual illustrations</li>
+          </ul>
+          
+          <h4 class="font-semibold text-gray-900 mt-4">Purpose & Methodology:</h4>
+          <p>These demonstration projects illustrate INT Creative's planned methodology and approach to service business transformation. While based on:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Realistic industry scenarios and market conditions</li>
+            <li>Proven strategies used successfully in the industry</li>
+            <li>Typical challenges faced by service businesses</li>
+            <li>Standard service delivery frameworks</li>
+          </ul>
+          <p>They serve educational and marketing purposes only to showcase our planned approach.</p>
+          
+          <h4 class="font-semibold text-gray-900 mt-4">Legal Compliance:</h4>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>FTC Compliance:</strong> This content complies with Federal Trade Commission guidelines requiring clear disclosure of fictional content in business marketing materials</li>
+            <li><strong>No Earnings Claims:</strong> No guarantees of specific results are made. Individual results may vary based on various factors including market conditions, business factors, and implementation quality</li>
+            <li><strong>No Deceptive Practices:</strong> We maintain transparency about our pre-launch status and demonstration content</li>
+          </ul>
+          
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+            <p class="text-sm text-blue-800">
+              <strong>Business Status:</strong> INT Creative is currently in pre-launch phase. These demonstration projects showcase our planned service delivery approach and methodology that will be implemented with actual clients.
+            </p>
+          </div>
+          
+          <p class="text-xs text-gray-500 mt-4 pt-3 border-t border-gray-200">
+            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{type === 'inline' && (
+  <div class={`bg-amber-50 border border-amber-200 rounded-lg p-4 ${className}`}>
+    <div class="flex items-center text-amber-700">
+      {showIcon && (
+        <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+      )}
+      <div>
+        <p class="text-sm font-semibold mb-1">Fictional Content Disclosure</p>
+        <p class="text-xs">This content is fictional and created for demonstration purposes only.</p>
+      </div>
+    </div>
+  </div>
+)}

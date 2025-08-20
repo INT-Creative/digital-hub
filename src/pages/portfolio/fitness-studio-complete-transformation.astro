@@ -1,0 +1,14 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { getPortfolioBySlug } from '../../data/portfolio';
+
+// Get the case study data
+const caseStudy = getPortfolioBySlug('fitness-studio-complete-transformation');
+
+// Redirect to 404 if case study not found
+if (!caseStudy) {
+  return Astro.redirect('/404');
+}
+---
+
+<CaseStudyLayout caseStudy={caseStudy} />

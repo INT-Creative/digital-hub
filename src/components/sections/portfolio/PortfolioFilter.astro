@@ -1,0 +1,466 @@
+---
+import { getPortfolioStats } from '../../../data/portfolio';
+
+// Portfolio Filter Component - Matches navigation patterns
+export interface Props {
+  currentFilter?: string;
+  showCount?: boolean;
+}
+
+const { currentFilter = 'all', showCount = true } = Astro.props;
+
+// Get actual counts from portfolio data
+const portfolioStats = getPortfolioStats();
+
+// Filter categories matching their service types with actual counts
+const filterCategories = [
+  { 
+    id: 'all', 
+    label: 'All Projects', 
+    count: portfolioStats.total,
+    description: 'Complete demonstration portfolio'
+  },
+  { 
+    id: 'website-development', 
+    label: 'Website Development', 
+    count: portfolioStats.byServiceType?.['website-development'] || 0,
+    description: 'Conversion-focused methodology'
+  },
+  { 
+    id: 'digital-marketing', 
+    label: 'Digital Marketing', 
+    count: portfolioStats.byServiceType?.['digital-marketing'] || 0,
+    description: 'Lead generation strategies'
+  },
+  { 
+    id: 'graphic-design', 
+    label: 'Graphic Design', 
+    count: portfolioStats.byServiceType?.['graphic-design'] || 0,
+    description: 'Brand identity process'
+  },
+  { 
+    id: 'marketing-automation', 
+    label: 'Marketing Automation', 
+    count: portfolioStats.byServiceType?.['marketing-automation'] || 0,
+    description: 'Process optimization examples'
+  }
+];
+
+const isActive = (filterId: string) => {
+  return currentFilter === filterId;
+};
+---
+
+<!-- Desktop Filter Navigation -->
+<section class="py-8 bg-gray-50 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Filter Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+      <div>
+        <h2 class="text-lg font-heading font-semibold text-forest-900 mb-2">
+          Filter Projects
+        </h2>
+        <p class="text-sm text-gray-600">
+          Explore results by service type and see how each approach drives transformation.
+        </p>
+      </div>
+      
+      <!-- Results count -->
+      {showCount && (
+        <div class="mt-4 md:mt-0">
+          <span class="text-sm text-sage-600 font-medium" data-results-count>
+            {filterCategories.find(cat => cat.id === currentFilter)?.count || 0} projects
+          </span>
+        </div>
+      )}
+    </div>
+    
+    <!-- Desktop Filter Tabs -->
+    <div class="hidden md:block">
+      <nav class="flex space-x-1 bg-white rounded-xl p-2 shadow-sm border border-gray-200" role="tablist">
+        {filterCategories.map((category) => (
+          <a
+            href={category.id === 'all' ? '/portfolio' : `/portfolio?filter=${category.id}`}
+            class={`flex-1 text-center px-4 py-3 rounded-lg font-medium text-sm transition-all duration-300 relative overflow-hidden group ${
+              isActive(category.id)
+                ? 'bg-sage-600 text-white shadow-lg'
+                : 'text-gray-600 hover:text-forest-900 hover:bg-gray-50'
+            }`}
+            role="tab"
+            aria-selected={isActive(category.id)}
+            data-filter-category={category.id}
+          >
+            <div class="relative z-10 flex items-center justify-center space-x-2">
+              <span>{category.label}</span>
+              {showCount && (
+                <span class={`text-xs px-1.5 py-0.5 rounded-full ${
+                  isActive(category.id)
+                    ? 'bg-white/20 text-white'
+                    : 'bg-gray-200 text-gray-500 group-hover:bg-sage-100 group-hover:text-sage-700'
+                }`}>
+                  {category.count}
+                </span>
+              )}
+            </div>
+            
+            <!-- Hover effect for inactive tabs -->
+            {!isActive(category.id) && (
+              <div class="absolute inset-0 bg-gradient-to-r from-sage-50 to-forest-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+            )}
+          </a>
+        ))}
+      </nav>
+      
+      <!-- Active filter description -->
+      <div class="mt-3 text-center">
+        <p class="text-sm text-gray-600" data-filter-description>
+          {filterCategories.find(cat => cat.id === currentFilter)?.description}
+        </p>
+      </div>
+    </div>
+    
+    <!-- Mobile Filter Dropdown -->
+    <div class="md:hidden">
+      <div class="relative">
+        <button 
+          type="button"
+          class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-left flex items-center justify-between shadow-sm focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-colors duration-200 touch-manipulation"
+          id="mobile-filter-button"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <div class="flex items-center space-x-2">
+            <span class="font-medium text-forest-900">
+              {filterCategories.find(cat => cat.id === currentFilter)?.label}
+            </span>
+            {showCount && (
+              <span class="text-xs bg-sage-100 text-sage-700 px-2 py-1 rounded-full">
+                {filterCategories.find(cat => cat.id === currentFilter)?.count}
+              </span>
+            )}
+          </div>
+          <svg 
+            class="w-5 h-5 text-gray-400 transition-transform duration-200" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            id="mobile-filter-chevron"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <!-- Mobile Dropdown Menu -->
+        <div 
+          class="absolute z-50 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible transform scale-95 transition-all duration-200"
+          id="mobile-filter-menu"
+          role="listbox"
+          style="max-height: 300px; overflow-y: auto; -webkit-overflow-scrolling: touch;"
+        >
+          <div class="py-2">
+            {filterCategories.map((category) => (
+              <a
+                href={category.id === 'all' ? '/portfolio' : `/portfolio?filter=${category.id}`}
+                class={`block px-4 py-3 text-sm transition-colors duration-200 ${
+                  isActive(category.id)
+                    ? 'bg-sage-50 text-sage-700 font-medium'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-forest-900'
+                }`}
+                role="option"
+                data-filter-category={category.id}
+                aria-selected={isActive(category.id)}
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="font-medium">{category.label}</div>
+                    <div class="text-xs text-gray-500 mt-0.5">{category.description}</div>
+                  </div>
+                  {showCount && (
+                    <span class={`text-xs px-2 py-1 rounded-full ${
+                      isActive(category.id)
+                        ? 'bg-sage-200 text-sage-800'
+                        : 'bg-gray-200 text-gray-600'
+                    }`}>
+                      {category.count}
+                    </span>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service-specific CTA -->
+    <div class="mt-6 p-4 bg-white rounded-lg border border-gray-200 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium text-forest-900">
+          Interested in similar results?
+        </p>
+        <p class="text-xs text-gray-600 mt-1">
+          Every transformation starts with understanding your specific goals.
+        </p>
+      </div>
+      <a 
+        href="/contact"
+        class="bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform relative overflow-hidden group"
+      >
+        <span class="relative z-10">Get Started</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Portfolio Filter functionality with progressive enhancement
+  document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('mobile-filter-button');
+    const menu = document.getElementById('mobile-filter-menu');
+    const chevron = document.getElementById('mobile-filter-chevron');
+    
+    // Mobile dropdown functionality
+    if (button && menu && chevron) {
+      button.addEventListener('click', function() {
+        const isOpen = menu.classList.contains('opacity-100');
+        
+        if (isOpen) {
+          // Close menu
+          menu.classList.remove('opacity-100', 'visible', 'scale-100');
+          menu.classList.add('opacity-0', 'invisible', 'scale-95');
+          chevron.classList.remove('rotate-180');
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          // Open menu
+          menu.classList.remove('opacity-0', 'invisible', 'scale-95');
+          menu.classList.add('opacity-100', 'visible', 'scale-100');
+          chevron.classList.add('rotate-180');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!button.contains(event.target as Node) && !menu.contains(event.target as Node)) {
+          menu.classList.remove('opacity-100', 'visible', 'scale-100');
+          menu.classList.add('opacity-0', 'invisible', 'scale-95');
+          chevron.classList.remove('rotate-180');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    
+    // Client-side filtering with progressive enhancement
+    const portfolioGrid = document.querySelector('[data-portfolio-grid]');
+    if (portfolioGrid) {
+      // Add click handlers to filter links for smooth client-side filtering
+      const filterLinks = document.querySelectorAll('[data-filter-category]');
+      
+      filterLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Only prevent default if we can successfully filter client-side
+          const category = this.getAttribute('data-filter-category');
+          const success = filterPortfolioItems(category);
+          
+          if (success) {
+            e.preventDefault();
+            
+            // Update URL without page reload
+            const url = category === 'all' ? '/portfolio' : `/portfolio?filter=${category}`;
+            window.history.pushState({filter: category}, '', url);
+            
+            // Update active states
+            updateActiveFilterStates(category);
+            
+            // Close mobile menu if open
+            if (menu && menu.classList.contains('opacity-100')) {
+              menu.classList.remove('opacity-100', 'visible', 'scale-100');
+              menu.classList.add('opacity-0', 'invisible', 'scale-95');
+              chevron?.classList.remove('rotate-180');
+              button?.setAttribute('aria-expanded', 'false');
+            }
+          }
+          // If filtering fails, let the link navigate normally (fallback)
+        });
+      });
+    }
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filter = urlParams.get('filter') || 'all';
+      filterPortfolioItems(filter);
+      updateActiveFilterStates(filter);
+    });
+  });
+  
+  // Client-side portfolio filtering function
+  function filterPortfolioItems(category) {
+    try {
+      const portfolioGrid = document.querySelector('[data-portfolio-grid]');
+      if (!portfolioGrid) return false;
+      
+      const portfolioItems = portfolioGrid.querySelectorAll('[data-portfolio-item]');
+      let visibleCount = 0;
+      
+      portfolioItems.forEach((item) => {
+        const itemCategory = item.getAttribute('data-portfolio-category');
+        const shouldShow = category === 'all' || itemCategory === category;
+        
+        if (shouldShow) {
+          item.style.display = '';
+          item.style.animationDelay = `${visibleCount * 150}ms`;
+          item.classList.add('animate-fade-in');
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('animate-fade-in');
+        }
+      });
+      
+      // Update results count
+      updateResultsCount(visibleCount, category);
+      
+      return true;
+    } catch (error) {
+      console.warn('Client-side filtering failed, falling back to server-side:', error);
+      return false;
+    }
+  }
+  
+  // Update active filter states
+  function updateActiveFilterStates(activeCategory) {
+    const filterLinks = document.querySelectorAll('[data-filter-category]');
+    
+    filterLinks.forEach(link => {
+      const category = link.getAttribute('data-filter-category');
+      const isActive = category === activeCategory;
+      
+      // Update desktop tabs
+      if (link.hasAttribute('role') && link.getAttribute('role') === 'tab') {
+        link.setAttribute('aria-selected', isActive.toString());
+        
+        if (isActive) {
+          link.className = link.className.replace(/text-gray-\d+|hover:[\w-]+/g, '');
+          link.className += ' bg-sage-600 text-white shadow-lg';
+        } else {
+          link.className = link.className.replace(/bg-sage-\d+|text-white|shadow-lg/g, '');
+          link.className += ' text-gray-600 hover:text-forest-900 hover:bg-gray-50';
+        }
+      }
+      
+      // Update mobile options
+      if (link.hasAttribute('role') && link.getAttribute('role') === 'option') {
+        link.setAttribute('aria-selected', isActive.toString());
+        
+        if (isActive) {
+          link.className = link.className.replace(/text-gray-\d+|hover:[\w-]+/g, '');
+          link.className += ' bg-sage-50 text-sage-700 font-medium';
+        } else {
+          link.className = link.className.replace(/bg-sage-\d+|text-sage-\d+|font-medium/g, '');
+          link.className += ' text-gray-700 hover:bg-gray-50 hover:text-forest-900';
+        }
+      }
+    });
+    
+    // Update mobile button display
+    updateMobileButtonDisplay(activeCategory);
+  }
+  
+  // Update mobile button to show current selection
+  function updateMobileButtonDisplay(activeCategory) {
+    const button = document.getElementById('mobile-filter-button');
+    if (!button) return;
+    
+    const filterCategories = {
+      'all': { label: 'All Projects', count: document.querySelectorAll('[data-portfolio-item]').length },
+      'website-development': { label: 'Website Development', count: 0 },
+      'digital-marketing': { label: 'Digital Marketing', count: 0 },
+      'graphic-design': { label: 'Graphic Design', count: 0 },
+      'marketing-automation': { label: 'Marketing Automation', count: 0 }
+    };
+    
+    // Count items for each category
+    document.querySelectorAll('[data-portfolio-item]').forEach(item => {
+      const category = item.getAttribute('data-portfolio-category');
+      if (filterCategories[category]) {
+        filterCategories[category].count++;
+      }
+    });
+    
+    const activeFilter = filterCategories[activeCategory];
+    if (activeFilter) {
+      const labelSpan = button.querySelector('span');
+      const countSpan = button.querySelector('span:last-child');
+      
+      if (labelSpan) labelSpan.textContent = activeFilter.label;
+      if (countSpan) countSpan.textContent = activeFilter.count.toString();
+    }
+  }
+  
+  // Update results count display
+  function updateResultsCount(count, category) {
+    const countElements = document.querySelectorAll('[data-results-count]');
+    countElements.forEach(el => {
+      el.textContent = `${count} projects`;
+    });
+    
+    const descElements = document.querySelectorAll('[data-filter-description]');
+    const descriptions = {
+      'all': 'Complete portfolio',
+      'website-development': 'Conversion-focused sites',
+      'digital-marketing': 'Lead generation campaigns',
+      'graphic-design': 'Brand identity projects',
+      'marketing-automation': 'Process optimization'
+    };
+    
+    descElements.forEach(el => {
+      el.textContent = descriptions[category] || 'Complete portfolio';
+    });
+  }
+</script>
+
+<style>
+  /* Smooth transitions for mobile dropdown */
+  #mobile-filter-menu {
+    transform-origin: top;
+  }
+  
+  /* Smooth animation for portfolio items */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  /* Enhanced focus states */
+  #mobile-filter-button:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: rgb(74 124 89); /* sage-600 */
+    ring-offset: 2px;
+  }
+  
+  /* Active tab indicator */
+  nav a[aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1px;
+  }
+</style>
