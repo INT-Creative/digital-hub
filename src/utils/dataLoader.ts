@@ -5,7 +5,7 @@ import type { WebsiteDevelopmentPortfolio, MockCompany } from '../types/portfoli
  * Get all website development portfolio data
  */
 export function getWebsiteDevelopmentPortfolio(): WebsiteDevelopmentPortfolio {
-  return mockCompaniesData.websiteDevelopment as WebsiteDevelopmentPortfolio;
+  return mockCompaniesData.websiteDevelopment as unknown as WebsiteDevelopmentPortfolio;
 }
 
 /**

@@ -1,0 +1,126 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/common/Breadcrumbs.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  currentCategory?: string;
+  currentTag?: string;
+  breadcrumbItems?: Array<{
+    label: string;
+    href?: string;
+  }>;
+}
+
+const { 
+  title, 
+  description = "Business transformation insights, marketing automation guides, and real client case studies from INT Creative Hub.",
+  currentCategory,
+  currentTag,
+  breadcrumbItems = []
+} = Astro.props;
+
+// Build breadcrumbs for blog pages
+const defaultBreadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog' }
+];
+
+const finalBreadcrumbs = breadcrumbItems.length > 0 
+  ? [...defaultBreadcrumbs, ...breadcrumbItems]
+  : defaultBreadcrumbs;
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Blog Header -->
+  <section class="bg-gradient-to-b from-forest-50 to-white pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={finalBreadcrumbs} className="mb-8" />
+      
+      <!-- Header Content -->
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-forest-900 mb-6">
+          {title}
+        </h1>
+        
+        {description && (
+          <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            {description}
+          </p>
+        )}
+        
+        <!-- Blog Focus Statement -->
+        <div class="bg-sage-50 rounded-xl p-6 border border-sage-100">
+          <p class="text-sage-800 font-medium">
+            <svg class="w-5 h-5 inline mr-2 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Practical business transformation insights for service businesses ready to scale
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Main Content Area -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <slot />
+    </div>
+  </section>
+  
+  <!-- Newsletter CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-forest-900 via-forest-800 to-sage-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-heading font-bold text-white mb-4">
+        Get Transformation Insights Delivered
+      </h2>
+      <p class="text-beige-100 text-lg mb-8 leading-relaxed">
+        Weekly practical guides on marketing automation, lead generation, and business growth. 
+        No fluff, just systems that work.
+      </p>
+      
+      <!-- Simple Email Signup -->
+      <div class="max-w-md mx-auto">
+        <form class="flex flex-col sm:flex-row gap-4" action="/api/newsletter" method="POST">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Enter your email address"
+            required
+            class="flex-1 px-6 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sage-500 focus:border-transparent text-gray-900"
+          />
+          <button 
+            type="submit"
+            class="px-8 py-3 bg-sage-600 hover:bg-sage-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-beige-200 text-sm mt-4">
+          Unsubscribe anytime. No spam, just practical business insights.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Enhanced focus styles for form elements */
+  input:focus {
+    outline: none;
+  }
+  
+  /* Smooth transitions for interactive elements */
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive text scaling */
+  @media (max-width: 640px) {
+    .text-4xl { font-size: 2.5rem; }
+    .text-5xl { font-size: 3rem; }
+  }
+</style>

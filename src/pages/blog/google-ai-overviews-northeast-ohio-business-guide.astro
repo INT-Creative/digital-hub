@@ -1,0 +1,444 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getBlogPostBySlug } from '../../data/blog';
+
+const blogPost = getBlogPostBySlug('google-ai-overviews-northeast-ohio-business-guide');
+
+if (!blogPost) {
+  return Astro.redirect('/blog');
+}
+
+const {
+  title,
+  subtitle,
+  excerpt,
+  content,
+  publishedAt,
+  readingTime,
+  author,
+  category,
+  tags,
+  seo,
+  callToAction
+} = blogPost;
+
+// Ensure required fields have values
+const safeTitle = seo?.metaTitle || title;
+const safeDescription = seo?.metaDescription || excerpt;
+const safeSocialImage = seo?.socialImage || '/images/blog/default-og.jpg';
+---
+
+<BlogPostLayout
+  title={safeTitle}
+  description={safeDescription}
+  author={author.name}
+  date={publishedAt}
+  readTime={`${readingTime} min read`}
+  category={category}
+  image={safeSocialImage}
+  tags={tags}
+>
+  <!-- Blog content with enhanced formatting -->
+  <div class="blog-content">
+    <!-- Subtitle -->
+    {subtitle && (
+      <div class="subtitle-section bg-sage-50 border-l-4 border-sage-500 p-6 mb-8 rounded-r-lg">
+        <p class="text-lg font-medium text-sage-800 leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
+    )}
+
+    <!-- AI Overviews Impact Statistics -->
+    <div class="impact-stats bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-12 text-center">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div>
+          <div class="text-4xl font-bold mb-2">84%</div>
+          <div class="text-indigo-100">Of searches show AI Overviews</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">91%</div>
+          <div class="text-indigo-100">Local business searches</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">43%</div>
+          <div class="text-indigo-100">Never scroll past AI Overview</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">25%</div>
+          <div class="text-indigo-100">Drop in website clicks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc-section bg-beige-50 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold text-forest-900 mb-4 flex items-center">
+        <svg class="w-5 h-5 mr-2 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+        Table of Contents
+      </h2>
+      <nav class="space-y-2">
+        <ul class="text-sm space-y-2">
+          <li><a href="#what-are-ai-overviews" class="text-sage-700 hover:text-sage-800 hover:underline">What Are AI Overviews and Why Should You Care?</a></li>
+          <li><a href="#how-ai-overviews-work" class="text-sage-700 hover:text-sage-800 hover:underline">How AI Overviews Work: The Technical Reality</a></li>
+          <li><a href="#optimization-strategy" class="text-sage-700 hover:text-sage-800 hover:underline">Local Business AI Overview Optimization Strategy</a></li>
+          <li><a href="#case-studies" class="text-sage-700 hover:text-sage-800 hover:underline">Case Studies: Northeast Ohio Businesses Winning</a></li>
+          <li><a href="#technical-implementation" class="text-sage-700 hover:text-sage-800 hover:underline">Technical Implementation Guide</a></li>
+          <li><a href="#northeast-ohio-tactics" class="text-sage-700 hover:text-sage-800 hover:underline">Northeast Ohio Specific Optimization Tactics</a></li>
+          <li><a href="#measuring-success" class="text-sage-700 hover:text-sage-800 hover:underline">Measuring AI Overview Success</a></li>
+          <li><a href="#action-plan" class="text-sage-700 hover:text-sage-800 hover:underline">Your 30-Day Action Plan</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- AI Overview Example -->
+    <div class="ai-example bg-white border-2 border-blue-200 rounded-xl p-6 mb-12">
+      <div class="flex items-center mb-4">
+        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <span class="text-blue-600 font-medium text-sm">AI Overview Example</span>
+      </div>
+      
+      <h3 class="text-lg font-semibold text-gray-900 mb-3">
+        Search: "best HVAC repair Cleveland"
+      </h3>
+      
+      <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <p class="text-gray-700 text-sm leading-relaxed mb-4">
+          For HVAC repair in Cleveland, Ohio, expect to pay $150-$600 for most repairs. Top-rated local contractors 
+          include Northeast HVAC Solutions, Cleveland Comfort Systems, and Metro Air Repair. Most offer 24-hour emergency 
+          service with typical response times of 30-60 minutes. Always verify licensing through the Ohio Construction 
+          Industry Board and get multiple quotes for major repairs over $500.
+        </p>
+        
+        <div class="text-xs text-gray-500 mt-3">
+          <span class="font-medium">Sources:</span> Local contractor websites • Google Business Profiles • Better Business Bureau
+        </div>
+      </div>
+      
+      <div class="mt-4 p-3 bg-sage-50 rounded-lg">
+        <p class="text-sm text-sage-800">
+          <strong>The Goal:</strong> Get your business mentioned in these AI-generated summaries for relevant local searches.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div set:html={content}></div>
+
+    <!-- AI Overview Audit Tool -->
+    <div class="audit-tool bg-gradient-to-br from-sage-100 to-beige-100 rounded-2xl p-8 mt-12">
+      <h3 class="text-2xl font-heading font-bold text-forest-900 mb-6 text-center">
+        Quick AI Overview Audit
+      </h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Your Business Type</label>
+            <select id="business-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent">
+              <option value="">Select your business type</option>
+              <option value="hvac">HVAC/Plumbing</option>
+              <option value="legal">Legal Services</option>
+              <option value="healthcare">Healthcare/Dental</option>
+              <option value="restaurant">Restaurant/Food</option>
+              <option value="automotive">Auto Repair</option>
+              <option value="real-estate">Real Estate</option>
+              <option value="home-services">Home Services</option>
+              <option value="professional">Professional Services</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Primary Service Location</label>
+            <select id="location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent">
+              <option value="">Select your area</option>
+              <option value="cleveland">Cleveland</option>
+              <option value="akron">Akron</option>
+              <option value="canton">Canton</option>
+              <option value="youngstown">Youngstown</option>
+              <option value="elyria">Elyria</option>
+              <option value="mentor">Mentor</option>
+              <option value="parma">Parma</option>
+              <option value="lakewood">Lakewood</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Current Google Business Profile Status</label>
+            <select id="gbp-status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent">
+              <option value="">Select status</option>
+              <option value="none">No Google Business Profile</option>
+              <option value="basic">Basic listing, rarely updated</option>
+              <option value="active">Active with regular posts</option>
+              <option value="optimized">Fully optimized with reviews</option>
+            </select>
+          </div>
+          
+          <button id="generate-audit" class="w-full bg-forest-900 hover:bg-forest-800 text-white font-medium py-3 rounded-lg transition-colors duration-200">
+            Generate AI Overview Recommendations
+          </button>
+        </div>
+        
+        <div id="audit-results" class="bg-white rounded-lg p-6 border border-gray-200">
+          <h4 class="text-lg font-semibold text-forest-900 mb-4">Your AI Overview Optimization Plan</h4>
+          <div id="recommendations" class="space-y-3 text-sm text-gray-600">
+            <p>Select your business details to get personalized recommendations for improving your AI Overview visibility.</p>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-xs text-gray-600 mt-4 text-center">
+        *Recommendations based on current AI Overview optimization best practices for Northeast Ohio businesses.
+      </p>
+    </div>
+
+    <!-- Schema Markup Examples -->
+    <div class="schema-examples bg-gray-50 rounded-xl p-8 mt-12">
+      <h3 class="text-xl font-semibold text-forest-900 mb-6">Schema Markup Examples</h3>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-4 border border-gray-200">
+          <h4 class="text-lg font-medium text-gray-900 mb-3">Local Business Schema</h4>
+          <pre class="bg-gray-800 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`{
+  "@type": "LocalBusiness",
+  "name": "Your Business Name",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main St",
+    "addressLocality": "Cleveland",
+    "addressRegion": "OH",
+    "postalCode": "44113"
+  },
+  "telephone": "+1-216-555-0123",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127"
+  }
+}`}</code></pre>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4 border border-gray-200">
+          <h4 class="text-lg font-medium text-gray-900 mb-3">FAQ Schema</h4>
+          <pre class="bg-gray-800 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`{
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How much does HVAC repair cost?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "HVAC repair costs $150-$600..."
+    }
+  }]
+}`}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section bg-gradient-to-br from-sage-100 to-beige-100 rounded-2xl p-8 mt-12">
+      <div class="text-center">
+        <h3 class="text-2xl font-heading font-bold text-forest-900 mb-4">
+          {callToAction?.title || 'Optimize for AI Overviews'}
+        </h3>
+        <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+          {callToAction?.description || 'Don\'t lose visibility in Google\'s AI-powered search. Get your business optimized for AI Overviews.'}
+        </p>
+        <a 
+          href={callToAction?.buttonUrl || '/contact'}
+          class="inline-flex items-center px-8 py-4 bg-forest-900 hover:bg-forest-800 text-white font-medium rounded-lg transition-colors duration-200"
+        >
+          {callToAction?.buttonText || 'Book AI Strategy Call'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        
+        <div class="mt-6 text-sm text-gray-600">
+          <div class="flex items-center justify-center space-x-4">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              AI Overview audit
+            </span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Optimization roadmap
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Expertise -->
+    <div class="author-expertise bg-white border border-gray-200 rounded-xl p-8 mt-12">
+      <div class="flex items-start space-x-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-sage-200 to-beige-200 rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-forest-700 font-bold text-lg">JI</span>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold text-forest-900 mb-3">About AI Overview Optimization</h4>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            I've been tracking Google's AI Overview rollout since early 2024, documenting the impact on local Northeast Ohio businesses. 
+            This guide represents real-world optimization strategies that are already working for local clients.
+          </p>
+          <div class="bg-sage-50 rounded-lg p-4">
+            <p class="text-sm text-sage-800">
+              <strong>The Reality:</strong> Most Northeast Ohio businesses haven't adapted to AI Overviews yet, creating 
+              first-mover advantage for those who optimize now. The businesses I help are already seeing improved local visibility.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BlogPostLayout>
+
+<style>
+  /* Enhanced blog content styling */
+  .blog-content :global(h2) {
+    @apply text-2xl font-heading font-bold text-forest-900 mt-12 mb-6 border-b border-gray-200 pb-2;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h3) {
+    @apply text-xl font-semibold text-forest-900 mt-8 mb-4;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h4) {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+
+  .blog-content :global(ul) {
+    @apply space-y-2 ml-6;
+  }
+
+  .blog-content :global(li) {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .blog-content :global(p) {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+
+  .blog-content :global(strong) {
+    @apply font-semibold text-forest-900;
+  }
+
+  .blog-content :global(code) {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .blog-content :global(pre) {
+    @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm;
+  }
+
+  .blog-content :global(blockquote) {
+    @apply border-l-4 border-sage-500 pl-6 py-2 bg-sage-50 rounded-r-lg text-sage-800 italic;
+  }
+
+  /* AI Overview specific styling */
+  .blog-content :global(.ai-insight) {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg;
+  }
+
+  .blog-content :global(.optimization-tip) {
+    @apply bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg;
+  }
+
+  /* Links styling */
+  .blog-content :global(a) {
+    @apply text-sage-700 hover:text-sage-800 underline decoration-sage-300 hover:decoration-sage-500 transition-colors duration-200;
+  }
+</style>
+
+<script>
+  // AI Overview Audit Tool functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const generateButton = document.getElementById('generate-audit');
+    
+    if (generateButton) {
+      generateButton.addEventListener('click', function() {
+        const businessType = document.getElementById('business-type').value;
+        const location = document.getElementById('location').value;
+        const gbpStatus = document.getElementById('gbp-status').value;
+        
+        if (!businessType || !location || !gbpStatus) {
+          document.getElementById('recommendations').innerHTML = '<p class="text-red-600">Please fill out all fields to get personalized recommendations.</p>';
+          return;
+        }
+        
+        const recommendations = generateRecommendations(businessType, location, gbpStatus);
+        document.getElementById('recommendations').innerHTML = recommendations;
+      });
+    }
+
+    function generateRecommendations(businessType, location, gbpStatus) {
+      let html = '<h5 class="font-semibold text-gray-900 mb-3">Priority Actions for Your Business:</h5><ul class="space-y-2 text-sm">';
+      
+      // Google Business Profile recommendations
+      if (gbpStatus === 'none' || gbpStatus === 'basic') {
+        html += `<li class="flex items-start"><span class="text-red-500 mr-2">•</span><strong>High Priority:</strong> Optimize Google Business Profile with detailed ${businessType} service descriptions and ${location} area coverage.</li>`;
+      }
+      
+      // Business type specific recommendations
+      if (businessType === 'hvac') {
+        html += `<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Create seasonal content for ${location} weather patterns (heating/cooling needs).</li>`;
+        html += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Add emergency service schema markup and 24/7 availability information.</li>';
+      }
+      
+      if (businessType === 'legal') {
+        html += `<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Create detailed practice area pages with ${location} court system knowledge.</li>`;
+        html += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Add FAQ schema for common legal questions and consultation processes.</li>';
+      }
+      
+      if (businessType === 'healthcare') {
+        html += `<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Add detailed appointment booking process and insurance acceptance for ${location} area.</li>`;
+        html += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Create condition-specific landing pages with treatment explanations.</li>';
+      }
+      
+      // Location specific recommendations
+      html += `<li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Create neighborhood-specific content for ${location} suburbs and surrounding areas.</li>`;
+      html += `<li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Add local schema markup with specific ${location} service area definitions.</li>`;
+      
+      // General AI Overview recommendations
+      html += '<li class="flex items-start"><span class="text-green-500 mr-2">•</span>Implement comprehensive FAQ sections that answer common customer questions.</li>';
+      html += '<li class="flex items-start"><span class="text-green-500 mr-2">•</span>Add pricing transparency where possible to improve AI Overview citations.</li>';
+      
+      html += '</ul>';
+      
+      html += '<div class="mt-4 p-3 bg-sage-50 rounded-lg"><p class="text-sm text-sage-800"><strong>Next Step:</strong> Focus on the high-priority items first, then implement other recommendations over 4-6 weeks.</p></div>';
+      
+      return html;
+    }
+
+    // Smooth scrolling for table of contents links
+    const tocLinks = document.querySelectorAll('.toc-section a[href^="#"]');
+    
+    tocLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

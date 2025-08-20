@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hvacGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9F9F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1B3A2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#hvacGradient)"/>
+  
+  <!-- Dashboard mockup -->
+  <rect x="30" y="50" width="340" height="200" rx="8" fill="#F9F9F7" stroke="#1B3A2F" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="35" y="55" width="330" height="25" fill="#1B3A2F"/>
+  <text x="40" y="70" fill="#F5F0E6" font-family="Arial" font-size="12">Facebook Ads Manager - HVAC Campaigns</text>
+  
+  <!-- Campaign list -->
+  <rect x="40" y="90" width="150" height="120" fill="#F5F0E6" stroke="#4A7C59"/>
+  <rect x="45" y="95" width="140" height="15" fill="#4A7C59"/>
+  <text x="48" y="105" fill="#F5F0E6" font-family="Arial" font-size="8">Active Campaigns</text>
+  
+  <!-- Campaign items -->
+  <rect x="48" y="115" width="125" height="12" fill="#A8BFA3"/>
+  <text x="50" y="123" fill="#1C1C1C" font-family="Arial" font-size="6">Heating Repair - Winter</text>
+  
+  <rect x="48" y="130" width="125" height="12" fill="#A8BFA3"/>
+  <text x="50" y="138" fill="#1C1C1C" font-family="Arial" font-size="6">AC Installation - Summer</text>
+  
+  <rect x="48" y="145" width="125" height="12" fill="#A8BFA3"/>
+  <text x="50" y="153" fill="#1C1C1C" font-family="Arial" font-size="6">Maintenance - Year Round</text>
+  
+  <!-- Performance metrics -->
+  <rect x="210" y="90" width="150" height="120" fill="#F5F0E6" stroke="#C56B47"/>
+  <rect x="215" y="95" width="140" height="15" fill="#C56B47"/>
+  <text x="218" y="105" fill="#F5F0E6" font-family="Arial" font-size="8">Performance Metrics</text>
+  
+  <!-- Cost metrics -->
+  <text x="220" y="125" fill="#1C1C1C" font-family="Arial" font-size="7">Cost per Lead:</text>
+  <text x="220" y="138" fill="#C56B47" font-family="Arial" font-size="8" font-weight="bold">$85 → $32</text>
+  <text x="220" y="150" fill="#4A7C59" font-family="Arial" font-size="7">62% Reduction</text>
+  
+  <text x="220" y="170" fill="#1C1C1C" font-family="Arial" font-size="7">Monthly Leads:</text>
+  <text x="220" y="183" fill="#C56B47" font-family="Arial" font-size="8" font-weight="bold">15 → 65</text>
+  <text x="220" y="195" fill="#4A7C59" font-family="Arial" font-size="7">333% Increase</text>
+  
+  <!-- HVAC service truck -->
+  <rect x="60" y="220" width="40" height="20" fill="#1B3A2F"/>
+  <rect x="65" y="225" width="30" height="10" fill="#F5F0E6"/>
+  <circle cx="70" cy="245" r="5" fill="#1C1C1C"/>
+  <circle cx="90" cy="245" r="5" fill="#1C1C1C"/>
+  <text x="67" y="230" fill="#4A7C59" font-family="Arial" font-size="5">HVAC</text>
+  
+  <!-- HVAC unit icon -->
+  <rect x="300" y="210" width="25" height="25" fill="#4A7C59"/>
+  <rect x="305" y="215" width="15" height="15" fill="#F5F0E6"/>
+  <circle cx="312" cy="222" r="3" fill="#1B3A2F"/>
+  <rect x="309" y="240" width="6" height="8" fill="#1C1C1C"/>
+  
+  <!-- Graph arrow -->
+  <path d="M120 170 L140 150 L160 155 L180 140" stroke="#C56B47" stroke-width="3" fill="none"/>
+  <path d="M175 140 L180 140 L180 145 Z" fill="#C56B47"/>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

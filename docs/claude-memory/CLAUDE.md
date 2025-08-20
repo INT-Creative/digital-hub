@@ -7,10 +7,12 @@ This file provides comprehensive guidance to Claude Code (claude.ai/code) when w
 ### Development Server
 ```bash
 cd /home/intadmin/Desktop/intcreative-hub
-npm run dev              # Start development server on http://localhost:4321
+npm run dev              # Start development server (currently on http://localhost:4325)
 npm run build            # Create production build
-npm run preview          # Preview production build locally
+npm run preview          # Preview production build (currently on http://localhost:4326)
 ```
+
+**Note**: Ports may vary if multiple instances are running. Check console output for actual ports.
 
 ### Code Quality
 ```bash
@@ -24,12 +26,15 @@ npm run format           # Format code with Prettier
 
 **INT Creative Hub** is a professional agency website built with Astro, showcasing transformation-focused web development and marketing automation services for local businesses in Northeast Ohio.
 
-### Current Status: Pre-Launch with Demonstration Portfolio
-- ✅ Complete portfolio system with filtering functionality
+### Current Status: Pre-Launch with Full Content Systems
+- ✅ Complete portfolio system with 12 demonstration case studies
+- ✅ Blog system with 12+ comprehensive articles
 - ✅ Legal compliance with clear demonstration project disclaimers
-- ✅ Professional navigation with services dropdown
+- ✅ Professional navigation with services and blog dropdowns
 - ✅ Mobile-responsive design with accessibility features
-- ✅ Comprehensive structured data implementation
+- ✅ Comprehensive structured data and SEO implementation
+- ⚠️ Code quality issues: 96 ESLint violations need fixing
+- ⚠️ Performance optimization needed: 5.2MB bundle size
 
 ## 🏗️ Architecture Overview
 
@@ -44,9 +49,12 @@ npm run format           # Format code with Prettier
 ```
 src/
 ├── components/          # Reusable Astro components
-│   ├── common/          # Navigation, Footer, Breadcrumbs
-│   ├── navigation/      # ServicesDropdown
+│   ├── blog/           # Blog system components (NEW)
+│   ├── common/          # Navigation, Footer, Breadcrumbs, ResponsiveImage
+│   ├── navigation/      # ServicesDropdown, BlogDropdown
+│   ├── portfolio/       # TransformationStoryboard
 │   ├── sections/        # Page-specific sections
+│   │   ├── blog/       # Blog grids and filters
 │   │   ├── portfolio/   # Portfolio system components
 │   │   └── services/    # Services system components
 │   ├── legal/           # Legal compliance components
@@ -54,16 +62,29 @@ src/
 ├── layouts/             # Page layout templates
 │   ├── BaseLayout.astro     # Main wrapper
 │   ├── ServicePageLayout.astro  # Service pages
-│   └── CaseStudyLayout.astro    # Portfolio case studies
+│   ├── CaseStudyLayout.astro    # Portfolio case studies
+│   ├── BlogLayout.astro      # Blog wrapper (NEW)
+│   ├── BlogListingLayout.astro  # Blog listing (NEW)
+│   └── BlogPostLayout.astro     # Individual posts (NEW)
 ├── pages/               # File-based routing
+│   ├── blog/           # Blog posts and dynamic routing (NEW)
+│   │   ├── [slug].astro
+│   │   └── *.astro/*.md
 │   ├── services/        # Individual service pages
 │   ├── portfolio/       # Individual case study pages
 │   └── *.astro         # Main pages
 ├── data/                # Content and configuration
 │   ├── services.ts      # Services data structure
-│   └── portfolio.ts     # Portfolio/case studies data
+│   ├── portfolio.ts     # Portfolio data (5,676 lines)
+│   └── blog.ts         # Blog content (2,230 lines) (NEW)
 ├── types/               # TypeScript definitions
+│   ├── blog.ts         # Blog types (NEW)
+│   ├── caseStudy.ts    # Portfolio types (NEW)
+│   └── services.ts     # Service types
 └── utils/               # Helper functions
+    ├── core-web-vitals.ts    # Performance monitoring (NEW)
+    ├── portfolio-images.ts   # Image optimization (NEW)
+    └── seo-optimization.ts   # SEO utilities (NEW)
 ```
 
 ## 🎯 Portfolio System Architecture (Latest Implementation)
@@ -105,6 +126,52 @@ interface PortfolioProject {
   // ... comprehensive project details
 }
 ```
+
+## 📝 Blog System Architecture (NEW Implementation)
+
+### Blog Components
+- **BlogCard.astro**: Individual blog post card display
+- **BlogGrid.astro**: Responsive grid layout for blog posts
+- **BlogHero.astro**: Hero section for blog pages
+- **CategoryFilter.astro**: Category-based filtering system
+- **RelatedPosts.astro**: Algorithm for related content
+- **AuthorByline.astro**: Author information display
+- **BlogDropdown.astro**: Navigation dropdown for blog
+
+### Blog Data Structure (`src/data/blog.ts`)
+```typescript
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle?: string;
+  excerpt: string;
+  content: string; // Full markdown content
+  publishedAt: string;
+  status: 'draft' | 'published';
+  featured: boolean;
+  category: string;
+  tags: string[];
+  readingTime: number;
+  author: BlogAuthor;
+  transformationFocus: {
+    businessChallenge: string;
+    transformationOutcome: string;
+    industryRelevance: string[];
+  };
+  relatedServices: RelatedService[];
+  seo: BlogSEO;
+  callToAction?: BlogCTA;
+}
+```
+
+### Blog Features
+- **12+ Comprehensive Articles**: Full content management
+- **Dynamic Routing**: Using `[...slug].astro` for flexible URLs
+- **SEO Optimized**: Meta tags, structured data, social sharing
+- **Category System**: Business transformation, marketing automation, etc.
+- **Reading Time**: Automatic calculation based on content
+- **Related Content**: Intelligent content recommendations
 
 ## 🔧 Development Patterns
 
@@ -215,6 +282,42 @@ npm run preview         # Test production build
 npm run check           # TypeScript validation
 npm run lint            # Code quality check
 ```
+
+## ⚡ Performance Considerations
+
+### Current Performance Metrics
+- **Bundle Size**: 5.2MB total (needs optimization)
+- **CSS Size**: 235KB (target: 75KB)
+- **JavaScript**: 18.9KB (acceptable)
+- **Largest HTML**: 293KB (portfolio page)
+
+### Known Performance Issues
+1. **CSS Bundle**: 235KB needs 68% reduction via PurgeCSS
+2. **PortfolioGrid Component**: 840 lines of JavaScript needs optimization
+3. **Image Optimization**: Missing WebP/AVIF pipeline
+4. **Global CSS**: 2,445 lines with redundant styles
+
+### Optimization Targets
+- **LCP**: < 2.5 seconds (currently ~3.5s estimated)
+- **FID**: < 100ms (currently acceptable)
+- **CLS**: < 0.1 (needs measurement)
+- **Bundle Size**: < 3MB total
+
+## 🐛 Code Quality Status
+
+### ESLint Issues (96 Total)
+- **77 Errors**: Blocking issues requiring immediate fixes
+- **19 Warnings**: Non-blocking improvements
+- **Main Issues**:
+  - 23 unused variables across components
+  - 8 parsing errors in Astro components
+  - 12 TypeScript 'any' usage warnings
+
+### Files Needing Attention
+1. `/src/components/portfolio/TransformationStoryboard.astro`
+2. `/src/data/portfolio.ts` - Unused imports
+3. `/src/components/blog/BlogCard.astro` - JSX parsing error
+4. `/src/utils/core-web-vitals.ts` - TypeScript 'any' usage
 
 ## 🔍 Troubleshooting Guide
 

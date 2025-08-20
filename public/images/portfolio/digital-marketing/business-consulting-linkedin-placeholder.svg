@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="linkedinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C29D49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#linkedinGradient)"/>
+  
+  <!-- LinkedIn interface -->
+  <rect x="30" y="40" width="340" height="200" rx="8" fill="#FFF" stroke="#1B3A2F" stroke-width="2"/>
+  
+  <!-- LinkedIn header -->
+  <rect x="35" y="45" width="330" height="25" fill="#0077B5"/>
+  <text x="40" y="60" fill="#FFF" font-family="Arial" font-size="10">LinkedIn</text>
+  <text x="280" y="60" fill="#FFF" font-family="Arial" font-size="8">Sales Navigator</text>
+  
+  <!-- Profile section -->
+  <rect x="40" y="80" width="150" height="120" fill="#F9F9F7" stroke="#C29D49"/>
+  <circle cx="70" cy="100" r="15" fill="#1B3A2F"/>
+  <text x="65" y="105" fill="#F5F0E6" font-family="Arial" font-size="8">DC</text>
+  
+  <text x="95" y="95" fill="#1C1C1C" font-family="Arial" font-size="8" font-weight="bold">David Chen</text>
+  <text x="95" y="105" fill="#666" font-family="Arial" font-size="6">Principal Consultant</text>
+  <text x="95" y="115" fill="#666" font-family="Arial" font-size="6">Strategic Business Advisors</text>
+  
+  <!-- Content preview -->
+  <rect x="45" y="125" width="140" height="30" fill="#FFF" stroke="#C29D49"/>
+  <text x="48" y="135" fill="#1C1C1C" font-family="Arial" font-size="6">Latest Post: 5 Strategic Mistakes</text>
+  <text x="48" y="143" fill="#1C1C1C" font-family="Arial" font-size="6">That Cost Mid-Market Companies...</text>
+  <text x="48" y="151" fill="#0077B5" font-family="Arial" font-size="5">45 comments • 120 likes</text>
+  
+  <!-- Connections -->
+  <text x="48" y="170" fill="#1C1C1C" font-family="Arial" font-size="6">340 → 1,250 connections</text>
+  <text x="48" y="185" fill="#C29D49" font-family="Arial" font-size="7" font-weight="bold">268% growth</text>
+  
+  <!-- Pipeline section -->
+  <rect x="210" y="80" width="150" height="120" fill="#F9F9F7" stroke="#1B3A2F"/>
+  <rect x="215" y="85" width="140" height="15" fill="#1B3A2F"/>
+  <text x="218" y="95" fill="#F5F0E6" font-family="Arial" font-size="8">Lead Pipeline</text>
+  
+  <!-- Lead metrics -->
+  <text x="220" y="115" fill="#1C1C1C" font-family="Arial" font-size="7">Qualified Leads/Month:</text>
+  <text x="220" y="128" fill="#C29D49" font-family="Arial" font-size="8" font-weight="bold">3 → 8 leads</text>
+  <text x="220" y="140" fill="#4A7C59" font-family="Arial" font-size="7">167% increase</text>
+  
+  <text x="220" y="160" fill="#1C1C1C" font-family="Arial" font-size="7">Average Project Value:</text>
+  <text x="220" y="173" fill="#C29D49" font-family="Arial" font-size="8" font-weight="bold">$2,800 → $8,200</text>
+  <text x="220" y="185" fill="#4A7C59" font-family="Arial" font-size="7">193% increase</text>
+  
+  <!-- Business consulting icons -->
+  <rect x="60" y="250" width="30" height="20" fill="#1B3A2F"/>
+  <rect x="65" y="255" width="20" height="10" fill="#F5F0E6"/>
+  <rect x="68" y="258" width="4" height="4" fill="#C29D49"/>
+  <rect x="74" y="258" width="4" height="4" fill="#C29D49"/>
+  <rect x="80" y="258" width="4" height="4" fill="#C29D49"/>
+  
+  <!-- Growth chart -->
+  <path d="M320 250 L330 240 L340 245 L350 230" stroke="#C29D49" stroke-width="3" fill="none"/>
+  <path d="M345 230 L350 230 L350 235 Z" fill="#C29D49"/>
+  <circle cx="350" cy="230" r="3" fill="#4A7C59"/>
+  
+  <!-- Network icon -->
+  <circle cx="120" cy="260" r="5" fill="#1B3A2F"/>
+  <circle cx="140" cy="250" r="5" fill="#1B3A2F"/>
+  <circle cx="160" cy="265" r="5" fill="#1B3A2F"/>
+  <line x1="125" y1="260" x2="135" y2="250" stroke="#C29D49" stroke-width="2"/>
+  <line x1="145" y1="250" x2="155" y2="265" stroke="#C29D49" stroke-width="2"/>
+  
+  <!-- Pipeline value -->
+  <rect x="230" y="250" width="120" height="25" fill="#1B3A2F" opacity="0.9"/>
+  <text x="235" y="265" fill="#F5F0E6" font-family="Arial" font-size="10">$125K pipeline value</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

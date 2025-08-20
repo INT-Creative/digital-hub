@@ -1,4 +1,5 @@
-import type { CaseStudyData } from '../layouts/CaseStudyLayout.astro';
+import type { CaseStudyData } from '../types/caseStudy';
+import { generatePortfolioMetaDescription, generateSEOKeywords } from '../utils/seo-optimization';
 
 // **DEMONSTRATION PORTFOLIO - LEGAL DISCLAIMER**
 // 

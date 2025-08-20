@@ -10,7 +10,7 @@ export interface Props {
   image?: string;
 }
 
-const { title, description = "Professional marketing agency specializing in startup lead generation and growth strategies.", image = "/images/og-image.jpg" } = Astro.props;
+const { title, description = "Service business transformation consultant specializing in website development, digital marketing automation, and professional branding for Northeast Ohio businesses. Fixed-fee consulting with measurable results.", image = "/images/og-image.jpg" } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPath = Astro.url.pathname;
@@ -37,6 +37,21 @@ const socialMetaTags = generateOpenGraphTags(
     <title>{title} | INT Creative Hub</title>
     <meta name="title" content={`${title} | INT Creative Hub`} />
     <meta name="description" content={description} />
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="keywords" content="service business transformation, Northeast Ohio business consulting, website development Cleveland, digital marketing Akron, professional service business marketing, local business automation, fixed fee consulting" />
+    <meta name="geo.region" content="US-OH" />
+    <meta name="geo.placename" content="Northeast Ohio" />
+    <meta name="geo.position" content="41.4993;-81.6944" />
+    <meta name="ICBM" content="41.4993, -81.6944" />
+    <meta name="DC.title" content={`${title} | INT Creative Hub`} />
+    <meta name="DC.creator" content="Jacob Internicola" />
+    <meta name="DC.subject" content="Service Business Transformation Consulting" />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.publisher" content="INT Creative Hub" />
+    <meta name="DC.type" content="Text" />
+    <meta name="DC.format" content="text/html" />
+    <meta name="DC.language" content="en-US" />
     
     <!-- Enhanced Open Graph and Social Media Meta Tags -->
     {Object.entries(socialMetaTags).map(([property, content]) => (

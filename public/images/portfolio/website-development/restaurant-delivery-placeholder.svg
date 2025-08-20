@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="restaurantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C29D49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#restaurantGradient)"/>
+  
+  <!-- Laptop mockup -->
+  <rect x="40" y="70" width="200" height="130" rx="8" fill="#1B3A2F" stroke="#C29D49" stroke-width="2"/>
+  <rect x="45" y="75" width="190" height="110" fill="#F9F9F7"/>
+  
+  <!-- Website header -->
+  <rect x="50" y="80" width="180" height="20" fill="#1B3A2F"/>
+  <text x="55" y="93" fill="#F5F0E6" font-family="Arial" font-size="10">Mama Rosa's Kitchen</text>
+  
+  <!-- Menu items with images -->
+  <rect x="50" y="105" width="50" height="35" fill="#C56B47"/>
+  <rect x="50" y="145" width="50" height="35" fill="#C29D49"/>
+  
+  <!-- Menu text -->
+  <rect x="110" y="110" width="60" height="6" fill="#1C1C1C"/>
+  <rect x="110" y="120" width="40" height="4" fill="#4A7C59"/>
+  <rect x="110" y="128" width="25" height="8" fill="#C56B47"/>
+  
+  <rect x="110" y="150" width="60" height="6" fill="#1C1C1C"/>
+  <rect x="110" y="160" width="40" height="4" fill="#4A7C59"/>
+  <rect x="110" y="168" width="25" height="8" fill="#C56B47"/>
+  
+  <!-- Shopping cart -->
+  <rect x="180" y="105" width="50" height="70" fill="#F5F0E6" stroke="#C29D49"/>
+  <rect x="185" y="110" width="40" height="8" fill="#1B3A2F"/>
+  <text x="188" y="118" fill="#F5F0E6" font-family="Arial" font-size="6">Cart (3 items)</text>
+  
+  <!-- Mobile mockup -->
+  <rect x="280" y="50" width="90" height="160" rx="15" fill="#1B3A2F"/>
+  <rect x="287" y="60" width="76" height="135" fill="#F9F9F7"/>
+  
+  <!-- Mobile menu -->
+  <rect x="292" y="65" width="66" height="12" fill="#1B3A2F"/>
+  <rect x="295" y="85" width="25" height="15" fill="#C56B47"/>
+  <rect x="295" y="105" width="25" height="15" fill="#C29D49"/>
+  <rect x="295" y="125" width="25" height="15" fill="#C56B47"/>
+  
+  <!-- Order button -->
+  <rect x="325" y="85" width="30" height="15" fill="#4A7C59"/>
+  <text x="328" y="95" fill="#F5F0E6" font-family="Arial" font-size="6">Order</text>
+  
+  <!-- Food icons -->
+  <circle cx="60" cy="30" r="15" fill="#C56B47"/>
+  <path d="M55 30 Q60 25 65 30 Q60 35 55 30" fill="#F5F0E6"/>
+  
+  <circle cx="350" cy="220" r="12" fill="#C29D49"/>
+  <rect x="346" y="216" width="8" height="8" fill="#F5F0E6"/>
+  
+  <!-- Metrics -->
+  <rect x="50" y="15" width="140" height="25" fill="#1B3A2F" opacity="0.9"/>
+  <text x="55" y="30" fill="#F5F0E6" font-family="Arial" font-size="10">200% online order increase</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

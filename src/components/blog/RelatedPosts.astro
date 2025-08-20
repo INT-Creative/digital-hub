@@ -1,0 +1,233 @@
+---
+import { getRelatedBlogPosts, getCategoryBySlug } from '../../data/blog';
+
+export interface Props {
+  currentPost: string;
+  category: string;
+  tags: string[];
+  limit?: number;
+}
+
+const { currentPost, category, tags, limit = 3 } = Astro.props;
+
+// Get related posts using our blog data system
+const relatedPosts = getRelatedBlogPosts(currentPost, limit);
+
+// Helper function to format date
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
+
+// Get category color for styling
+const getCategoryColor = (categorySlug: string) => {
+  const categoryData = getCategoryBySlug(categorySlug);
+  const colorMap: Record<string, string> = {
+    'forest': 'bg-forest-100 text-forest-800',
+    'sage': 'bg-sage-100 text-sage-800',
+    'blue': 'bg-blue-100 text-blue-800',
+    'purple': 'bg-purple-100 text-purple-800',
+    'green': 'bg-green-100 text-green-800',
+    'orange': 'bg-orange-100 text-orange-800'
+  };
+  return colorMap[categoryData?.color || 'sage'] || 'bg-gray-100 text-gray-800';
+};
+---
+
+{relatedPosts.length > 0 && (
+  <section class="py-16 bg-gradient-to-br from-sage-50 to-beige-50 relative overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-10 right-10 w-64 h-64 bg-forest-100/30 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-10 left-10 w-48 h-48 bg-sage-100/40 rounded-full blur-2xl animate-bounce-subtle"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest-900 mb-4">
+          Continue Your Transformation Journey
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Discover more insights to help grow your business
+        </p>
+        
+        <!-- Decorative Connector -->
+        <div class="flex justify-center mt-6 mb-8">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-sage-400 rounded-full animate-pulse"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-sage-400 to-forest-600"></div>
+            <div class="w-3 h-3 bg-forest-600 rounded-full animate-bounce-subtle"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-forest-600 to-sage-400"></div>
+            <div class="w-3 h-3 bg-sage-400 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Related Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {relatedPosts.map((post, index) => {
+          const categoryData = getCategoryBySlug(post.category);
+          const categoryColorClass = getCategoryColor(post.category);
+          
+          return (
+            <article 
+              class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group related-post-entrance opacity-0"
+              style={`animation-delay: ${index * 200}ms`}
+            >
+              <!-- Content Header -->
+              <div class="relative h-32 bg-gradient-to-br from-forest-100 to-sage-100 flex items-center justify-center overflow-hidden rounded-t-xl">
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-md mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <svg 
+                      class="w-6 h-6 text-forest-700"
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={categoryData?.icon} />
+                    </svg>
+                  </div>
+                  <span class={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${categoryColorClass}`}>
+                    {categoryData?.name}
+                  </span>
+                </div>
+              </div>
+              
+              <!-- Content -->
+              <div class="p-6 space-y-4">
+                <!-- Title -->
+                <h3 class="text-lg font-bold text-forest-900 group-hover:text-sage-700 transition-colors duration-300 leading-tight line-clamp-2">
+                  <a href={`/blog/${post.slug}`} class="hover:underline">
+                    {post.title}
+                  </a>
+                </h3>
+                
+                <!-- Excerpt -->
+                <p class="text-gray-600 text-sm line-clamp-3 leading-relaxed">
+                  {post.excerpt}
+                </p>
+                
+                <!-- Transformation Focus -->
+                {post.transformationFocus && (
+                  <div class="bg-sage-50 rounded-lg p-3 border border-sage-100">
+                    <p class="text-xs text-sage-700 leading-relaxed">
+                      <span class="font-medium">Transforms:</span> {post.transformationFocus.businessChallenge}
+                    </p>
+                  </div>
+                )}
+                
+                <!-- Meta -->
+                <div class="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-gray-100">
+                  <time datetime={post.publishedAt}>
+                    {formatDate(post.publishedAt)}
+                  </time>
+                  <span class="flex items-center">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {post.readingTime}m read
+                  </span>
+                </div>
+                
+                <!-- Read More -->
+                <div class="pt-2">
+                  <a 
+                    href={`/blog/${post.slug}`}
+                    class="inline-flex items-center text-sage-600 hover:text-sage-700 font-medium text-sm group/link"
+                  >
+                    Read Article
+                    <svg 
+                      class="w-4 h-4 ml-1 transition-transform duration-200 group-hover/link:translate-x-1" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      
+      <!-- View All CTA -->
+      <div class="text-center mt-12">
+        <a 
+          href="/blog"
+          class="inline-flex items-center btn-primary group"
+        >
+          Explore All Articles
+          <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Newsletter Signup CTA -->
+      <div class="mt-16 bg-white rounded-2xl shadow-lg p-8 text-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-4 left-4 w-8 h-8 border border-forest-600 rounded-full"></div>
+          <div class="absolute bottom-4 right-4 w-6 h-6 border border-sage-600 rounded-full"></div>
+          <div class="absolute top-1/2 left-1/3 w-4 h-4 bg-beige-400 rounded-full"></div>
+        </div>
+        
+        <div class="relative">
+          <h3 class="text-2xl font-heading font-bold text-forest-900 mb-4">
+            Stay Ahead of the Transformation Curve
+          </h3>
+          <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Get practical insights, case studies, and actionable strategies delivered directly to your inbox. No fluff, just transformation.
+          </p>
+          
+          <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+            <input 
+              type="email" 
+              placeholder="Enter your email"
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent"
+              required
+            />
+            <button 
+              type="submit"
+              class="btn-primary whitespace-nowrap"
+            >
+              Get Insights
+            </button>
+          </form>
+          
+          <p class="text-xs text-gray-500 mt-4">
+            Join 500+ business owners transforming their companies. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{relatedPosts.length === 0 && (
+  <!-- Fallback CTA when no related posts -->
+  <section class="py-16 bg-gradient-to-br from-sage-50 to-beige-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-heading font-bold text-forest-900 mb-4">
+        Ready to Transform Your Business?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8">
+        Let's discuss how we can help you achieve your growth goals
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/blog" class="btn-outline">
+          Explore More Articles
+        </a>
+        <a href="/contact" class="btn-primary">
+          Start Your Transformation
+        </a>
+      </div>
+    </div>
+  </section>
+)}

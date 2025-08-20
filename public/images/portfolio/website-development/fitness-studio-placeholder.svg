@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fitnessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A7C59;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#fitnessGradient)"/>
+  
+  <!-- Laptop mockup -->
+  <rect x="40" y="70" width="200" height="130" rx="8" fill="#1C1C1C" stroke="#C56B47" stroke-width="2"/>
+  <rect x="45" y="75" width="190" height="110" fill="#F9F9F7"/>
+  
+  <!-- Website header -->
+  <rect x="50" y="80" width="180" height="20" fill="#4A7C59"/>
+  <text x="55" y="93" fill="#F5F0E6" font-family="Arial" font-size="10">Iron Will Fitness Studio</text>
+  
+  <!-- Class schedule -->
+  <rect x="50" y="105" width="85" height="70" fill="#F5F0E6" stroke="#4A7C59"/>
+  <rect x="55" y="110" width="75" height="10" fill="#1C1C1C"/>
+  <text x="58" y="118" fill="#F5F0E6" font-family="Arial" font-size="6">Class Schedule</text>
+  
+  <!-- Class slots -->
+  <rect x="58" y="125" width="60" height="6" fill="#4A7C59"/>
+  <rect x="58" y="135" width="60" height="6" fill="#4A7C59"/>
+  <rect x="58" y="145" width="60" height="6" fill="#4A7C59"/>
+  <rect x="58" y="155" width="60" height="6" fill="#4A7C59"/>
+  
+  <!-- Join button -->
+  <rect x="58" y="165" width="25" height="8" fill="#C56B47"/>
+  <text x="62" y="171" fill="#F5F0E6" font-family="Arial" font-size="5">JOIN</text>
+  
+  <!-- Member transformations -->
+  <rect x="145" y="105" width="85" height="70" fill="#F9F9F7" stroke="#C56B47"/>
+  <rect x="150" y="110" width="75" height="10" fill="#C56B47"/>
+  <text x="153" y="118" fill="#F5F0E6" font-family="Arial" font-size="6">Success Stories</text>
+  
+  <!-- Before/after mockups -->
+  <rect x="155" y="125" width="25" height="20" fill="#A8BFA3"/>
+  <rect x="185" y="125" width="25" height="20" fill="#4A7C59"/>
+  <text x="157" y="137" fill="#F5F0E6" font-family="Arial" font-size="5">Before</text>
+  <text x="188" y="137" fill="#F5F0E6" font-family="Arial" font-size="5">After</text>
+  
+  <!-- Stats -->
+  <rect x="155" y="150" width="60" height="8" fill="#1C1C1C"/>
+  <text x="158" y="157" fill="#F5F0E6" font-family="Arial" font-size="5">85 → 170 members</text>
+  
+  <!-- Mobile mockup -->
+  <rect x="280" y="50" width="90" height="160" rx="15" fill="#1C1C1C"/>
+  <rect x="287" y="60" width="76" height="135" fill="#F9F9F7"/>
+  
+  <!-- Mobile app interface -->
+  <rect x="292" y="65" width="66" height="12" fill="#4A7C59"/>
+  <rect x="295" y="85" width="30" height="15" fill="#C56B47"/>
+  <text x="298" y="95" fill="#F5F0E6" font-family="Arial" font-size="6">Book Class</text>
+  
+  <!-- Fitness icons -->
+  <circle cx="70" cy="35" r="15" fill="#C56B47"/>
+  <rect x="65" y="30" width="4" height="10" fill="#F5F0E6"/>
+  <rect x="71" y="30" width="4" height="10" fill="#F5F0E6"/>
+  <circle cx="67" cy="28" r="2" fill="#F5F0E6"/>
+  <circle cx="73" cy="28" r="2" fill="#F5F0E6"/>
+  
+  <!-- Dumbbell icon -->
+  <rect x="340" y="220" width="20" height="4" fill="#1C1C1C"/>
+  <circle cx="338" cy="222" r="4" fill="#4A7C59"/>
+  <circle cx="362" cy="222" r="4" fill="#4A7C59"/>
+  
+  <!-- Metrics -->
+  <rect x="50" y="15" width="160" height="25" fill="#1C1C1C" opacity="0.9"/>
+  <text x="55" y="30" fill="#F5F0E6" font-family="Arial" font-size="10">100% membership increase</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

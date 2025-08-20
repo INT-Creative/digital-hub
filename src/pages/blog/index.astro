@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogHero from '../../components/blog/BlogHero.astro';
+import BlogGrid from '../../components/blog/BlogGrid.astro';
+import CategoryFilter from '../../components/blog/CategoryFilter.astro';
+
+// Sample blog posts data - in a real app, this would come from a CMS or database
+const posts = [
+  {
+    title: "The Complete Guide to Local Business Digital Transformation",
+    description: "A comprehensive roadmap for service businesses looking to modernize their operations, attract more customers, and increase revenue through strategic digital initiatives.",
+    slug: "local-business-digital-transformation-guide",
+    publishDate: "2024-01-20",
+    author: "Jacob Internicola",
+    category: "Strategy",
+    tags: ["Transformation", "Local Business", "Strategy", "Growth"],
+    image: "/images/blog/digital-transformation-hero.jpg",
+    readingTime: "15 min",
+    featured: true
+  },
+  {
+    title: "5 Local SEO Strategies That Actually Drive Foot Traffic",
+    description: "Practical, tested approaches to local search optimization that help service businesses attract more customers in their area.",
+    slug: "local-seo-strategies-foot-traffic",
+    publishDate: "2024-01-15",
+    author: "Jacob Internicola",
+    category: "Digital Marketing",
+    tags: ["SEO", "Local Business", "Marketing"],
+    image: "/images/blog/local-seo-hero.jpg",
+    readingTime: "8 min",
+    featured: false
+  },
+  {
+    title: "Website Speed Optimization: From 6s to 1.2s Load Time",
+    description: "A detailed case study showing how we transformed a slow-loading website into a lightning-fast lead generation machine.",
+    slug: "website-speed-optimization-case-study",
+    publishDate: "2024-01-10",
+    author: "Jacob Internicola",
+    category: "Website Development",
+    tags: ["Performance", "Case Study", "Technical"],
+    image: "/images/blog/speed-optimization.jpg",
+    readingTime: "12 min",
+    featured: true
+  },
+  {
+    title: "Marketing Automation for Small Businesses: Start Simple",
+    description: "How to implement effective marketing automation without complex tools or huge budgets. Focus on what actually moves the needle.",
+    slug: "marketing-automation-small-businesses",
+    publishDate: "2024-01-05",
+    author: "Jacob Internicola",
+    category: "Marketing Automation",
+    tags: ["Automation", "Small Business", "Strategy"],
+    image: "/images/blog/marketing-automation.jpg",
+    readingTime: "6 min",
+    featured: false
+  },
+  {
+    title: "The Psychology of High-Converting Landing Pages",
+    description: "Understanding user behavior and decision-making to create landing pages that turn visitors into customers consistently.",
+    slug: "psychology-high-converting-landing-pages",
+    publishDate: "2023-12-28",
+    author: "Jacob Internicola",
+    category: "Website Development",
+    tags: ["Conversion", "Psychology", "Landing Pages"],
+    image: "/images/blog/landing-page-psychology.jpg",
+    readingTime: "10 min",
+    featured: false
+  },
+  {
+    title: "Building a Lead Magnet That Actually Converts",
+    description: "Step-by-step guide to creating valuable lead magnets that capture qualified prospects and build your email list effectively.",
+    slug: "building-lead-magnet-converts",
+    publishDate: "2023-12-20",
+    author: "Jacob Internicola",
+    category: "Digital Marketing",
+    tags: ["Lead Generation", "Content Marketing", "Conversion"],
+    image: "/images/blog/lead-magnet-guide.jpg",
+    readingTime: "9 min",
+    featured: false
+  }
+];
+
+// Generate categories with counts
+const categories = [
+  {
+    name: "Strategy",
+    slug: "strategy",
+    count: posts.filter(p => p.category === "Strategy").length
+  },
+  {
+    name: "Digital Marketing",
+    slug: "digital-marketing",
+    count: posts.filter(p => p.category === "Digital Marketing").length
+  },
+  {
+    name: "Website Development",
+    slug: "website-development",
+    count: posts.filter(p => p.category === "Website Development").length
+  },
+  {
+    name: "Marketing Automation",
+    slug: "marketing-automation",
+    count: posts.filter(p => p.category === "Marketing Automation").length
+  }
+].filter(cat => cat.count > 0);
+
+// Get featured post for hero
+const featuredPost = posts.find(post => post.featured) || posts[0];
+---
+
+<BaseLayout 
+  title="Blog - Transformation Insights" 
+  description="Practical strategies, case studies, and actionable advice to help your business thrive in today's competitive landscape."
+>
+  <!-- Hero Section -->
+  <BlogHero 
+    title="Transformation Insights"
+    description="Practical strategies, case studies, and actionable advice to help your business thrive in today's competitive landscape."
+    showFeaturedPost={true}
+    featuredPost={featuredPost}
+  />
+  
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="latest-posts">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1">
+        <div class="sticky top-24 space-y-8">
+          <!-- Category Filter -->
+          <CategoryFilter 
+            categories={categories}
+            currentCategory="all"
+          />
+          
+          <!-- Recent Posts Widget -->
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <h3 class="text-lg font-heading font-semibold text-forest-900 mb-4">
+              Recent Posts
+            </h3>
+            <div class="space-y-4">
+              {posts.slice(0, 3).map((post) => (
+                <article class="group">
+                  <a href={`/blog/${post.slug}`} class="block">
+                    <h4 class="text-sm font-medium text-gray-900 group-hover:text-sage-700 transition-colors duration-200 line-clamp-2 mb-1">
+                      {post.title}
+                    </h4>
+                    <p class="text-xs text-gray-500">
+                      {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} • {post.readingTime}
+                    </p>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Main Content -->
+      <main class="lg:col-span-3">
+        <!-- Posts Grid -->
+        <BlogGrid 
+          posts={posts}
+          title="Latest Articles"
+          description="Transform your business with proven strategies and insights"
+          showHeader={true}
+          columns={2}
+          className="bg-transparent py-0"
+        />
+        
+        <!-- Load More / Pagination -->
+        <div class="mt-16 text-center">
+          <button class="btn-outline group">
+            Load More Articles
+            <svg class="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <!-- Newsletter Signup CTA -->
+  <section class="py-16 bg-gradient-to-br from-forest-900 to-sage-800 text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full animate-pulse-slow"></div>
+      <div class="absolute bottom-10 right-10 w-24 h-24 border border-white/20 rounded-full animate-bounce-subtle"></div>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+        Transform Your Business Weekly
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Get practical insights, case studies, and transformation strategies delivered to your inbox every week.
+      </p>
+      
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+        <input 
+          type="email" 
+          placeholder="Enter your email address"
+          class="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:ring-2 focus:ring-sage-500 focus:outline-none"
+          required
+        />
+        <button 
+          type="submit"
+          class="btn bg-sage-600 hover:bg-sage-700 text-white border-0 whitespace-nowrap"
+        >
+          Start Transforming
+        </button>
+      </form>
+      
+      <p class="text-sm text-white/70 mt-4">
+        Join 500+ business owners. No spam, unsubscribe anytime.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

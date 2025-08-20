@@ -1,0 +1,261 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getBlogPostBySlug } from '../../data/blog';
+
+const blogPost = getBlogPostBySlug('northeast-ohio-website-checklist-2025');
+
+if (!blogPost) {
+  return Astro.redirect('/blog');
+}
+
+const {
+  title,
+  subtitle,
+  excerpt,
+  content,
+  publishedAt,
+  readingTime,
+  author,
+  category,
+  tags,
+  seo,
+  callToAction
+} = blogPost;
+
+// Ensure required fields have values
+const safeTitle = seo?.metaTitle || title;
+const safeDescription = seo?.metaDescription || excerpt;
+const safeSocialImage = seo?.socialImage || '/images/blog/default-og.jpg';
+---
+
+<BlogPostLayout
+  title={safeTitle}
+  description={safeDescription}
+  author={author.name}
+  date={publishedAt}
+  readTime={`${readingTime} min read`}
+  category={category}
+  image={safeSocialImage}
+  tags={tags}
+>
+  <!-- Blog content with enhanced formatting -->
+  <div class="blog-content">
+    <!-- Subtitle -->
+    {subtitle && (
+      <div class="subtitle-section bg-sage-50 border-l-4 border-sage-500 p-6 mb-8 rounded-r-lg">
+        <p class="text-lg font-medium text-sage-800 leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
+    )}
+
+    <!-- Table of Contents -->
+    <div class="toc-section bg-beige-50 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold text-forest-900 mb-4 flex items-center">
+        <svg class="w-5 h-5 mr-2 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+        Table of Contents
+      </h2>
+      <nav class="space-y-2">
+        <ul class="text-sm space-y-2">
+          <li><a href="#section-1-core-web-vitals" class="text-sage-700 hover:text-sage-800 hover:underline">Section 1: Core Web Vitals (Technical Foundation)</a></li>
+          <li><a href="#section-2-northeast-ohio-local-seo" class="text-sage-700 hover:text-sage-800 hover:underline">Section 2: Northeast Ohio Local SEO</a></li>
+          <li><a href="#section-3-conversion-optimization" class="text-sage-700 hover:text-sage-800 hover:underline">Section 3: Conversion Optimization</a></li>
+          <li><a href="#section-4-content-that-converts" class="text-sage-700 hover:text-sage-800 hover:underline">Section 4: Content That Converts</a></li>
+          <li><a href="#section-5-analytics-and-measurement" class="text-sage-700 hover:text-sage-800 hover:underline">Section 5: Analytics and Measurement</a></li>
+          <li><a href="#implementation-roadmap" class="text-sage-700 hover:text-sage-800 hover:underline">Implementation Roadmap</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Key Statistics Callout -->
+    <div class="stats-callout bg-gradient-to-r from-forest-900 to-sage-800 text-white rounded-xl p-8 mb-12">
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-sage-300 mb-2">200+</div>
+          <div class="text-beige-200">Websites Audited</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-sage-300 mb-2">85%</div>
+          <div class="text-beige-200">Need Core Improvements</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-sage-300 mb-2">3x</div>
+          <div class="text-beige-200">Average Lead Increase</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div set:html={content}></div>
+
+    <!-- Call to Action -->
+    <div class="cta-section bg-gradient-to-br from-sage-100 to-beige-100 rounded-2xl p-8 mt-12">
+      <div class="text-center">
+        <h3 class="text-2xl font-heading font-bold text-forest-900 mb-4">
+          {callToAction?.title || 'Get Your Website Audit'}
+        </h3>
+        <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+          {callToAction?.description || 'I\'ll personally review your website against this checklist and provide a custom action plan.'}
+        </p>
+        <a 
+          href={callToAction?.buttonUrl || '/contact'}
+          class="inline-flex items-center px-8 py-4 bg-forest-900 hover:bg-forest-800 text-white font-medium rounded-lg transition-colors duration-200"
+        >
+          {callToAction?.buttonText || 'Book Website Audit'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        
+        <div class="mt-6 text-sm text-gray-600">
+          <div class="flex items-center justify-center space-x-4">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Free consultation
+            </span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Custom action plan
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Expertise -->
+    <div class="author-expertise bg-white border border-gray-200 rounded-xl p-8 mt-12">
+      <div class="flex items-start space-x-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-sage-200 to-beige-200 rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-forest-700 font-bold text-lg">JI</span>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold text-forest-900 mb-3">About This Guide</h4>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            This checklist is based on real audits of 200+ Northeast Ohio business websites across Cleveland, Akron, and Canton. 
+            I've identified the common patterns that separate high-performing local business websites from those that struggle to generate leads.
+          </p>
+          <div class="bg-sage-50 rounded-lg p-4">
+            <p class="text-sm text-sage-800">
+              <strong>Expert Implementation:</strong> While this guide provides comprehensive direction, many business owners find the technical 
+              implementation challenging. That's exactly what I handle for clients in my Website Development service—the technical 
+              complexity while you focus on running your business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BlogPostLayout>
+
+<style>
+  /* Enhanced blog content styling */
+  .blog-content :global(h2) {
+    @apply text-2xl font-heading font-bold text-forest-900 mt-12 mb-6 border-b border-gray-200 pb-2;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h3) {
+    @apply text-xl font-semibold text-forest-900 mt-8 mb-4;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h4) {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+
+  .blog-content :global(ul) {
+    @apply space-y-2 ml-6;
+  }
+
+  .blog-content :global(li) {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .blog-content :global(p) {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+
+  .blog-content :global(strong) {
+    @apply font-semibold text-forest-900;
+  }
+
+  .blog-content :global(code) {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .blog-content :global(pre) {
+    @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm;
+  }
+
+  .blog-content :global(blockquote) {
+    @apply border-l-4 border-sage-500 pl-6 py-2 bg-sage-50 rounded-r-lg text-sage-800 italic;
+  }
+
+  /* Checklist items styling */
+  .blog-content :global(ul li:has(input[type="checkbox"])) {
+    @apply list-none flex items-start space-x-3;
+  }
+
+  .blog-content :global(input[type="checkbox"]) {
+    @apply mt-1 w-4 h-4 text-sage-600 rounded focus:ring-sage-500;
+  }
+
+  /* Table styling */
+  .blog-content :global(table) {
+    @apply w-full border-collapse border border-gray-200 rounded-lg overflow-hidden;
+  }
+
+  .blog-content :global(th) {
+    @apply bg-sage-100 border border-gray-200 px-4 py-3 text-left font-semibold text-forest-900;
+  }
+
+  .blog-content :global(td) {
+    @apply border border-gray-200 px-4 py-3 text-gray-700;
+  }
+
+  /* Links styling */
+  .blog-content :global(a) {
+    @apply text-sage-700 hover:text-sage-800 underline decoration-sage-300 hover:decoration-sage-500 transition-colors duration-200;
+  }
+
+  /* Example boxes */
+  .blog-content :global(.example) {
+    @apply bg-beige-50 border-l-4 border-beige-500 p-4 rounded-r-lg;
+  }
+
+  .blog-content :global(.pro-tip) {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg;
+  }
+
+  .blog-content :global(.warning) {
+    @apply bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg;
+  }
+</style>
+
+<script>
+  // Smooth scrolling for table of contents links
+  document.addEventListener('DOMContentLoaded', function() {
+    const tocLinks = document.querySelectorAll('.toc-section a[href^="#"]');
+    
+    tocLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

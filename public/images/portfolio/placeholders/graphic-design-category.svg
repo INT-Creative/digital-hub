@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="designGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C29D49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#designGradient)"/>
+  
+  <!-- Main container -->
+  <rect x="50" y="50" width="300" height="180" rx="12" fill="#F9F9F7" stroke="#1B3A2F" stroke-width="3"/>
+  
+  <!-- Header -->
+  <rect x="60" y="60" width="280" height="30" fill="#1B3A2F"/>
+  <text x="105" y="80" fill="#F5F0E6" font-family="Arial" font-size="16" font-weight="bold">Graphic Design</text>
+  
+  <!-- Before/After showcase -->
+  <rect x="80" y="110" width="110" height="70" fill="#F5F0E6" stroke="#C29D49"/>
+  <rect x="85" y="115" width="100" height="12" fill="#8B7355"/>
+  <text x="88" y="124" fill="#F5F0E6" font-family="Arial" font-size="7">BEFORE</text>
+  
+  <!-- Old design elements -->
+  <rect x="90" y="135" width="80" height="15" fill="#FFF" stroke="#8B7355"/>
+  <text x="95" y="145" fill="#8B7355" font-family="Times" font-size="7">COMPANY NAME</text>
+  <text x="95" y="152" fill="#8B7355" font-family="Times" font-size="5">Est. 1990</text>
+  
+  <rect x="90" y="155" width="35" height="20" fill="#FFF" stroke="#8B7355"/>
+  <text x="92" y="165" fill="#8B7355" font-family="Times" font-size="4">Business Card</text>
+  
+  <!-- Arrow -->
+  <path d="M200 145 L220 145" stroke="#C29D49" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- After section -->
+  <rect x="230" y="110" width="110" height="70" fill="#F5F0E6" stroke="#1B3A2F"/>
+  <rect x="235" y="115" width="100" height="12" fill="#1B3A2F"/>
+  <text x="238" y="124" fill="#F5F0E6" font-family="Arial" font-size="7">AFTER</text>
+  
+  <!-- New design elements -->
+  <rect x="240" y="135" width="80" height="15" fill="#FFF" stroke="#1B3A2F"/>
+  <circle cx="250" cy="142" r="4" fill="#1B3A2F"/>
+  <path d="M248 142 L250 140 L252 142 L250 144 Z" fill="#F5F0E6"/>
+  <text x="258" y="145" fill="#1B3A2F" font-family="Arial" font-size="7" font-weight="bold">COMPANY</text>
+  <text x="258" y="152" fill="#A8BFA3" font-family="Arial" font-size="5">Modern Excellence</text>
+  
+  <rect x="240" y="155" width="35" height="20" fill="#1B3A2F"/>
+  <text x="242" y="165" fill="#F5F0E6" font-family="Arial" font-size="4">Professional</text>
+  
+  <!-- Color palette -->
+  <rect x="285" y="155" width="45" height="20" fill="#F9F9F7" stroke="#1B3A2F"/>
+  <text x="287" y="162" fill="#1C1C1C" font-family="Arial" font-size="5">Color Palette</text>
+  <circle cx="290" cy="168" r="2" fill="#1B3A2F"/>
+  <circle cx="296" cy="168" r="2" fill="#A8BFA3"/>
+  <circle cx="302" cy="168" r="2" fill="#C29D49"/>
+  <circle cx="308" cy="168" r="2" fill="#4A7C59"/>
+  
+  <!-- Design tools -->
+  <g transform="translate(80, 195)">
+    <!-- Pen tool -->
+    <rect x="0" y="0" width="2" height="15" fill="#1B3A2F"/>
+    <circle cx="1" cy="0" r="2" fill="#C29D49"/>
+    
+    <!-- Color swatches -->
+    <rect x="10" y="5" width="8" height="8" fill="#1B3A2F"/>
+    <rect x="20" y="5" width="8" height="8" fill="#A8BFA3"/>
+    <rect x="30" y="5" width="8" height="8" fill="#C29D49"/>
+  </g>
+  
+  <!-- Typography samples -->
+  <g transform="translate(150, 195)">
+    <text x="0" y="10" fill="#1B3A2F" font-family="Arial" font-size="8" font-weight="bold">Aa</text>
+    <text x="15" y="10" fill="#A8BFA3" font-family="Georgia" font-size="8">Aa</text>
+    <text x="30" y="10" fill="#C29D49" font-family="Times" font-size="8">Aa</text>
+  </g>
+  
+  <!-- Brand guidelines -->
+  <rect x="220" y="190" width="60" height="25" fill="#F9F9F7" stroke="#1B3A2F"/>
+  <text x="225" y="200" fill="#1C1C1C" font-family="Arial" font-size="6">Brand Guidelines</text>
+  <rect x="225" y="205" width="15" height="2" fill="#1B3A2F"/>
+  <rect x="225" y="209" width="20" height="2" fill="#A8BFA3"/>
+  <rect x="225" y="213" width="12" height="2" fill="#C29D49"/>
+  
+  <!-- Service highlights -->
+  <rect x="70" y="240" width="260" height="25" fill="#1B3A2F" opacity="0.9"/>
+  <text x="90" y="255" fill="#F5F0E6" font-family="Arial" font-size="12">Brand Identity • Logo Design • Professional Materials</text>
+  
+  <!-- Define arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C29D49"/>
+    </marker>
+  </defs>
+  
+  <!-- Legal disclaimer -->
+  <text x="280" y="285" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

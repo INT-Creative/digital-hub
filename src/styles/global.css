@@ -1686,6 +1686,273 @@ body {
 .animate-float-2 { animation: float-2 3s ease-in-out infinite 1s; }
 .animate-float-3 { animation: float-3 5s ease-in-out infinite 2s; }
 
+/* Blog Specific Animations */
+@keyframes readingProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes blogHeroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blogCardFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes tagHover {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+}
+
+/* =======================
+   BLOG ARCHITECTURE STYLING
+   ======================= */
+
+/* Blog Typography Enhancement */
+.blog-content h2 {
+  position: relative;
+  padding: 1rem 1rem 1rem 2rem;
+  margin: 2rem 0 1rem 0;
+  border-left: 4px solid #4A7C59;
+  background: linear-gradient(90deg, rgba(74, 124, 89, 0.05), transparent);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.blog-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, #4A7C59, #5a8e6b);
+  border-radius: 1px;
+}
+
+.blog-content blockquote {
+  position: relative;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f4f8f5, #e6f0e8);
+  border-radius: 1rem;
+  border-left: 6px solid #4A7C59;
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.1);
+}
+
+.blog-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: #4A7C59;
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+/* Blog Card Enhancements */
+.blog-card-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-card-enhanced:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(11, 61, 46, 0.15);
+}
+
+.blog-card-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 124, 89, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.blog-card-enhanced:hover::before {
+  left: 100%;
+}
+
+/* Author Bio Styling */
+.author-bio-enhanced {
+  background: linear-gradient(135deg, #f4f8f5, #ffffff);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 3rem 0;
+  border: 1px solid #e6f0e8;
+  position: relative;
+  overflow: hidden;
+}
+
+.author-bio-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4A7C59, #5a8e6b);
+}
+
+/* Reading Progress Bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #4A7C59, #5a8e6b);
+  z-index: 100;
+  transition: width 0.1s ease;
+}
+
+/* Blog Grid Animations */
+.blog-grid-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: blogItemReveal 0.8s ease-out forwards;
+}
+
+.blog-grid-item:nth-child(1) { animation-delay: 0.1s; }
+.blog-grid-item:nth-child(2) { animation-delay: 0.2s; }
+.blog-grid-item:nth-child(3) { animation-delay: 0.3s; }
+.blog-grid-item:nth-child(4) { animation-delay: 0.4s; }
+.blog-grid-item:nth-child(5) { animation-delay: 0.5s; }
+.blog-grid-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes blogItemReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Social Share Enhancements */
+.social-share-enhanced {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-share-enhanced a {
+  transition: all 0.3s ease;
+}
+
+.social-share-enhanced a:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Pills */
+.category-pill-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.category-pill-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.category-pill-enhanced:hover::before {
+  left: 100%;
+}
+
+/* Blog Mobile Responsive */
+@media (max-width: 768px) {
+  .blog-content h2 {
+    padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+  
+  .blog-content blockquote {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .author-bio-enhanced {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-content blockquote {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .author-bio-enhanced {
+    padding: 1.25rem;
+  }
+}
+
+/* Blog Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .blog-card-enhanced,
+  .blog-grid-item,
+  .category-pill-enhanced,
+  .social-share-enhanced a {
+    animation: none !important;
+    transition-duration: 0.1s !important;
+  }
+  
+  .blog-card-enhanced:hover {
+    transform: none;
+  }
+}
+
+/* Blog High Contrast */
+@media (prefers-contrast: high) {
+  .blog-content blockquote {
+    border-left: 6px solid #000;
+    background: #fff;
+  }
+  
+  .blog-card-enhanced {
+    border: 2px solid #000;
+  }
+  
+  .category-pill-enhanced {
+    border: 1px solid #000;
+  }
+}
+
 /* Service Card Transformation Animations */
 .transformation-card {
   position: relative;

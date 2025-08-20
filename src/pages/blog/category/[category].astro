@@ -1,0 +1,190 @@
+---
+import BlogListingLayout from '../../../layouts/BlogListingLayout.astro';
+import BlogGrid from '../../../components/sections/blog/BlogGrid.astro';
+import { blogData, getBlogPostsByCategory, getCategoryBySlug } from '../../../data/blog';
+
+export function getStaticPaths() {
+  return blogData.categories.map((category) => ({
+    params: { category: category.slug },
+    props: { categoryData: category }
+  }));
+}
+
+const { category } = Astro.params;
+const { categoryData } = Astro.props;
+
+// Get posts for this category
+const categoryPosts = getBlogPostsByCategory(category);
+
+// Build page metadata
+const pageTitle = `${categoryData.name} Articles`;
+const pageDescription = `${categoryData.description} Browse all articles about ${categoryData.name.toLowerCase()}.`;
+
+// Breadcrumbs
+const breadcrumbItems = [
+  { label: categoryData.name, href: `/blog/category/${category}` }
+];
+---
+
+<BlogListingLayout 
+  title={pageTitle} 
+  description={pageDescription}
+  currentCategory={category}
+  breadcrumbItems={breadcrumbItems}
+>
+  
+  <!-- Category Header -->
+  <section class="mb-12">
+    <div class="bg-gradient-to-r from-forest-900 via-forest-800 to-sage-800 rounded-2xl p-8 text-white relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-4 right-4 w-20 h-20 border border-white/20 rounded-full animate-pulse-slow"></div>
+        <div class="absolute bottom-4 left-4 w-16 h-16 border border-white/20 rounded-full animate-bounce-subtle"></div>
+      </div>
+      
+      <div class="relative z-10 max-w-4xl">
+        <div class="flex items-center space-x-4 mb-4">
+          <!-- Category Icon -->
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+            <svg 
+              class="w-8 h-8 text-forest-700"
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={categoryData.icon} />
+            </svg>
+          </div>
+          
+          <!-- Category Info -->
+          <div>
+            <h1 class="text-3xl md:text-4xl font-heading font-bold mb-2">
+              {categoryData.name}
+            </h1>
+            <p class="text-beige-100 text-lg leading-relaxed">
+              {categoryData.description}
+            </p>
+          </div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="flex items-center space-x-6 text-beige-200 text-sm">
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            {categoryPosts.length} articles
+          </div>
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {Math.round(categoryPosts.reduce((acc, post) => acc + post.readingTime, 0) / categoryPosts.length || 0)}m avg read
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Category Posts -->
+  {categoryPosts.length > 0 ? (
+    <section>
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-heading font-bold text-forest-900">
+          Latest in {categoryData.name}
+        </h2>
+        
+        <!-- View All Link -->
+        <a 
+          href="/blog"
+          class="inline-flex items-center text-sage-600 hover:text-sage-700 font-medium text-sm transition-colors duration-200"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
+          Browse All Categories
+        </a>
+      </div>
+      
+      <!-- Posts Grid -->
+      <BlogGrid 
+        posts={categoryPosts}
+        showFilters={false}
+        category={category}
+      />
+    </section>
+  ) : (
+    <!-- No Posts State -->
+    <section class="text-center py-20">
+      <div class="max-w-md mx-auto">
+        <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <h3 class="text-xl font-heading font-semibold text-gray-900 mb-2">
+          No Articles Yet
+        </h3>
+        <p class="text-gray-600 mb-6">
+          We're working on content for this category. Check back soon!
+        </p>
+        <a 
+          href="/blog"
+          class="inline-flex items-center px-4 py-2 bg-sage-600 text-white rounded-lg hover:bg-sage-700 transition-colors duration-200"
+        >
+          Browse All Articles
+        </a>
+      </div>
+    </section>
+  )}
+  
+  <!-- Related Categories -->
+  <section class="mt-20 bg-sage-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-heading font-bold text-forest-900 mb-6">
+      Explore More Topics
+    </h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {blogData.categories.filter(cat => cat.slug !== category).map((otherCategory) => (
+        <a 
+          href={`/blog/category/${otherCategory.slug}`}
+          class="bg-white rounded-lg p-4 hover:bg-sage-100 transition-colors duration-200 group text-center"
+        >
+          <div class="w-10 h-10 mx-auto bg-sage-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-sage-200 transition-colors duration-200">
+            <svg 
+              class="w-5 h-5 text-sage-600"
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={otherCategory.icon} />
+            </svg>
+          </div>
+          <h3 class="text-sm font-medium text-gray-900 group-hover:text-sage-700 transition-colors duration-200 leading-tight">
+            {otherCategory.name}
+          </h3>
+        </a>
+      ))}
+    </div>
+  </section>
+  
+</BlogListingLayout>
+
+<style>
+  /* Custom animations */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 6s ease-in-out infinite;
+  }
+</style>

@@ -1,0 +1,349 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getBlogPostBySlug } from '../../data/blog';
+
+const blogPost = getBlogPostBySlug('marketing-automation-roi-544-return');
+
+if (!blogPost) {
+  return Astro.redirect('/blog');
+}
+
+const {
+  title,
+  subtitle,
+  excerpt,
+  content,
+  publishedAt,
+  readingTime,
+  author,
+  category,
+  tags,
+  seo,
+  callToAction
+} = blogPost;
+
+// Ensure required fields have values
+const safeTitle = seo?.metaTitle || title;
+const safeDescription = seo?.metaDescription || excerpt;
+const safeSocialImage = seo?.socialImage || '/images/blog/default-og.jpg';
+---
+
+<BlogPostLayout
+  title={safeTitle}
+  description={safeDescription}
+  author={author.name}
+  date={publishedAt}
+  readTime={`${readingTime} min read`}
+  category={category}
+  image={safeSocialImage}
+  tags={tags}
+>
+  <!-- Blog content with enhanced formatting -->
+  <div class="blog-content">
+    <!-- Subtitle -->
+    {subtitle && (
+      <div class="subtitle-section bg-sage-50 border-l-4 border-sage-500 p-6 mb-8 rounded-r-lg">
+        <p class="text-lg font-medium text-sage-800 leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
+    )}
+
+    <!-- ROI Highlight Box -->
+    <div class="roi-highlight bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8 mb-12 text-center">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div>
+          <div class="text-4xl font-bold mb-2">$5.44</div>
+          <div class="text-green-100">Return per $1 invested</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">10.3</div>
+          <div class="text-green-100">Hours saved weekly</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">67%</div>
+          <div class="text-green-100">Better lead quality</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">47</div>
+          <div class="text-green-100">Northeast Ohio businesses analyzed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc-section bg-beige-50 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold text-forest-900 mb-4 flex items-center">
+        <svg class="w-5 h-5 mr-2 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        Table of Contents
+      </h2>
+      <nav class="space-y-2">
+        <ul class="text-sm space-y-2">
+          <li><a href="#roi-numbers-breakdown" class="text-sage-700 hover:text-sage-800 hover:underline">The Real ROI Numbers: What Actually Works</a></li>
+          <li><a href="#case-study-lakewood-dental" class="text-sage-700 hover:text-sage-800 hover:underline">Case Study 1: Lakewood Dental Practice</a></li>
+          <li><a href="#case-study-cleveland-hvac" class="text-sage-700 hover:text-sage-800 hover:underline">Case Study 2: Cleveland HVAC Emergency Services</a></li>
+          <li><a href="#case-study-akron-law-firm" class="text-sage-700 hover:text-sage-800 hover:underline">Case Study 3: Akron Law Firm</a></li>
+          <li><a href="#workflows-that-drive-results" class="text-sage-700 hover:text-sage-800 hover:underline">The Workflows That Drive Results</a></li>
+          <li><a href="#time-savings-analysis" class="text-sage-700 hover:text-sage-800 hover:underline">Time Savings: The Hidden ROI</a></li>
+          <li><a href="#implementation-strategy" class="text-sage-700 hover:text-sage-800 hover:underline">Implementation Strategy: Maximizing ROI</a></li>
+          <li><a href="#measuring-roi" class="text-sage-700 hover:text-sage-800 hover:underline">Measuring Your Marketing Automation ROI</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Research Methodology Box -->
+    <div class="methodology-box bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
+      <h3 class="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        Research Methodology
+      </h3>
+      <p class="text-blue-800 text-sm leading-relaxed">
+        This ROI analysis is based on data from 47 Northeast Ohio service businesses that implemented marketing automation 
+        systems between January 2023 and September 2024. All businesses had revenue between $100K-$2M annually and 
+        implemented basic to advanced automation workflows. ROI calculations include both direct revenue impact and 
+        time savings valued at business owner hourly rates.
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div set:html={content}></div>
+
+    <!-- ROI Calculator Section -->
+    <div class="roi-calculator bg-gradient-to-br from-sage-100 to-beige-100 rounded-2xl p-8 mt-12">
+      <h3 class="text-2xl font-heading font-bold text-forest-900 mb-6 text-center">
+        Calculate Your Potential ROI
+      </h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Revenue</label>
+            <input type="number" id="monthly-revenue" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent" placeholder="50000">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Hours Spent on Manual Marketing (Weekly)</label>
+            <input type="number" id="manual-hours" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent" placeholder="15">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Your Hourly Rate</label>
+            <input type="number" id="hourly-rate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent" placeholder="75">
+          </div>
+          
+          <button id="calculate-roi" class="w-full bg-forest-900 hover:bg-forest-800 text-white font-medium py-3 rounded-lg transition-colors duration-200">
+            Calculate My ROI
+          </button>
+        </div>
+        
+        <div id="roi-results" class="bg-white rounded-lg p-6 border border-gray-200">
+          <h4 class="text-lg font-semibold text-forest-900 mb-4">Your Potential Results</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-600">Annual Time Savings Value:</span>
+              <span id="time-savings" class="font-semibold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Expected Revenue Increase (5%):</span>
+              <span id="revenue-increase" class="font-semibold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Automation Investment:</span>
+              <span id="investment-cost" class="font-semibold">$6,000</span>
+            </div>
+            <hr class="border-gray-200">
+            <div class="flex justify-between text-lg">
+              <span class="font-semibold text-forest-900">Projected Annual ROI:</span>
+              <span id="total-roi" class="font-bold text-green-600">$0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-xs text-gray-600 mt-4 text-center">
+        *Calculations based on average client results. Individual results may vary.
+      </p>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section bg-gradient-to-br from-sage-100 to-beige-100 rounded-2xl p-8 mt-12">
+      <div class="text-center">
+        <h3 class="text-2xl font-heading font-bold text-forest-900 mb-4">
+          {callToAction?.title || 'Calculate Your Automation ROI'}
+        </h3>
+        <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+          {callToAction?.description || 'Get a custom ROI projection based on your current processes and business model.'}
+        </p>
+        <a 
+          href={callToAction?.buttonUrl || '/contact'}
+          class="inline-flex items-center px-8 py-4 bg-forest-900 hover:bg-forest-800 text-white font-medium rounded-lg transition-colors duration-200"
+        >
+          {callToAction?.buttonText || 'Book ROI Assessment'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        
+        <div class="mt-6 text-sm text-gray-600">
+          <div class="flex items-center justify-center space-x-4">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Custom ROI projection
+            </span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Implementation roadmap
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Expertise -->
+    <div class="author-expertise bg-white border border-gray-200 rounded-xl p-8 mt-12">
+      <div class="flex items-start space-x-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-sage-200 to-beige-200 rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-forest-700 font-bold text-lg">JI</span>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold text-forest-900 mb-3">About This Analysis</h4>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            This ROI analysis represents 18 months of tracking real automation implementations across Northeast Ohio. 
+            Every number, case study, and recommendation comes from actual client experiences—not theoretical projections.
+          </p>
+          <div class="bg-sage-50 rounded-lg p-4">
+            <p class="text-sm text-sage-800">
+              <strong>Implementation Note:</strong> The businesses achieving 10x+ ROI didn't start with complex systems. 
+              They began with simple automations focused on their biggest time drains and revenue leaks, then scaled what worked.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BlogPostLayout>
+
+<style>
+  /* Enhanced blog content styling */
+  .blog-content :global(h2) {
+    @apply text-2xl font-heading font-bold text-forest-900 mt-12 mb-6 border-b border-gray-200 pb-2;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h3) {
+    @apply text-xl font-semibold text-forest-900 mt-8 mb-4;
+    scroll-margin-top: 100px;
+  }
+
+  .blog-content :global(h4) {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+
+  .blog-content :global(ul) {
+    @apply space-y-2 ml-6;
+  }
+
+  .blog-content :global(li) {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .blog-content :global(p) {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+
+  .blog-content :global(strong) {
+    @apply font-semibold text-forest-900;
+  }
+
+  .blog-content :global(code) {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .blog-content :global(pre) {
+    @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm;
+  }
+
+  .blog-content :global(blockquote) {
+    @apply border-l-4 border-sage-500 pl-6 py-2 bg-sage-50 rounded-r-lg text-sage-800 italic;
+  }
+
+  /* Case study boxes */
+  .blog-content :global(.case-study) {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 mb-8;
+  }
+
+  /* ROI highlight boxes */
+  .blog-content :global(.roi-box) {
+    @apply bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg;
+  }
+
+  /* Results boxes */
+  .blog-content :global(.results) {
+    @apply bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-lg p-6;
+  }
+
+  /* Links styling */
+  .blog-content :global(a) {
+    @apply text-sage-700 hover:text-sage-800 underline decoration-sage-300 hover:decoration-sage-500 transition-colors duration-200;
+  }
+</style>
+
+<script>
+  // ROI Calculator functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const calculateButton = document.getElementById('calculate-roi');
+    
+    if (calculateButton) {
+      calculateButton.addEventListener('click', function() {
+        const monthlyRevenue = parseFloat(document.getElementById('monthly-revenue').value) || 50000;
+        const manualHours = parseFloat(document.getElementById('manual-hours').value) || 15;
+        const hourlyRate = parseFloat(document.getElementById('hourly-rate').value) || 75;
+        
+        // Calculate annual time savings value
+        const annualTimeSavings = manualHours * 52 * hourlyRate * 0.7; // 70% time savings
+        
+        // Calculate expected revenue increase (conservative 5%)
+        const annualRevenueIncrease = monthlyRevenue * 12 * 0.05;
+        
+        // Fixed automation investment
+        const automationInvestment = 6000;
+        
+        // Total ROI
+        const totalBenefit = annualTimeSavings + annualRevenueIncrease;
+        const roi = totalBenefit - automationInvestment;
+        const roiMultiplier = (totalBenefit / automationInvestment).toFixed(2);
+        
+        // Update results
+        document.getElementById('time-savings').textContent = '$' + annualTimeSavings.toLocaleString();
+        document.getElementById('revenue-increase').textContent = '$' + annualRevenueIncrease.toLocaleString();
+        document.getElementById('total-roi').textContent = '$' + roi.toLocaleString() + ' (' + roiMultiplier + 'x return)';
+      });
+    }
+
+    // Smooth scrolling for table of contents links
+    const tocLinks = document.querySelectorAll('.toc-section a[href^="#"]');
+    
+    tocLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

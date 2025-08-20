@@ -1,0 +1,115 @@
+# Robots.txt for INT Creative Hub
+# SEO-optimized robots.txt with portfolio-specific directives
+
+User-agent: *
+Allow: /
+
+# Main pages - high priority for crawling
+Allow: /services/
+Allow: /portfolio/
+Allow: /contact/
+
+# Service pages - important for SEO
+Allow: /services/website-development/
+Allow: /services/digital-marketing/
+Allow: /services/graphic-design/
+Allow: /services/marketing-automation/
+
+# Portfolio pages - demonstration case studies
+Allow: /portfolio/
+Allow: /portfolio/wellness-studio-transformation/
+Allow: /portfolio/hvac-lead-generation/
+Allow: /portfolio/law-firm-rebrand/
+Allow: /portfolio/dental-practice-automation/
+Allow: /portfolio/restaurant-delivery-site/
+Allow: /portfolio/landscaping-seasonal-automation/
+Allow: /portfolio/accounting-firm-rebrand/
+Allow: /portfolio/auto-repair-digital-presence/
+Allow: /portfolio/plumbing-emergency-ads/
+Allow: /portfolio/consulting-lead-funnel/
+Allow: /portfolio/veterinary-clinic-automation/
+Allow: /portfolio/fitness-studio-complete-transformation/
+
+# Static assets
+Allow: /images/
+Allow: /fonts/
+Allow: /css/
+Allow: /js/
+
+# Block admin and development files
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /astro.config.*
+Disallow: /package*.json
+Disallow: /tsconfig.json
+Disallow: /tailwind.config.*
+
+# Block temporary and build files
+Disallow: /dist/
+Disallow: /.astro/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /*.log
+
+# Block sensitive portfolio development files
+Disallow: /images/portfolio/raw/
+Disallow: /images/portfolio/drafts/
+Disallow: /portfolio-dev/
+Disallow: /case-study-templates/
+
+# Allow search engines to crawl CSS and JS for better indexing
+Allow: /*.css
+Allow: /*.js
+
+# Block query parameters that might create duplicate content
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+Disallow: /*&utm_*
+Disallow: /*&ref=*
+Disallow: /*&source=*
+
+# Allow legitimate portfolio filtering
+Allow: /portfolio/?filter=*
+
+# Special directives for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Special directives for Bingbot
+User-agent: bingbot
+Allow: /
+Crawl-delay: 2
+
+# Block AI scrapers while allowing search engines
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Sitemaps for comprehensive crawling
+Sitemap: https://intcreative.co/sitemap.xml
+Sitemap: https://intcreative.co/portfolio-sitemap.xml
+
+# Additional metadata
+# Website: INT Creative Hub - Service Business Transformation
+# Location: Northeast Ohio (Cleveland, Akron, Canton, Youngstown)
+# Services: Website Development, Digital Marketing, Graphic Design, Marketing Automation
+# Target Market: Professional Services, Healthcare, Home Services, Local Businesses
+# Contact: jake@intcreative.co

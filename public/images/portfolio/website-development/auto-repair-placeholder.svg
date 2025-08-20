@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="autoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9F9F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1C1C1C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#autoGradient)"/>
+  
+  <!-- Laptop mockup -->
+  <rect x="50" y="80" width="180" height="120" rx="8" fill="#1C1C1C" stroke="#4A7C59" stroke-width="2"/>
+  <rect x="55" y="85" width="170" height="100" fill="#F9F9F7"/>
+  
+  <!-- Website header -->
+  <rect x="60" y="90" width="160" height="18" fill="#1B3A2F"/>
+  <text x="65" y="102" fill="#F5F0E6" font-family="Arial" font-size="9">Summit Auto Repair</text>
+  
+  <!-- Service booking interface -->
+  <rect x="60" y="115" width="75" height="60" fill="#F5F0E6" stroke="#4A7C59"/>
+  <rect x="65" y="120" width="65" height="8" fill="#1B3A2F"/>
+  <text x="67" y="127" fill="#F5F0E6" font-family="Arial" font-size="6">Book Service</text>
+  
+  <!-- Service options -->
+  <rect x="67" y="135" width="50" height="6" fill="#4A7C59"/>
+  <rect x="67" y="145" width="50" height="6" fill="#4A7C59"/>
+  <rect x="67" y="155" width="50" height="6" fill="#4A7C59"/>
+  
+  <!-- Book button -->
+  <rect x="67" y="165" width="25" height="8" fill="#C56B47"/>
+  <text x="70" y="171" fill="#F5F0E6" font-family="Arial" font-size="5">BOOK</text>
+  
+  <!-- Trust elements -->
+  <rect x="145" y="115" width="75" height="60" fill="#F9F9F7" stroke="#1C1C1C"/>
+  <circle cx="155" cy="130" r="5" fill="#4A7C59"/>
+  <text x="165" y="133" fill="#1C1C1C" font-family="Arial" font-size="6">Certified</text>
+  <circle cx="155" cy="145" r="5" fill="#4A7C59"/>
+  <text x="165" y="148" fill="#1C1C1C" font-family="Arial" font-size="6">Licensed</text>
+  <circle cx="155" cy="160" r="5" fill="#4A7C59"/>
+  <text x="165" y="163" fill="#1C1C1C" font-family="Arial" font-size="6">Insured</text>
+  
+  <!-- Mobile mockup -->
+  <rect x="270" y="60" width="80" height="140" rx="15" fill="#1C1C1C"/>
+  <rect x="277" y="70" width="66" height="115" fill="#F9F9F7"/>
+  
+  <!-- Mobile booking -->
+  <rect x="280" y="75" width="60" height="8" fill="#1B3A2F"/>
+  <rect x="280" y="90" width="35" height="20" fill="#4A7C59"/>
+  <text x="283" y="102" fill="#F5F0E6" font-family="Arial" font-size="6">Book Now</text>
+  
+  <!-- Auto repair icons -->
+  <circle cx="80" cy="40" r="15" fill="#1C1C1C"/>
+  <rect x="72" y="35" width="16" height="3" fill="#4A7C59"/>
+  <rect x="72" y="42" width="16" height="3" fill="#4A7C59"/>
+  <circle cx="76" cy="32" r="2" fill="#C56B47"/>
+  <circle cx="84" cy="32" r="2" fill="#C56B47"/>
+  
+  <!-- Wrench icon -->
+  <rect x="320" y="200" width="25" height="4" fill="#1C1C1C" transform="rotate(45 332 202)"/>
+  <circle cx="320" cy="202" r="3" fill="#4A7C59"/>
+  
+  <!-- Metrics -->
+  <rect x="230" y="20" width="160" height="25" fill="#1C1C1C" opacity="0.9"/>
+  <text x="235" y="35" fill="#F5F0E6" font-family="Arial" font-size="10">150% new customer increase</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

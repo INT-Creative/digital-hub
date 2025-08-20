@@ -1,0 +1,389 @@
+---
+// SEO-Optimized Responsive Portfolio Image Component
+// Handles image loading, fallbacks, and SEO optimization
+
+import { generatePortfolioImageAlt } from '../../utils/seo-optimization';
+
+export interface Props {
+  slug: string;
+  serviceType: string;
+  title: string;
+  category: string;
+  clientResult: string;
+  industry: string;
+  index: number;
+  showLegalBadge?: boolean;
+  className?: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
+}
+
+const {
+  slug,
+  serviceType,
+  title,
+  category,
+  clientResult,
+  industry,
+  index,
+  showLegalBadge = true,
+  className = '',
+  loading = index < 6 ? 'eager' : 'lazy',
+  priority = index < 3
+} = Astro.props;
+
+// Generate SEO-optimized alt text
+const imageAlt = generatePortfolioImageAlt(title, serviceType, industry, clientResult);
+
+// Generate responsive image sources
+const imageBasePath = `/images/portfolio/${serviceType}`;
+const webpSources = [
+  { media: '(max-width: 480px)', srcset: `${imageBasePath}/${slug}.webp 480w` },
+  { media: '(max-width: 768px)', srcset: `${imageBasePath}/${slug}.webp 768w` },
+  { media: '(min-width: 769px)', srcset: `${imageBasePath}/${slug}@2x.webp 1200w` }
+];
+
+const jpegFallbacks = [
+  { media: '(max-width: 480px)', srcset: `${imageBasePath}/${slug}.jpg 480w` },
+  { media: '(max-width: 768px)', srcset: `${imageBasePath}/${slug}.jpg 768w` },
+  { media: '(min-width: 769px)', srcset: `${imageBasePath}/${slug}@2x.jpg 1200w` }
+];
+
+// Service type color mapping for fallback graphics
+const serviceColorMap: Record<string, string> = {
+  'website-development': 'from-forest-900 to-sage-800',
+  'digital-marketing': 'from-sage-700 to-forest-800', 
+  'graphic-design': 'from-forest-800 to-sage-700',
+  'marketing-automation': 'from-sage-800 to-forest-900'
+};
+
+const serviceColor = serviceColorMap[serviceType] || 'from-forest-900 to-sage-800';
+
+// Service icons for fallback display
+const serviceIcons: Record<string, string> = {
+  'website-development': 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+  'digital-marketing': 'M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z',
+  'graphic-design': 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4.586A2 2 0 0111 3.414L15.414 7.414A2 2 0 0116 9v8a4 4 0 01-4 4H7zM9 5v4h4',
+  'marketing-automation': 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4'
+};
+
+const serviceIcon = serviceIcons[serviceType] || serviceIcons['website-development'];
+---
+
+<div class={`portfolio-image-container relative h-full w-full ${className}`} data-portfolio-slug={slug}>
+  <!-- Modern Responsive Picture Element with SEO Optimization -->
+  <picture class="block h-full w-full">
+    <!-- WebP sources for modern browsers -->
+    {webpSources.map(source => (
+      <source
+        media={source.media}
+        srcset={source.srcset}
+        type="image/webp"
+        data-format="webp"
+      />
+    ))}
+    
+    <!-- JPEG fallbacks for compatibility -->
+    {jpegFallbacks.map(source => (
+      <source
+        media={source.media}
+        srcset={source.srcset}
+        type="image/jpeg"
+        data-format="jpeg"
+      />
+    ))}
+    
+    <!-- Main image element with comprehensive SEO attributes -->
+    <img
+      src={`${imageBasePath}/${slug}.jpg`}
+      alt={imageAlt}
+      title={`${title} - ${category} transformation showing ${clientResult}`}
+      loading={loading}
+      decoding="async"
+      class="portfolio-main-image w-full h-full object-cover object-center transition-all duration-700"
+      width="400"
+      height="300"
+      data-portfolio-image
+      data-slug={slug}
+      data-service={serviceType}
+      data-industry={industry}
+      data-priority={priority}
+      fetchpriority={priority ? 'high' : 'low'}
+      sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 400px"
+      onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';"
+      onload="this.parentElement.parentElement.classList.add('loaded')"
+    />
+  </picture>
+  
+  <!-- SEO-Optimized Loading State with Service Context -->
+  <div class="portfolio-image-fallback absolute inset-0 flex items-center justify-center bg-gray-100 opacity-100 transition-opacity duration-400">
+    <div class={`absolute inset-0 bg-gradient-to-br ${serviceColor} opacity-80`}></div>
+    <div class="relative z-10 text-center text-white p-4">
+      <!-- Service Icon -->
+      <div class="w-16 h-16 mx-auto mb-4 opacity-80">
+        <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={serviceIcon} />
+        </svg>
+      </div>
+      
+      <!-- Loading Animation -->
+      <div class="space-y-3">
+        <div class="skeleton-shimmer-container relative overflow-hidden bg-white/20 rounded h-2 w-24 mx-auto">
+          <div class="skeleton-shimmer"></div>
+        </div>
+        <div class="text-xs font-medium opacity-90 tracking-wide">
+          Loading {category} Project
+        </div>
+        <div class="loading-progress-container relative bg-white/20 rounded-full h-1 w-32 mx-auto overflow-hidden">
+          <div class="loading-progress bg-white/60 h-full rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Enhanced Error State with SEO Context -->
+  <div class="portfolio-image-error absolute inset-0 items-center justify-center bg-gray-50 opacity-0 transition-opacity duration-400" style="display: none;">
+    <div class={`absolute inset-0 bg-gradient-to-br ${serviceColor} opacity-60`}></div>
+    <div class="relative z-10 text-center text-white p-6 max-w-sm mx-auto">
+      <!-- Error Icon -->
+      <div class="w-20 h-20 mx-auto mb-4 opacity-90">
+        <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={serviceIcon} />
+        </svg>
+      </div>
+      
+      <!-- Error Content with SEO Value -->
+      <div class="space-y-3">
+        <h3 class="font-bold text-sm">{title}</h3>
+        <div class="text-xs opacity-90 leading-relaxed">
+          <p class="mb-2">{category} transformation project</p>
+          <div class="bg-white/20 rounded px-3 py-2">
+            <span class="font-semibold text-xs">Key Result:</span>
+            <br />
+            <span class="text-xs">{clientResult}</span>
+          </div>
+        </div>
+        <div class="text-xs text-white/80 mt-3">
+          Demonstration case study for Northeast Ohio service businesses
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Legal Compliance Badge with SEO Context -->
+  {showLegalBadge && (
+    <div class="legal-disclaimer-badge absolute top-2 left-2 z-20">
+      <div 
+        class="bg-amber-500/90 backdrop-blur-sm text-amber-900 text-xs font-bold px-2 py-1 rounded-md border border-amber-400/50 shadow-lg cursor-help transition-all duration-300 hover:bg-amber-400/95"
+        title="This is a demonstration case study created for educational purposes. All client details are fictional to illustrate methodology while protecting client privacy."
+        role="button"
+        tabindex="0"
+        aria-label="Legal disclaimer: This is a demonstration case study with fictional client details"
+      >
+        <span class="flex items-center space-x-1">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          <span>DEMO</span>
+        </div>
+      </div>
+    </div>
+  )}
+  
+  <!-- Image SEO Enhancement Overlay (invisible, for SEO context) -->
+  <div class="sr-only" aria-hidden="true">
+    <span>Portfolio image showing {title} {category} transformation project</span>
+    <span>Service type: {serviceType.replace('-', ' ')}</span>
+    <span>Industry: {industry}</span>
+    <span>Key result: {clientResult}</span>
+    <span>Demonstration case study for Northeast Ohio service business transformation consulting</span>
+  </div>
+</div>
+
+<style>
+  /* Enhanced image loading optimizations */
+  .portfolio-image-container {
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 300px;
+  }
+  
+  .portfolio-main-image {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  
+  /* Loading state animations */
+  .skeleton-shimmer-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .skeleton-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    animation: shimmer 2s infinite ease-in-out;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  
+  .loading-progress-container {
+    overflow: hidden;
+  }
+  
+  .loading-progress {
+    width: 0;
+    animation: loadingProgress 2s infinite ease-in-out;
+  }
+  
+  @keyframes loadingProgress {
+    0%, 100% { width: 0; }
+    50% { width: 100%; }
+  }
+  
+  /* Legal badge enhancements */
+  .legal-disclaimer-badge {
+    animation: legalPulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes legalPulse {
+    0%, 100% { 
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+    }
+    50% { 
+      box-shadow: 0 4px 25px rgba(245, 158, 11, 0.5), 
+                  0 0 0 2px rgba(245, 158, 11, 0.2);
+    }
+  }
+  
+  /* Accessibility enhancements */
+  .legal-disclaimer-badge [role="button"]:focus {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast support */
+  @media (prefers-contrast: high) {
+    .portfolio-image-fallback,
+    .portfolio-image-error {
+      border: 2px solid #000;
+    }
+    
+    .legal-disclaimer-badge {
+      background: #000 !important;
+      color: #fff !important;
+      border: 2px solid #fff !important;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-main-image,
+    .skeleton-shimmer,
+    .loading-progress,
+    .legal-disclaimer-badge {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+    
+    .portfolio-image-fallback,
+    .portfolio-image-error {
+      transition: opacity 0.2s ease;
+    }
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .portfolio-image-container {
+      contain-intrinsic-size: 300px 225px;
+    }
+    
+    .legal-disclaimer-badge {
+      top: 4px;
+      left: 4px;
+    }
+    
+    .legal-disclaimer-badge div {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.65rem;
+    }
+  }
+  
+  /* Print optimizations */
+  @media print {
+    .portfolio-image-fallback,
+    .portfolio-image-error,
+    .legal-disclaimer-badge {
+      display: none !important;
+    }
+    
+    .portfolio-main-image {
+      filter: grayscale(100%);
+    }
+  }
+  
+  /* Network condition optimizations */
+  @media (max-width: 640px) and (max-resolution: 150dpi) {
+    .portfolio-main-image {
+      image-rendering: optimizeSpeed;
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+</style>
+
+<!-- Structured Data for Individual Image -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "@id": `https://intcreative.co/images/portfolio/${slug}-desktop.jpg`,
+  "url": `https://intcreative.co/images/portfolio/${slug}-desktop.jpg`,
+  "name": `${title} - ${category} Transformation Project Image`,
+  "alternateName": imageAlt,
+  "description": `Visual representation of ${title} ${category.toLowerCase()} transformation project showing ${clientResult}`,
+  "width": "1200",
+  "height": "630",
+  "encodingFormat": "image/jpeg",
+  "contentUrl": `https://intcreative.co/images/portfolio/${slug}-desktop.jpg`,
+  "thumbnailUrl": `https://intcreative.co/images/portfolio/${slug}-mobile.jpg`,
+  "creator": {
+    "@type": "Person",
+    "name": "Jacob Internicola",
+    "jobTitle": "Business Transformation Consultant"
+  },
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "INT Creative Hub"
+  },
+  "creditText": "INT Creative Hub Portfolio",
+  "copyrightNotice": "© INT Creative Hub - Demonstration Portfolio",
+  "usageInfo": "Educational demonstration of business transformation methodology",
+  "acquireLicensePage": "https://intcreative.co/portfolio",
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": `${title} Case Study`,
+    "url": `https://intcreative.co/portfolio/${slug}`
+  },
+  "about": {
+    "@type": "Thing",
+    "name": `${serviceType.replace('-', ' ')} for service businesses`,
+    "description": `Demonstration of ${serviceType.replace('-', ' ')} methodology for Northeast Ohio service business transformation`
+  },
+  "keywords": `${title}, ${category}, ${serviceType}, service business transformation, Northeast Ohio, demonstration portfolio, ${industry}`,
+  "inLanguage": "en-US",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "disclaimer": "This is a demonstration case study created for educational purposes. All client names and details are fictional."
+})} />

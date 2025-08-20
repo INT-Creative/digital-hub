@@ -1,7 +1,9 @@
 ---
 import { portfolioData, getPortfolioByCategory, getFeaturedPortfolio } from '../../../data/portfolio';
+import ResponsivePortfolioImage from '../../common/ResponsivePortfolioImage.astro';
+import { preloadCriticalImages } from '../../../utils/portfolio-images';
 
-// Portfolio Grid Component - Matches ServicesOverviewGrid patterns
+// Portfolio Grid Component - Production-ready with responsive image loading
 export interface Props {
   featuredOnly?: boolean;
   limit?: number;
@@ -45,17 +47,32 @@ const getServiceColor = (serviceType: string) => {
         See exactly how I approach problems like yours. These demonstration projects showcase my proven methodology using realistic scenarios for Northeast Ohio service businesses.
       </p>
       
-      <!-- Clear demonstration disclaimer -->
-      <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-4xl mx-auto mb-8">
-        <div class="flex items-start">
-          <svg class="w-5 h-5 text-amber-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-          </svg>
-          <div>
-            <h3 class="text-sm font-medium text-amber-800 mb-1">Demonstration Projects</h3>
-            <p class="text-sm text-amber-700">
-              These showcase my exact methodology using realistic scenarios. Every strategy, timeline, and deliverable shown here is what you'll experience in your actual project—just applied to your specific business goals.
-            </p>
+      <!-- Enhanced Legal Compliance Disclaimer -->
+      <div class="bg-gradient-to-r from-amber-50 via-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl p-6 max-w-4xl mx-auto mb-8 shadow-lg" 
+           role="complementary" 
+           aria-labelledby="portfolio-disclaimer-title">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 id="portfolio-disclaimer-title" class="text-base font-bold text-amber-900 mb-2 flex items-center">
+              <span class="mr-2">⚠️</span>
+              IMPORTANT: Fictional Demonstration Portfolio
+            </h3>
+            <div class="space-y-2 text-sm text-amber-800">
+              <p class="font-semibold">
+                All case studies, client names, testimonials, and metrics shown below are <strong>FICTIONAL</strong> and created solely for demonstration purposes.
+              </p>
+              <p>
+                These conceptual projects illustrate my planned methodology and approach to service business transformation. While based on realistic scenarios and proven strategies, <strong>NO ACTUAL CLIENT RELATIONSHIPS</strong> are represented.
+              </p>
+              <p class="text-xs text-amber-700 font-medium bg-amber-100 rounded p-2 border-l-4 border-amber-400">
+                <strong>FTC Compliance:</strong> This complies with Federal Trade Commission guidelines requiring clear disclosure of fictional content in business marketing materials. No earnings claims or guarantees are made.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -70,108 +87,134 @@ const getServiceColor = (serviceType: string) => {
       </div>
     </div>
     
-    <!-- Portfolio Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-portfolio-grid>
+    <!-- Enhanced Portfolio Grid with Staggered Animations -->
+    <div class="portfolio-grid-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10" data-portfolio-grid>
       {filteredItems.map((item, index) => (
         <article 
-          class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden"
+          class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden portfolio-card-entrance opacity-0"
           style={`animation-delay: ${index * 150}ms`}
           data-portfolio-item
           data-portfolio-category={item.serviceType}
+          data-portfolio-index={index}
         >
-          <!-- Thumbnail -->
-          <div class="relative h-48 overflow-hidden rounded-t-xl">
-            <div class={`absolute inset-0 bg-gradient-to-br ${getServiceColor(item.serviceType)} opacity-90`}></div>
-            <!-- Placeholder for actual image -->
-            <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
-              <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
+          <!-- Production-Ready Responsive Image System -->
+          <div class="relative h-72 overflow-hidden rounded-t-xl group-portfolio">
+            <div class={`absolute inset-0 bg-gradient-to-br ${getServiceColor(item.serviceType)} opacity-90 z-0`}></div>
             
-            <!-- Demo Project Label -->
-            <div class="absolute bottom-2 left-2 right-2">
-              <div class="bg-amber-600/90 backdrop-blur-sm text-white px-2 py-1 rounded text-xs text-center font-medium">
-                Demonstration Project
-              </div>
-            </div>
-            
-            <!-- Service Category Badge -->
-            <div class="absolute top-3 left-3">
-              <span class="bg-white/90 backdrop-blur-sm text-forest-900 px-3 py-1 rounded-full text-xs font-medium">
-                {item.category}
-              </span>
-            </div>
+            <!-- Responsive Portfolio Image Component -->
+            <ResponsivePortfolioImage
+              slug={item.slug}
+              serviceType={item.serviceType}
+              title={item.title}
+              category={item.category}
+              clientResult={item.clientResults.keyOutcome}
+              industry={item.clientInfo.industry}
+              index={index}
+              showLegalBadge={true}
+              className="z-10"
+            />
             
             <!-- Featured Badge -->
             {featuredOnly && (
-              <div class="absolute top-3 right-3">
-                <span class="bg-sage-600 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center">
-                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <div class="absolute top-3 right-3 z-20">
+                <span class="bg-sage-600 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center shadow-lg">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  Featured
+                  <span>Featured</span>
                 </span>
               </div>
             )}
-            
-            <!-- Hover overlay -->
-            <div class="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <span class="text-white font-medium text-sm">View Case Study</span>
-            </div>
           </div>
           
-          <!-- Content -->
-          <div class="p-6">
-            <!-- Title & Tagline -->
-            <h3 class="text-xl font-bold text-forest-900 mb-2 group-hover:text-sage-700 transition-colors duration-300">
-              {item.title}
-            </h3>
-            <p class="text-sm text-sage-700 font-medium mb-3">
-              {item.clientResults.keyOutcome}
-            </p>
+          <!-- Enhanced Content Area -->
+          <div class="p-6 space-y-4">
+            <!-- Title & Tagline with Visual Hierarchy -->
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-forest-900 group-hover:text-sage-700 transition-colors duration-300 leading-tight">
+                {item.title}
+              </h3>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-sage-500 rounded-full"></div>
+                <p class="text-sm text-sage-700 font-semibold tracking-wide">
+                  {item.clientResults.keyOutcome}
+                </p>
+              </div>
+            </div>
             
-            <!-- Description -->
-            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+            <!-- Enhanced Description -->
+            <p class="text-gray-600 leading-relaxed text-sm line-clamp-3">
               {item.description}
             </p>
             
-            <!-- Key Result -->
-            <div class="bg-sage-50 rounded-lg p-3 mb-4 border-l-3 border-sage-500">
-              <div class="text-xs text-sage-600 font-medium mb-1">KEY RESULT</div>
-              <div class="text-sm font-semibold text-forest-900">{item.clientResults.metric}</div>
-              <div class="text-xs text-gray-600">{item.clientResults.timeframe}</div>
+            <!-- Enhanced Key Result Card with Count-Up Animation -->
+            <div class="bg-gradient-to-r from-sage-50 to-beige-50 rounded-lg p-4 border border-sage-200 relative overflow-hidden group/result hover:border-sage-300 transition-all duration-300">
+              <div class="absolute inset-0 bg-gradient-to-r from-sage-100/0 via-sage-200/30 to-sage-100/0 transform -translate-x-full group-hover/result:translate-x-full transition-transform duration-1000"></div>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-sage-600 font-bold tracking-wider">KEY RESULT</span>
+                  <div class="result-pulse-indicator">
+                    <div class="w-1 h-1 bg-sage-500 rounded-full animate-pulse"></div>
+                    <div class="w-0.5 h-0.5 bg-sage-400 rounded-full animate-pulse ml-1" style="animation-delay: 0.5s;"></div>
+                  </div>
+                </div>
+                <div class="text-sm font-bold text-forest-900 mb-1 result-metric" data-metric={item.clientResults.metric}>
+                  {item.clientResults.metric}
+                </div>
+                <div class="text-xs text-gray-600 font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {item.clientResults.timeframe}
+                </div>
+              </div>
+              <!-- Success celebration sparkle -->
+              <div class="absolute top-1 right-1 opacity-0 group-hover/result:opacity-100 transition-opacity duration-500 celebration-sparkle">
+                <div class="w-1 h-1 bg-yellow-400 rounded-full animate-ping"></div>
+              </div>
             </div>
             
-            <!-- Technologies -->
-            <div class="mb-4">
-              <div class="text-xs text-gray-500 font-medium mb-2">TOOLS USED</div>
-              <div class="flex flex-wrap gap-1">
-                {item.technologies.slice(0, 3).map((tech) => (
-                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+            <!-- Enhanced Technologies Display -->
+            <div>
+              <div class="text-xs text-gray-500 font-bold tracking-wider mb-2">TOOLS USED</div>
+              <div class="flex flex-wrap gap-2">
+                {item.technologies.slice(0, 3).map((tech, index) => (
+                  <span class="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium border border-gray-200 hover:border-sage-300 transition-colors duration-300">
                     {tech}
                   </span>
                 ))}
                 {item.technologies.length > 3 && (
-                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                  <span class="bg-gradient-to-r from-sage-100 to-sage-50 text-sage-700 px-3 py-1.5 rounded-full text-xs font-semibold border border-sage-200">
                     +{item.technologies.length - 3} more
                   </span>
                 )}
               </div>
             </div>
             
-            <!-- CTA Button -->
+            <!-- Enhanced CTA Button with Micro-Interactions -->
             <a 
               href={`/portfolio/${item.slug}`}
-              class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform relative overflow-hidden group/btn block text-sm"
+              class="w-full bg-gradient-to-r from-sage-600 to-sage-700 hover:from-sage-700 hover:to-sage-800 text-white py-3.5 px-6 rounded-xl font-semibold text-center transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform relative overflow-hidden group/btn block text-sm border border-sage-500/20 cta-button"
+              aria-label={`View detailed case study for ${item.title}`}
+              data-portfolio-cta
             >
-              <span class="relative z-10">View Full Case Study</span>
-              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500"></div>
+              <span class="relative z-10 flex items-center justify-center space-x-2">
+                <span class="cta-text">View Case Study</span>
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+              <!-- Button press feedback -->
+              <div class="absolute inset-0 bg-white/10 rounded-xl opacity-0 button-press-effect transform scale-95"></div>
             </a>
           </div>
           
-          <!-- Card hover effect border -->
-          <div class="absolute inset-0 border-2 border-sage-600/20 rounded-xl opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+          <!-- Enhanced Card Hover Effects -->
+          <div class="absolute inset-0 border-2 border-sage-600/30 rounded-xl opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+          
+          <!-- Subtle card glow on hover -->
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-sage-600 to-forest-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-500 pointer-events-none"></div>
         </article>
       ))}
     </div>
@@ -189,8 +232,8 @@ const getServiceColor = (serviceType: string) => {
       </div>
     )}
     
-    <!-- Ready for Real Results Section -->
-    <div class="mt-16 text-center bg-beige-50 rounded-2xl p-8 max-w-4xl mx-auto relative overflow-hidden group">
+    <!-- Ready for Real Results Section with Enhanced Interactions -->
+    <div class="mt-16 text-center bg-beige-50 rounded-2xl p-8 max-w-4xl mx-auto relative overflow-hidden group ready-to-start-section">
       <div class="absolute inset-0 bg-gradient-to-r from-beige-100/0 via-sage-100/30 to-beige-100/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       <h3 class="text-xl font-heading font-semibold text-forest-900 mb-3 relative z-10 group-hover:scale-105 transition-transform duration-300">
         Ready to See This Methodology Work for Your Business?
@@ -200,12 +243,18 @@ const getServiceColor = (serviceType: string) => {
       </p>
       
       <div class="grid sm:grid-cols-2 gap-4 mb-6">
-        <div class="bg-white/60 rounded-lg p-4 text-sm">
-          <h4 class="font-semibold text-forest-900 mb-2">✓ Proven Methodology</h4>
+        <div class="bg-white/60 rounded-lg p-4 text-sm trust-signal hover:bg-white/80 transition-all duration-300 hover:shadow-md transform hover:scale-105">
+          <h4 class="font-semibold text-forest-900 mb-2 flex items-center">
+            <span class="checkmark-icon mr-2 text-sage-600">✓</span>
+            Proven Methodology
+          </h4>
           <p class="text-gray-600">Every strategy shown here is battle-tested and ready to deploy</p>
         </div>
-        <div class="bg-white/60 rounded-lg p-4 text-sm">
-          <h4 class="font-semibold text-forest-900 mb-2">✓ Transparent Process</h4>
+        <div class="bg-white/60 rounded-lg p-4 text-sm trust-signal hover:bg-white/80 transition-all duration-300 hover:shadow-md transform hover:scale-105">
+          <h4 class="font-semibold text-forest-900 mb-2 flex items-center">
+            <span class="checkmark-icon mr-2 text-sage-600">✓</span>
+            Transparent Process
+          </h4>
           <p class="text-gray-600">You see exactly what to expect from start to finish</p>
         </div>
       </div>
@@ -232,3 +281,560 @@ const getServiceColor = (serviceType: string) => {
     </div>
   </div>
 </section>
+
+<!-- Portfolio Graphics Enhancement Styles -->
+<style>
+  /* ===== RESPONSIVE IMAGE SYSTEM ===== */
+  .portfolio-image-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  }
+  
+  .portfolio-image-container.loaded .portfolio-image-fallback {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .portfolio-image-container.loaded .portfolio-image-error {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .portfolio-card-entrance.image-error .portfolio-image-error {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .portfolio-card-entrance.image-error .portfolio-image-fallback {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .portfolio-main-image {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    will-change: transform;
+  }
+  
+  /* ===== LOADING STATES ===== */
+  .portfolio-image-fallback,
+  .portfolio-image-error {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(1px);
+  }
+  
+  /* Skeleton shimmer effect */
+  .skeleton-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    animation: shimmer 2s infinite ease-in-out;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  
+  /* Loading progress animation */
+  .loading-progress {
+    width: 0;
+    animation: loadingProgress 2s infinite ease-in-out;
+  }
+  
+  @keyframes loadingProgress {
+    0%, 100% { width: 0; }
+    50% { width: 100%; }
+  }
+  
+  /* ===== CONNECTION-AWARE LOADING ===== */
+  @media (max-width: 768px) and (max-resolution: 150dpi) {
+    /* Lower quality images for slow connections */
+    .portfolio-main-image {
+      image-rendering: optimizeSpeed;
+    }
+  }
+  
+  /* ===== ENHANCED HOVER STATES ===== */
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .portfolio-main-image {
+      transform: scale(1.08);
+    }
+    
+    .group:hover .portfolio-image-container::after {
+      opacity: 0.1;
+    }
+  }
+  
+  .portfolio-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(74, 124, 89, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  
+  /* ===== LEGAL COMPLIANCE ENHANCEMENTS ===== */
+  .legal-disclaimer-badge {
+    animation: legalPulse 3s infinite ease-in-out;
+    z-index: 20;
+  }
+  
+  @keyframes legalPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(245, 158, 11, 0.5), 0 0 0 2px rgba(245, 158, 11, 0.2); }
+  }
+  
+  /* ===== TOUCH INTERACTIONS ===== */
+  @media (max-width: 768px) {
+    [data-portfolio-item] {
+      scroll-margin-top: 120px;
+      touch-action: manipulation;
+    }
+    
+    .group-portfolio {
+      min-height: 300px;
+    }
+    
+    /* Touch feedback */
+    [data-portfolio-item]:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+    
+    /* Disable hover effects on touch devices */
+    .portfolio-main-image {
+      transform: none !important;
+    }
+  }
+  
+  /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+  [data-portfolio-item] a:focus {
+    outline: 3px solid #4a7c59;
+    outline-offset: 3px;
+    border-radius: 0.75rem;
+  }
+  
+  [data-portfolio-item] a:focus-visible {
+    outline-color: #059669;
+    outline-width: 2px;
+  }
+  
+  /* High contrast support */
+  @media (prefers-contrast: high) {
+    .portfolio-image-fallback,
+    .portfolio-image-error {
+      border: 2px solid #000;
+    }
+    
+    .legal-disclaimer-badge {
+      background: #000 !important;
+      color: #fff !important;
+      border: 2px solid #fff !important;
+    }
+  }
+  
+  /* ===== REDUCED MOTION SUPPORT ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-card-entrance {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    
+    .portfolio-main-image,
+    .group:hover .portfolio-main-image,
+    .skeleton-shimmer,
+    .loading-progress,
+    .legal-disclaimer-badge {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+    
+    .portfolio-image-fallback,
+    .portfolio-image-error {
+      transition: opacity 0.2s ease;
+    }
+  }
+  
+  /* ===== ENHANCED PERFORMANCE OPTIMIZATIONS ===== */
+  [data-portfolio-grid] {
+    contain: layout style;
+  }
+  
+  /* ===== PORTFOLIO CARD ENTRANCE ANIMATIONS ===== */
+  @keyframes portfolioCardEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .portfolio-card-entrance {
+    animation: portfolioCardEntrance 0.8s ease-out forwards;
+  }
+  
+  /* ===== RESPONSIVE GRID ENHANCEMENTS ===== */
+  .portfolio-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .portfolio-grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .portfolio-grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+  
+  /* Ensure cards have minimum height on mobile */
+  @media (max-width: 639px) {
+    [data-portfolio-item] {
+      min-height: 400px;
+    }
+  }
+  
+  .portfolio-image-container {
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 300px;
+  }
+  
+  /* GPU acceleration with better memory management */
+  .portfolio-main-image {
+    will-change: auto;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  
+  /* Optimize skeleton animations */
+  .skeleton-shimmer {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .loading-progress {
+    will-change: width;
+  }
+  
+  /* Container queries for better responsive performance */
+  @container (max-width: 400px) {
+    .portfolio-image-container {
+      contain-intrinsic-size: 300px 225px;
+    }
+  }
+  
+  /* ===== CONTENT OPTIMIZATION ===== */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+  }
+  
+  /* ===== PRINT OPTIMIZATION ===== */
+  @media print {
+    [data-portfolio-item] {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      page-break-inside: avoid;
+    }
+    
+    .portfolio-image-fallback,
+    .portfolio-image-error,
+    .legal-disclaimer-badge {
+      display: none;
+    }
+    
+    .bg-gradient-to-r,
+    .bg-gradient-to-t,
+    .bg-gradient-to-br {
+      background: #f9fafb !important;
+      color: #111827 !important;
+    }
+  }
+  
+  /* ===== NETWORK CONDITION OPTIMIZATIONS ===== */
+  @media (max-width: 640px) and (max-resolution: 150dpi) {
+    /* Optimize for slow connections */
+    .portfolio-main-image {
+      image-rendering: optimizeSpeed;
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+</style>
+
+<!-- Optimized High-Performance Portfolio System -->
+<script type="module">
+  // Lightweight, performance-optimized portfolio system
+  const PortfolioSystem = {
+    metrics: {
+      loadTimes: new Map(),
+      failures: new Set(),
+      connection: navigator.connection?.effectiveType || 'unknown'
+    },
+
+    // Optimized image loader with memory management
+    imageLoader: {
+      observer: null,
+      loaded: new WeakSet(),
+      
+      init() {
+        if (!('IntersectionObserver' in window)) {
+          this.loadAllImages();
+          return;
+        }
+        
+        this.observer = new IntersectionObserver(
+          this.handleIntersection.bind(this),
+          { rootMargin: '50px 0px', threshold: 0.01 }
+        );
+        
+        // Observe portfolio containers efficiently
+        this.observeImages();
+      },
+
+      observeImages() {
+        const containers = document.querySelectorAll('.portfolio-image-container');
+        containers.forEach(container => {
+          const img = container.querySelector('[data-portfolio-image]');
+          if (img?.loading !== 'eager') {
+            this.observer.observe(container);
+          }
+        });
+      },
+
+      handleIntersection(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.loadImage(entry.target);
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+
+      loadImage(container) {
+        const img = container.querySelector('[data-portfolio-image]');
+        const slug = img?.dataset.slug;
+        
+        if (!img || this.loaded.has(img)) return;
+        this.loaded.add(img);
+        
+        const startTime = performance.now();
+        
+        const handleLoad = () => {
+          PortfolioSystem.metrics.loadTimes.set(slug, performance.now() - startTime);
+          container.classList.add('loaded');
+        };
+        
+        const handleError = () => {
+          PortfolioSystem.metrics.failures.add(slug);
+          this.showPlaceholder(img);
+          container.classList.add('loaded');
+        };
+        
+        img.addEventListener('load', handleLoad, { once: true, passive: true });
+        img.addEventListener('error', handleError, { once: true, passive: true });
+      },
+
+      showPlaceholder(img) {
+        const serviceType = img.closest('[data-portfolio-item]')?.dataset.portfolioCategory || 'website-development';
+        requestIdleCallback(() => {
+          img.src = `/images/portfolio/placeholders/${serviceType}-category.svg`;
+          img.alt = `${serviceType.replace('-', ' ')} project placeholder`;
+        });
+      },
+
+      loadAllImages() {
+        document.querySelectorAll('.portfolio-image-container').forEach(container => {
+          this.loadImage(container);
+        });
+      }
+    },
+
+    // Simplified touch handler
+    touchHandler: {
+      init() {
+        if (!('ontouchstart' in window)) return;
+        
+        document.addEventListener('touchstart', this.handleTouch, { passive: true });
+        document.addEventListener('touchend', this.resetTouch, { passive: true });
+      },
+
+      handleTouch(e) {
+        const card = e.target.closest('[data-portfolio-item]');
+        if (!card) return;
+        
+        card.style.transform = 'scale(0.98)';
+        card.style.transition = 'transform 0.1s ease';
+      },
+
+      resetTouch(e) {
+        const card = e.target.closest('[data-portfolio-item]');
+        if (!card) return;
+        
+        requestAnimationFrame(() => {
+          card.style.transform = '';
+        });
+      }
+    },
+
+    // Minimal analytics
+    analytics: {
+      init() {
+        document.addEventListener('click', this.handleClick, { passive: true });
+        
+        // Delayed performance reporting
+        setTimeout(() => this.reportMetrics(), 5000);
+      },
+
+      handleClick(e) {
+        const cta = e.target.closest('[data-portfolio-cta]');
+        if (!cta) return;
+        
+        const item = cta.closest('[data-portfolio-item]');
+        const category = item?.dataset.portfolioCategory;
+        const index = item?.dataset.portfolioIndex;
+        
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'portfolio_view', {
+            event_category: 'Portfolio',
+            event_label: category,
+            value: parseInt(index) + 1
+          });
+        }
+      },
+
+      reportMetrics() {
+        if (typeof gtag === 'undefined') return;
+        
+        const loadTimes = Array.from(PortfolioSystem.metrics.loadTimes.values());
+        const avgLoadTime = loadTimes.length > 0 
+          ? Math.round(loadTimes.reduce((a, b) => a + b, 0) / loadTimes.length)
+          : 0;
+        
+        if (avgLoadTime > 0) {
+          gtag('event', 'portfolio_performance', {
+            event_category: 'Performance',
+            value: avgLoadTime,
+            custom_parameters: {
+              images_loaded: loadTimes.length,
+              images_failed: PortfolioSystem.metrics.failures.size,
+              connection: PortfolioSystem.metrics.connection
+            }
+          });
+        }
+      }
+    },
+
+    // Portfolio card entrance animations
+    entranceAnimations: {
+      init() {
+        // Handle cards that should be visible immediately
+        const cards = document.querySelectorAll('.portfolio-card-entrance');
+        
+        // Use Intersection Observer for better performance
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.style.animationPlayState = 'running';
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { rootMargin: '50px 0px' }
+          );
+          
+          cards.forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+          });
+        } else {
+          // Fallback for older browsers
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 150);
+          });
+        }
+      }
+    },
+
+    // Essential accessibility
+    a11y: {
+      init() {
+        this.handleReducedMotion();
+        this.handleKeyboard();
+      },
+
+      handleKeyboard() {
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            const link = e.target.closest('[data-portfolio-item] a');
+            if (link) {
+              e.preventDefault();
+              link.click();
+            }
+          }
+        });
+      },
+
+      handleReducedMotion() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('reduce-motion');
+          // Make all portfolio cards immediately visible
+          const cards = document.querySelectorAll('.portfolio-card-entrance');
+          cards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'none';
+            card.style.animation = 'none';
+          });
+        }
+      }
+    }
+  };
+  
+  // Efficient initialization
+  function initSystem() {
+    // Initialize accessibility first to handle reduced motion
+    PortfolioSystem.a11y.init();
+    PortfolioSystem.imageLoader.init();
+    PortfolioSystem.entranceAnimations.init();
+    PortfolioSystem.touchHandler.init();
+    PortfolioSystem.analytics.init();
+  }
+  
+  // Initialize based on document state
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSystem, { once: true });
+  } else {
+    initSystem();
+  }
+</script>

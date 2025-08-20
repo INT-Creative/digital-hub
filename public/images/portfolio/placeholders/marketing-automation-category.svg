@@ -1,0 +1,102 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="automationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9F9F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A7C59;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#automationGradient)"/>
+  
+  <!-- Main container -->
+  <rect x="50" y="50" width="300" height="180" rx="12" fill="#F9F9F7" stroke="#A8BFA3" stroke-width="3"/>
+  
+  <!-- Header -->
+  <rect x="60" y="60" width="280" height="30" fill="#A8BFA3"/>
+  <text x="80" y="80" fill="#1C1C1C" font-family="Arial" font-size="16" font-weight="bold">Marketing Automation</text>
+  
+  <!-- Workflow diagram -->
+  <rect x="80" y="110" width="240" height="90" fill="#F5F0E6" stroke="#4A7C59" stroke-width="2"/>
+  <rect x="85" y="115" width="230" height="15" fill="#4A7C59"/>
+  <text x="90" y="125" fill="#F5F0E6" font-family="Arial" font-size="8">Automated Workflow</text>
+  
+  <!-- Trigger -->
+  <circle cx="110" cy="150" r="12" fill="#C56B47"/>
+  <text x="106" y="155" fill="#F5F0E6" font-family="Arial" font-size="8">📅</text>
+  <text x="95" y="170" fill="#1C1C1C" font-family="Arial" font-size="6">Trigger Event</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M125 150 L145 150" stroke="#4A7C59" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Action 1 -->
+  <circle cx="160" cy="150" r="12" fill="#A8BFA3"/>
+  <text x="156" y="155" fill="#1C1C1C" font-family="Arial" font-size="8">📧</text>
+  <text x="148" y="170" fill="#1C1C1C" font-family="Arial" font-size="6">Send Email</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M175 150 L195 150" stroke="#4A7C59" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Action 2 -->
+  <circle cx="210" cy="150" r="12" fill="#C29D49"/>
+  <text x="206" y="155" fill="#1C1C1C" font-family="Arial" font-size="8">📱</text>
+  <text x="200" y="170" fill="#1C1C1C" font-family="Arial" font-size="6">Send SMS</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M225 150 L245 150" stroke="#4A7C59" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Outcome -->
+  <circle cx="260" cy="150" r="12" fill="#1B3A2F"/>
+  <text x="256" y="155" fill="#F5F0E6" font-family="Arial" font-size="8">✓</text>
+  <text x="248" y="170" fill="#1C1C1C" font-family="Arial" font-size="6">Follow-up</text>
+  
+  <!-- Time savings -->
+  <rect x="280" y="135" width="35" height="30" fill="#F9F9F7" stroke="#C56B47"/>
+  <text x="285" y="145" fill="#1C1C1C" font-family="Arial" font-size="6">Time Saved</text>
+  <text x="285" y="155" fill="#C56B47" font-family="Arial" font-size="8" font-weight="bold">15h/week</text>
+  
+  <!-- Dashboard elements -->
+  <rect x="80" y="210" width="70" height="25" fill="#F5F0E6" stroke="#A8BFA3"/>
+  <text x="85" y="220" fill="#1C1C1C" font-family="Arial" font-size="6">Automation Dashboard</text>
+  <rect x="85" y="223" width="20" height="3" fill="#4A7C59"/>
+  <rect x="85" y="228" width="25" height="3" fill="#A8BFA3"/>
+  <rect x="85" y="233" width="15" height="3" fill="#C56B47"/>
+  
+  <!-- Performance metrics -->
+  <rect x="160" y="210" width="70" height="25" fill="#F5F0E6" stroke="#4A7C59"/>
+  <text x="165" y="220" fill="#1C1C1C" font-family="Arial" font-size="6">Performance</text>
+  <text x="165" y="230" fill="#C56B47" font-family="Arial" font-size="7">↑ 85% efficiency</text>
+  
+  <!-- Integration icons -->
+  <rect x="240" y="210" width="70" height="25" fill="#F5F0E6" stroke="#C29D49"/>
+  <text x="245" y="220" fill="#1C1C1C" font-family="Arial" font-size="6">Integrations</text>
+  <circle cx="250" cy="227" r="3" fill="#1877F2"/>
+  <circle cx="258" cy="227" r="3" fill="#0077B5"/>
+  <circle cx="266" cy="227" r="3" fill="#FF6B35"/>
+  <circle cx="274" cy="227" r="3" fill="#4285F4"/>
+  
+  <!-- Automation gears -->
+  <g transform="translate(320, 140)">
+    <circle cx="0" cy="0" r="10" fill="#1C1C1C"/>
+    <circle cx="0" cy="0" r="6" fill="#A8BFA3"/>
+    <circle cx="0" cy="0" r="3" fill="#F5F0E6"/>
+    
+    <circle cx="15" cy="10" r="6" fill="#1C1C1C"/>
+    <circle cx="15" cy="10" r="4" fill="#C56B47"/>
+    <circle cx="15" cy="10" r="1" fill="#F5F0E6"/>
+  </g>
+  
+  <!-- Service highlights -->
+  <rect x="70" y="250" width="260" height="25" fill="#A8BFA3" opacity="0.9"/>
+  <text x="85" y="265" fill="#1C1C1C" font-family="Arial" font-size="12">Time Savings • Process Optimization • Workflow Design</text>
+  
+  <!-- Define arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A7C59"/>
+    </marker>
+  </defs>
+  
+  <!-- Legal disclaimer -->
+  <text x="280" y="285" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="legalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1C1C1C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#legalGradient)"/>
+  
+  <!-- Before/After comparison -->
+  <rect x="30" y="40" width="340" height="180" rx="8" fill="#F9F9F7" stroke="#1B3A2F" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="35" y="45" width="330" height="25" fill="#1B3A2F"/>
+  <text x="40" y="60" fill="#F5F0E6" font-family="Arial" font-size="12">Thompson Legal Group - Brand Transformation</text>
+  
+  <!-- Before section -->
+  <rect x="40" y="80" width="150" height="130" fill="#F5F0E6" stroke="#1C1C1C"/>
+  <rect x="45" y="85" width="140" height="15" fill="#8B4513"/>
+  <text x="48" y="95" fill="#F5F0E6" font-family="Arial" font-size="8">BEFORE (1990s Design)</text>
+  
+  <!-- Old logo mockup -->
+  <rect x="60" y="110" width="110" height="30" fill="#FFF" stroke="#8B4513"/>
+  <text x="65" y="120" fill="#8B4513" font-family="Times" font-size="8">THOMPSON</text>
+  <text x="65" y="130" fill="#8B4513" font-family="Times" font-size="8">LEGAL GROUP</text>
+  <text x="65" y="138" fill="#8B4513" font-family="Times" font-size="6">EST. 1992</text>
+  
+  <!-- Old business card -->
+  <rect x="60" y="150" width="50" height="30" fill="#FFF" stroke="#8B4513"/>
+  <text x="62" y="160" fill="#8B4513" font-family="Times" font-size="4">Thompson Legal</text>
+  <text x="62" y="168" fill="#8B4513" font-family="Times" font-size="4">Family Law</text>
+  <text x="62" y="176" fill="#8B4513" font-family="Times" font-size="3">(555) 123-4567</text>
+  
+  <!-- After section -->
+  <rect x="210" y="80" width="150" height="130" fill="#F5F0E6" stroke="#1B3A2F"/>
+  <rect x="215" y="85" width="140" height="15" fill="#1B3A2F"/>
+  <text x="218" y="95" fill="#F5F0E6" font-family="Arial" font-size="8">AFTER (Modern Design)</text>
+  
+  <!-- New logo mockup -->
+  <rect x="230" y="110" width="110" height="30" fill="#FFF" stroke="#1B3A2F"/>
+  <circle cx="245" cy="125" r="8" fill="#1B3A2F"/>
+  <path d="M242 125 L245 122 L248 125 L245 128 Z" fill="#F5F0E6"/>
+  <text x="258" y="120" fill="#1B3A2F" font-family="Arial" font-size="8" font-weight="bold">THOMPSON</text>
+  <text x="258" y="130" fill="#1B3A2F" font-family="Arial" font-size="8">LEGAL GROUP</text>
+  <text x="258" y="138" fill="#4A7C59" font-family="Arial" font-size="6">Family Law Excellence</text>
+  
+  <!-- New business card -->
+  <rect x="230" y="150" width="50" height="30" fill="#1B3A2F"/>
+  <text x="232" y="160" fill="#F5F0E6" font-family="Arial" font-size="4">Thompson Legal</text>
+  <text x="232" y="168" fill="#A8BFA3" font-family="Arial" font-size="4">Modern Family Law</text>
+  <text x="232" y="176" fill="#F5F0E6" font-family="Arial" font-size="3">(555) 123-4567</text>
+  
+  <!-- Brand materials -->
+  <rect x="290" y="150" width="60" height="50" fill="#F9F9F7" stroke="#1B3A2F"/>
+  <text x="295" y="160" fill="#1C1C1C" font-family="Arial" font-size="6">Brand Guidelines</text>
+  <rect x="295" y="165" width="20" height="3" fill="#1B3A2F"/>
+  <rect x="295" y="170" width="25" height="3" fill="#4A7C59"/>
+  <rect x="295" y="175" width="15" height="3" fill="#A8BFA3"/>
+  <rect x="295" y="185" width="45" height="8" fill="#F5F0E6" stroke="#1B3A2F"/>
+  <text x="297" y="191" fill="#1B3A2F" font-family="Arial" font-size="4">Logo Usage</text>
+  
+  <!-- Legal scales icon -->
+  <g transform="translate(80, 240)">
+    <rect x="0" y="15" width="2" height="20" fill="#1B3A2F"/>
+    <rect x="-15" y="10" width="30" height="2" fill="#1B3A2F"/>
+    <circle cx="-12" cy="5" r="5" fill="#4A7C59" opacity="0.7"/>
+    <circle cx="12" cy="5" r="5" fill="#4A7C59" opacity="0.7"/>
+    <line x1="-12" y1="10" x2="-12" y2="8" stroke="#1B3A2F" stroke-width="1"/>
+    <line x1="12" y1="10" x2="12" y2="8" stroke="#1B3A2F" stroke-width="1"/>
+  </g>
+  
+  <!-- Professional briefcase -->
+  <rect x="300" y="240" width="25" height="18" fill="#1C1C1C"/>
+  <rect x="302" y="242" width="21" height="14" fill="#4A7C59"/>
+  <rect x="310" y="238" width="5" height="4" fill="#1C1C1C"/>
+  
+  <!-- Growth metrics -->
+  <rect x="130" y="240" width="140" height="35" fill="#1B3A2F" opacity="0.9"/>
+  <text x="135" y="252" fill="#F5F0E6" font-family="Arial" font-size="8">35% increase in referrals</text>
+  <text x="135" y="265" fill="#A8BFA3" font-family="Arial" font-size="8">300% professional referral growth</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

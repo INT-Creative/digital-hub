@@ -1,0 +1,103 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="accountingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C29D49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#accountingGradient)"/>
+  
+  <!-- Brand showcase -->
+  <rect x="30" y="30" width="340" height="200" rx="8" fill="#F9F9F7" stroke="#A8BFA3" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="35" y="35" width="330" height="25" fill="#A8BFA3"/>
+  <text x="40" y="50" fill="#1C1C1C" font-family="Arial" font-size="12">Precision Tax & Accounting - Modern Rebrand</text>
+  
+  <!-- Before section -->
+  <rect x="40" y="70" width="150" height="120" fill="#F5F0E6" stroke="#C29D49"/>
+  <rect x="45" y="75" width="140" height="15" fill="#8B7355"/>
+  <text x="48" y="85" fill="#F5F0E6" font-family="Arial" font-size="8">BEFORE (Traditional)</text>
+  
+  <!-- Old accounting imagery -->
+  <rect x="60" y="100" width="110" height="25" fill="#FFF" stroke="#8B7355"/>
+  <text x="65" y="110" fill="#8B7355" font-family="Times" font-size="7">PRECISION TAX</text>
+  <text x="65" y="120" fill="#8B7355" font-family="Times" font-size="7">& ACCOUNTING</text>
+  
+  <!-- Calculator icon (old style) -->
+  <rect x="70" y="135" width="20" height="25" fill="#8B7355"/>
+  <rect x="75" y="140" width="10" height="15" fill="#FFF"/>
+  <rect x="76" y="142" width="2" height="2" fill="#8B7355"/>
+  <rect x="79" y="142" width="2" height="2" fill="#8B7355"/>
+  <rect x="82" y="142" width="2" height="2" fill="#8B7355"/>
+  
+  <!-- File cabinets -->
+  <rect x="100" y="135" width="15" height="25" fill="#8B7355"/>
+  <rect x="102" y="137" width="11" height="3" fill="#F5F0E6"/>
+  <rect x="102" y="142" width="11" height="3" fill="#F5F0E6"/>
+  <rect x="102" y="147" width="11" height="3" fill="#F5F0E6"/>
+  
+  <!-- After section -->
+  <rect x="210" y="70" width="150" height="120" fill="#F5F0E6" stroke="#A8BFA3"/>
+  <rect x="215" y="75" width="140" height="15" fill="#A8BFA3"/>
+  <text x="218" y="85" fill="#1C1C1C" font-family="Arial" font-size="8">AFTER (Growth Partner)</text>
+  
+  <!-- New modern logo -->
+  <rect x="230" y="100" width="110" height="25" fill="#FFF" stroke="#A8BFA3"/>
+  <circle cx="245" cy="112" r="6" fill="#A8BFA3"/>
+  <path d="M242 112 L245 109 L248 112 L245 115 Z" fill="#F5F0E6"/>
+  <text x="255" y="108" fill="#1C1C1C" font-family="Arial" font-size="7" font-weight="bold">PRECISION</text>
+  <text x="255" y="118" fill="#A8BFA3" font-family="Arial" font-size="7">Growth Partners</text>
+  
+  <!-- Modern growth chart -->
+  <g transform="translate(240, 135)">
+    <rect x="0" y="20" width="30" height="15" fill="#A8BFA3"/>
+    <path d="M5 25 L12 20 L20 22 L25 15" stroke="#C29D49" stroke-width="2" fill="none"/>
+    <path d="M22 15 L25 15 L25 18 Z" fill="#C29D49"/>
+    <circle cx="25" cy="15" r="2" fill="#1C1C1C"/>
+  </g>
+  
+  <!-- Digital elements -->
+  <rect x="290" y="135" width="25" height="15" fill="#C29D49"/>
+  <rect x="295" y="140" width="15" height="5" fill="#FFF"/>
+  <rect x="297" y="142" width="3" height="1" fill="#1C1C1C"/>
+  <rect x="301" y="142" width="3" height="1" fill="#1C1C1C"/>
+  <rect x="305" y="142" width="3" height="1" fill="#1C1C1C"/>
+  
+  <!-- Business materials showcase -->
+  <rect x="320" y="100" width="30" height="80" fill="#F9F9F7" stroke="#C29D49"/>
+  <text x="325" y="110" fill="#1C1C1C" font-family="Arial" font-size="6">Brand Kit</text>
+  <rect x="325" y="115" width="20" height="8" fill="#A8BFA3"/>
+  <rect x="325" y="125" width="20" height="8" fill="#C29D49"/>
+  <rect x="325" y="135" width="20" height="8" fill="#F5F0E6" stroke="#A8BFA3"/>
+  <rect x="325" y="145" width="20" height="8" fill="#1C1C1C"/>
+  
+  <!-- Color palette -->
+  <circle cx="327" cy="160" r="3" fill="#A8BFA3"/>
+  <circle cx="335" cy="160" r="3" fill="#C29D49"/>
+  <circle cx="343" cy="160" r="3" fill="#1C1C1C"/>
+  
+  <!-- Financial growth icons -->
+  <g transform="translate(80, 245)">
+    <rect x="0" y="10" width="4" height="12" fill="#A8BFA3"/>
+    <rect x="6" y="7" width="4" height="15" fill="#A8BFA3"/>
+    <rect x="12" y="4" width="4" height="18" fill="#C29D49"/>
+    <rect x="18" y="1" width="4" height="21" fill="#C29D49"/>
+  </g>
+  
+  <!-- Modern calculator/tablet -->
+  <rect x="300" y="245" width="20" height="25" fill="#1C1C1C"/>
+  <rect x="302" y="247" width="16" height="21" fill="#A8BFA3"/>
+  <rect x="304" y="249" width="12" height="8" fill="#FFF"/>
+  <text x="306" y="255" fill="#1C1C1C" font-family="Arial" font-size="4">Growth</text>
+  
+  <!-- Results metrics -->
+  <rect x="120" y="245" width="160" height="30" fill="#A8BFA3" opacity="0.9"/>
+  <text x="125" y="255" fill="#1C1C1C" font-family="Arial" font-size="8">40% increase in clients under 40</text>
+  <text x="125" y="268" fill="#C29D49" font-family="Arial" font-size="8">25% average retainer increase</text>
+  
+  <!-- Legal disclaimer -->
+  <text x="300" y="290" fill="#666666" font-family="Arial" font-size="8" opacity="0.7">FICTIONAL DEMONSTRATION</text>
+</svg>

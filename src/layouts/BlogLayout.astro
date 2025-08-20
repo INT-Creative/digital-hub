@@ -1,0 +1,281 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/common/Breadcrumbs.astro';
+import AuthorByline from '../components/blog/AuthorByline.astro';
+import RelatedPosts from '../components/blog/RelatedPosts.astro';
+import SocialShare from '../components/blog/SocialShare.astro';
+import type { MarkdownLayoutProps } from 'astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  publishDate: string;
+  author: string;
+  tags: string[];
+  category: string;
+  image?: string;
+  readingTime?: string;
+  featured?: boolean;
+}>;
+
+const { frontmatter } = Astro.props;
+const { title, description, publishDate, author, tags, category, image, readingTime, featured } = frontmatter;
+
+// Format publish date
+const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+// Generate breadcrumb items
+const breadcrumbItems = [
+  { name: 'Blog', href: '/blog' },
+  { name: category, href: `/blog/category/${category.toLowerCase()}` },
+  { name: title, href: Astro.url.pathname, current: true }
+];
+
+// Article schema structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": image ? `${Astro.site}${image}` : `${Astro.site}/images/og-image.jpg`,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "INT Creative Hub",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}/images/logo.svg`
+    }
+  },
+  "datePublished": publishDate,
+  "dateModified": publishDate,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${Astro.site}${Astro.url.pathname}`
+  }
+};
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  image={image}
+>
+  <!-- Article Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  
+  <!-- Blog Post Header -->
+  <section class="bg-gradient-to-br from-forest-900 via-forest-800 to-sage-800 text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full animate-pulse-slow"></div>
+      <div class="absolute bottom-10 right-10 w-24 h-24 border border-white/20 rounded-full animate-bounce-subtle"></div>
+      <div class="absolute top-1/2 left-1/4 w-16 h-16 border border-white/20 rounded-full animate-float-1"></div>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- Breadcrumbs -->
+      <div class="mb-8">
+        <Breadcrumbs items={breadcrumbItems} className="text-white/80" />
+      </div>
+      
+      <!-- Article Meta -->
+      <div class="mb-6 flex flex-wrap items-center gap-4 text-sm text-white/80">
+        {featured && (
+          <span class="bg-sage-600 text-white px-3 py-1 rounded-full font-medium text-xs">
+            Featured
+          </span>
+        )}
+        <span class="bg-white/10 px-3 py-1 rounded-full font-medium">
+          {category}
+        </span>
+        <time datetime={publishDate}>{formattedDate}</time>
+        {readingTime && <span>{readingTime} read</span>}
+      </div>
+      
+      <!-- Title -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-balance mb-6 leading-tight">
+        {title}
+      </h1>
+      
+      <!-- Description -->
+      <p class="text-xl text-white/90 text-balance mb-8 max-w-3xl">
+        {description}
+      </p>
+      
+      <!-- Author & Social Share -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <AuthorByline author={author} publishDate={formattedDate} className="text-white" />
+        <SocialShare 
+          title={title} 
+          url={`${Astro.site}${Astro.url.pathname}`}
+          className="text-white"
+        />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Image -->
+  {image && (
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-10">
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <img 
+          src={image} 
+          alt={title}
+          class="w-full h-64 md:h-96 object-cover"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  )}
+  
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Article Body -->
+    <div class="prose prose-lg prose-forest max-w-none">
+      <slot />
+    </div>
+    
+    <!-- Tags -->
+    {tags && tags.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+          Tags
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <a 
+              href={`/blog/tag/${tag.toLowerCase()}`}
+              class="bg-sage-50 text-sage-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-sage-100 transition-colors duration-200"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+    
+    <!-- Author Bio -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <AuthorByline 
+        author={author} 
+        publishDate={formattedDate}
+        showBio={true}
+        className=""
+      />
+    </div>
+    
+    <!-- Social Share Footer -->
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <div class="flex items-center justify-between">
+        <p class="text-gray-600 font-medium">Share this article</p>
+        <SocialShare 
+          title={title} 
+          url={`${Astro.site}${Astro.url.pathname}`}
+          className=""
+        />
+      </div>
+    </div>
+  </article>
+  
+  <!-- Related Posts -->
+  <RelatedPosts 
+    currentPost={title}
+    category={category}
+    tags={tags}
+  />
+</BaseLayout>
+
+<style>
+  /* Custom prose styles to match brand */
+  .prose-forest {
+    --tw-prose-body: #374151;
+    --tw-prose-headings: #0B3D2E;
+    --tw-prose-lead: #4B5563;
+    --tw-prose-links: #4A7C59;
+    --tw-prose-bold: #0B3D2E;
+    --tw-prose-counters: #6B7280;
+    --tw-prose-bullets: #D1D5DB;
+    --tw-prose-hr: #E5E7EB;
+    --tw-prose-quotes: #111827;
+    --tw-prose-quote-borders: #E5E7EB;
+    --tw-prose-captions: #6B7280;
+    --tw-prose-code: #0B3D2E;
+    --tw-prose-pre-code: #E5E7EB;
+    --tw-prose-pre-bg: #1F2937;
+    --tw-prose-th-borders: #D1D5DB;
+    --tw-prose-td-borders: #E5E7EB;
+  }
+  
+  .prose-forest h1,
+  .prose-forest h2,
+  .prose-forest h3,
+  .prose-forest h4,
+  .prose-forest h5,
+  .prose-forest h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--tw-prose-headings);
+  }
+  
+  .prose-forest a {
+    color: var(--tw-prose-links);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .prose-forest a:hover {
+    color: #1a512e;
+  }
+  
+  .prose-forest blockquote {
+    border-left: 4px solid #4A7C59;
+    background: #f4f8f5;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+  }
+  
+  .prose-forest code {
+    background: #f4f8f5;
+    color: var(--tw-prose-code);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+  
+  .prose-forest pre {
+    background: var(--tw-prose-pre-bg);
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+  
+  .prose-forest img {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .prose-forest table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .prose-forest th,
+  .prose-forest td {
+    border: 1px solid var(--tw-prose-td-borders);
+    padding: 0.75rem;
+  }
+  
+  .prose-forest th {
+    background: #f4f8f5;
+    font-weight: 600;
+  }
+</style>

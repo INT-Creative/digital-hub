@@ -18,7 +18,7 @@ export interface ServiceDetail {
   deliverables: ServiceFeature[];
   process: Step[];
   duration?: string;
-  packageTier?: 'starter' | 'plus' | 'custom';
+  packageTier?: 'starter' | 'plus' | 'premium' | 'custom';
   toolStack?: string[];
 }
 

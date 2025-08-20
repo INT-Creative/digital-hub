@@ -18,27 +18,117 @@ if (rawFilter && !validFilters.includes(rawFilter)) {
 // Portfolio statistics for meta information
 const portfolioStats = getPortfolioStats();
 
-// Schema for Portfolio page
+// Enhanced Schema for Portfolio page with SEO optimization
 const portfolioSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Portfolio - Demonstration Projects",
-  "description": "Demonstration projects showcasing INT Creative's capabilities and methodology. These conceptual case studies illustrate our approach to service business transformation.",
+  "name": "Portfolio - Service Business Transformation Projects | Northeast Ohio",
+  "description": "Demonstration portfolio showcasing proven methodology for service business transformation in Northeast Ohio. Website development, digital marketing, and automation case studies with measurable results.",
   "url": "https://intcreative.co/portfolio",
+  "inLanguage": "en-US",
+  "keywords": [
+    "service business transformation Northeast Ohio",
+    "website development for service businesses",
+    "digital marketing automation Ohio",
+    "professional service business consulting",
+    "local business website design",
+    "Cleveland Akron business marketing"
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Service Business Owners",
+    "geographicArea": {
+      "@type": "Place",
+      "name": "Northeast Ohio",
+      "containsPlace": ["Cleveland", "Akron", "Canton", "Youngstown", "Warren"]
+    }
+  },
   "publisher": {
-    "@type": "Organization",
-    "name": "INT Creative",
-    "url": "https://intcreative.co"
+    "@type": "LocalBusiness",
+    "@id": "https://intcreative.co/#organization",
+    "name": "INT Creative Hub",
+    "alternateName": "INT Creative LLC",
+    "url": "https://intcreative.co",
+    "logo": "https://intcreative.co/images/logo-structured-data.png",
+    "image": "https://intcreative.co/images/int-creative-office.jpg",
+    "description": "Transformation consultant specializing in service business growth through website development, digital marketing, and automation.",
+    "founder": {
+      "@type": "Person",
+      "name": "Jacob Internicola",
+      "jobTitle": "Business Transformation Consultant"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Ohio",
+      "containsPlace": [
+        {"@type": "City", "name": "Cleveland"},
+        {"@type": "City", "name": "Akron"},
+        {"@type": "City", "name": "Canton"},
+        {"@type": "City", "name": "Youngstown"}
+      ]
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.4993,
+        "longitude": -81.6944
+      },
+      "geoRadius": "100 miles"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Service Business Transformation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Website Development for Service Businesses",
+            "description": "Custom websites with lead generation and booking systems"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital Marketing Automation",
+            "description": "Lead generation and customer retention automation"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Professional Brand Design",
+            "description": "Modern brand identity for service professionals"
+          }
+        }
+      ]
+    }
   },
   "mainEntity": {
     "@type": "ItemList",
+    "name": "Service Business Transformation Portfolio",
+    "description": "Demonstration projects showing transformation methodology for Northeast Ohio service businesses",
     "numberOfItems": portfolioStats.total,
     "itemListElement": Object.entries(portfolioStats.byCategory).map(([category, count], index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "name": category,
-      "description": `${count} successful ${category.toLowerCase()} projects`
+      "name": `${category} Transformation Projects`,
+      "description": `${count} demonstration ${category.toLowerCase()} projects showing proven methodology for service business growth`,
+      "url": `https://intcreative.co/portfolio?filter=${category.toLowerCase().replace(' ', '-')}`
     }))
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://intcreative.co/portfolio?filter={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Service Business Transformation",
+    "description": "Proven methodology for transforming traditional service businesses through digital marketing, automation, and professional positioning"
   }
 };
 
@@ -64,8 +154,9 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout 
-  title="Portfolio - Demonstration Projects | INT Creative"
-  description="Demonstration projects showcasing INT Creative's capabilities and methodology. These conceptual case studies illustrate our approach to transforming service businesses through strategic marketing and development."
+  title="Service Business Transformation Portfolio | Northeast Ohio Consulting | INT Creative"
+  description="Proven methodology for service business transformation in Northeast Ohio. See demonstration projects showing website development, digital marketing automation, and professional branding results for local service businesses. Cleveland, Akron, Canton area specialist."
+  image="/images/portfolio-og-image.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(portfolioSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -95,13 +186,13 @@ const breadcrumbSchema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">
-          Methodology Portfolio
+          Service Business Transformation Portfolio
         </h1>
         <p class="text-xl text-beige-100 mb-6">
-          See exactly how I approach problems like yours
+          Proven methodology for Northeast Ohio service businesses
         </p>
         <p class="text-lg text-beige-100 mb-8 max-w-3xl mx-auto">
-          These demonstration projects showcase my proven methodology using realistic scenarios for Northeast Ohio service businesses. Every strategy, timeline, and deliverable shown here is what you'll experience in your actual project.
+          These demonstration projects showcase my transformation methodology using realistic scenarios for Northeast Ohio service businesses. From website development to marketing automation, see exactly how I help professional services, healthcare, home services, and local businesses achieve measurable growth.
         </p>
         
         <!-- Portfolio stats -->

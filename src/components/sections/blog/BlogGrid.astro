@@ -1,0 +1,375 @@
+---
+import { blogData, getBlogPostsByCategory, getBlogPostsByTag, getFeaturedBlogPosts, getCategoryBySlug } from '../../../data/blog';
+import type { BlogPost } from '../../../types/blog';
+
+export interface Props {
+  posts?: BlogPost[];
+  featuredOnly?: boolean;
+  limit?: number;
+  category?: string;
+  tag?: string;
+  showFilters?: boolean;
+  showPagination?: boolean;
+  currentPage?: number;
+  totalPages?: number;
+}
+
+const { 
+  posts,
+  featuredOnly = false,
+  limit,
+  category,
+  tag,
+  showFilters = true,
+  showPagination = false,
+  currentPage = 1,
+  totalPages = 1
+} = Astro.props;
+
+// Determine which posts to show
+let displayPosts: BlogPost[] = [];
+
+if (posts) {
+  displayPosts = posts;
+} else if (featuredOnly) {
+  displayPosts = getFeaturedBlogPosts(limit);
+} else if (category) {
+  displayPosts = getBlogPostsByCategory(category, limit);
+} else if (tag) {
+  displayPosts = getBlogPostsByTag(tag, limit);
+} else {
+  displayPosts = blogData.posts.filter(post => post.status === 'published');
+  if (limit) displayPosts = displayPosts.slice(0, limit);
+}
+
+// Get category colors for badge styling
+const getCategoryColor = (categorySlug: string) => {
+  const categoryData = getCategoryBySlug(categorySlug);
+  const colorMap: Record<string, string> = {
+    'forest': 'bg-forest-100 text-forest-800',
+    'sage': 'bg-sage-100 text-sage-800', 
+    'blue': 'bg-blue-100 text-blue-800',
+    'purple': 'bg-purple-100 text-purple-800',
+    'green': 'bg-green-100 text-green-800',
+    'orange': 'bg-orange-100 text-orange-800'
+  };
+  return colorMap[categoryData?.color || 'sage'] || 'bg-gray-100 text-gray-800';
+};
+
+// Format date helper
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short', 
+    day: 'numeric'
+  });
+};
+
+// Get author initials for avatar fallback
+const getAuthorInitials = (name: string) => {
+  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+};
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Category Filters */}
+    {showFilters && (
+      <div class="mb-12">
+        <div class="flex flex-wrap justify-center gap-3">
+          <a 
+            href="/blog"
+            class={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+              !category && !tag 
+                ? 'bg-forest-900 text-white' 
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            All Posts
+          </a>
+          {blogData.categories.map((cat) => (
+            <a 
+              href={`/blog/category/${cat.slug}`}
+              class={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                category === cat.slug
+                  ? `${getCategoryColor(cat.slug)} font-semibold`
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {cat.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* Blog Posts Grid */}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {displayPosts.map((post, index) => {
+        const categoryData = getCategoryBySlug(post.category);
+        const categoryColorClass = getCategoryColor(post.category);
+        
+        return (
+          <article 
+            class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden blog-card-entrance opacity-0"
+            style={`animation-delay: ${index * 150}ms`}
+            data-blog-item
+            data-blog-category={post.category}
+          >
+            {/* Featured Badge */}
+            {post.featured && (
+              <div class="absolute top-4 right-4 z-10">
+                <span class="bg-sage-600 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center shadow-lg">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Featured
+                </span>
+              </div>
+            )}
+            
+            {/* Image/Header Area */}
+            <div class="relative h-48 bg-gradient-to-br from-forest-100 to-sage-100 flex items-center justify-center overflow-hidden">
+              {/* Category Icon as Header */}
+              <div class="text-center">
+                <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <svg 
+                    class="w-8 h-8 text-forest-700"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={categoryData?.icon} />
+                  </svg>
+                </div>
+                <span class={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${categoryColorClass}`}>
+                  {categoryData?.name}
+                </span>
+              </div>
+              
+              {/* Gradient Overlay */}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            {/* Content Area */}
+            <div class="p-6 space-y-4">
+              {/* Title & Excerpt */}
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold text-forest-900 group-hover:text-sage-700 transition-colors duration-300 leading-tight line-clamp-2">
+                  <a href={`/blog/${post.slug}`} class="hover:underline">
+                    {post.title}
+                  </a>
+                </h3>
+                
+                {post.subtitle && (
+                  <p class="text-sm text-sage-600 font-medium line-clamp-2">
+                    {post.subtitle}
+                  </p>
+                )}
+                
+                <p class="text-gray-600 line-clamp-3 leading-relaxed">
+                  {post.excerpt}
+                </p>
+              </div>
+              
+              {/* Transformation Focus */}
+              {post.transformationFocus && (
+                <div class="bg-sage-50 rounded-lg p-3 border border-sage-100">
+                  <p class="text-xs text-sage-700 leading-relaxed">
+                    <span class="font-medium">Transforms:</span> {post.transformationFocus.businessChallenge}
+                  </p>
+                </div>
+              )}
+              
+              {/* Meta Info */}
+              <div class="flex items-center justify-between text-sm text-gray-500 pt-2 border-t border-gray-100">
+                <div class="flex items-center space-x-2">
+                  {/* Author Avatar */}
+                  <div class="w-6 h-6 bg-forest-200 rounded-full flex items-center justify-center">
+                    <span class="text-xs font-medium text-forest-800">
+                      {getAuthorInitials(post.author.name)}
+                    </span>
+                  </div>
+                  <span class="font-medium">{post.author.name}</span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                  <time datetime={post.publishedAt}>
+                    {formatDate(post.publishedAt)}
+                  </time>
+                  <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {post.readingTime}m
+                  </span>
+                </div>
+              </div>
+              
+              {/* Tags */}
+              {post.tags && post.tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 pt-2">
+                  {post.tags.slice(0, 3).map((tag) => (
+                    <a 
+                      href={`/blog/tag/${tag.toLowerCase()}`}
+                      class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors duration-200"
+                    >
+                      #{tag}
+                    </a>
+                  ))}
+                  {post.tags.length > 3 && (
+                    <span class="text-xs text-gray-500">+{post.tags.length - 3} more</span>
+                  )}
+                </div>
+              )}
+              
+              {/* Read More Button */}
+              <div class="pt-4">
+                <a 
+                  href={`/blog/${post.slug}`}
+                  class="inline-flex items-center text-sage-600 hover:text-sage-700 font-medium group/link"
+                >
+                  Read Full Article
+                  <svg 
+                    class="w-4 h-4 ml-2 transition-transform duration-200 group-hover/link:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+    
+    {/* Pagination */}
+    {showPagination && totalPages > 1 && (
+      <div class="mt-12 flex justify-center">
+        <nav class="flex items-center space-x-2">
+          {/* Previous Button */}
+          {currentPage > 1 && (
+            <a 
+              href={`/blog/page/${currentPage - 1}`}
+              class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+            >
+              Previous
+            </a>
+          )}
+          
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+            <a 
+              href={`/blog/page/${page}`}
+              class={`px-3 py-2 text-sm font-medium rounded-md ${
+                page === currentPage
+                  ? 'bg-sage-600 text-white'
+                  : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              {page}
+            </a>
+          ))}
+          
+          {/* Next Button */}
+          {currentPage < totalPages && (
+            <a 
+              href={`/blog/page/${currentPage + 1}`}
+              class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+            >
+              Next
+            </a>
+          )}
+        </nav>
+      </div>
+    )}
+    
+    {/* Empty State */}
+    {displayPosts.length === 0 && (
+      <div class="text-center py-12">
+        <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <h3 class="text-lg font-medium text-gray-900 mb-2">
+          No blog posts found
+        </h3>
+        <p class="text-gray-600 mb-6">
+          Try adjusting your filters or check back later for new content.
+        </p>
+        <a 
+          href="/blog"
+          class="inline-flex items-center px-4 py-2 bg-sage-600 text-white rounded-lg hover:bg-sage-700 transition-colors duration-200"
+        >
+          View All Posts
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  /* Blog card entrance animation */
+  .blog-card-entrance {
+    animation: blogCardSlideIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes blogCardSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Smooth hover transitions */
+  .blog-card-entrance:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Category filter active state */
+  .category-filter-active {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  // Add entrance animation delay based on scroll position
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 100);
+        }
+      });
+    });
+    
+    document.querySelectorAll('[data-blog-item]').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
