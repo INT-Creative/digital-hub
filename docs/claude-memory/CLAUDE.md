@@ -358,6 +358,36 @@ npm run lint            # Code quality check
 - Fixed-fee transparency vs. agency hourly billing
 - Local market knowledge with remote capability
 
+## 🔄 Repository Management
+
+### Primary Repository
+- **intcreative-hub**: Main production website repository at `/home/intadmin/Desktop/intcreative-hub/`
+- **All commits**: Website features, legal compliance, business content, development work
+- **Always use**: Unless explicitly directed otherwise by user
+
+### Repository Guidelines
+- **Legal/compliance changes**: Always commit to intcreative-hub
+- **Website updates**: intcreative-hub (primary production site)
+- **Blog posts**: intcreative-hub (integrated blog system)
+- **Component development**: intcreative-hub (main component library)
+- **Business documentation**: intcreative-hub (centralized business context)
+- **Backup repos**: Only update when specifically requested by user
+- **Experimental work**: Ask user which repo to use first
+
+### Commit Protocol
+- **Default target**: intcreative-hub repository, main branch
+- **Always confirm**: For high-impact changes affecting multiple systems
+- **Push policy**: Only when explicitly requested by user
+- **Commit frequency**: After completing logical units of work
+- **Message format**: Follow conventional commits with business context
+
+### Other Repositories (Reference Only)
+- **int-creative-astro-copy/**: Backup/archive - do not modify unless requested
+- **int-creative-new/**: Legacy - do not modify unless requested  
+- **int-creative-website-copy/**: Archive - do not modify unless requested
+- **INT-Creative-Website/**: Legacy HTML - do not modify unless requested
+- **intcreative/**: Unknown purpose - ask before modifying
+
 ---
 
-**Quick Reference**: This is a pre-launch agency website with demonstration portfolio. Always maintain legal compliance and clear fictional project labeling when making changes.
+**Quick Reference**: This is a pre-launch agency website with demonstration portfolio. Always maintain legal compliance and clear fictional project labeling when making changes. Default to intcreative-hub repository for all work unless explicitly directed otherwise.
