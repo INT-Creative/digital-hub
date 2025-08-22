@@ -32,7 +32,12 @@
     "test:performance-e2e": "playwright test --config=tests/setup/playwright.config.js --project=performance-audit",
     "test:legal-e2e": "playwright test --config=tests/setup/playwright.config.js --project=legal-compliance",
     "test:all": "npm run test && npm run test:e2e",
-    "test:ci": "npm run test:coverage && npm run test:e2e"
+    "test:ci": "npm run test:coverage && npm run test:e2e",
+    "license:check": "node scripts/license-audit.js",
+    "license:audit": "node scripts/license-audit.js --report",
+    "license:fix": "node scripts/license-audit.js --fix",
+    "license:scan": "npx license-checker --onlyAllow 'MIT;Apache-2.0;ISC;BSD-2-Clause;BSD-3-Clause'",
+    "license:report": "npx license-checker --json > license-report.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -40,6 +45,8 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.15.0",
+    "license-checker": "^25.0.1",
+    "noop": "^1.0.1",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
@@ -78,5 +85,8 @@
   },
   "bugs": {
     "url": "https://github.com/intcreative/intcreative-hub/issues"
+  },
+  "overrides": {
+    "sharp": "npm:noop@^1.0.0"
   }
 }
