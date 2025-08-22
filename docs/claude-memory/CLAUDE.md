@@ -382,8 +382,9 @@ npm run lint            # Code quality check
 - **Message format**: Follow conventional commits with business context
 
 ### Task Completion Protocol
-- **Completion indicator**: Always add "🔔 Ding!" when finishing a task
-- **Format**: Use bell emoji (🔔) followed by "Ding!" for clear completion signal
+- **Audio notification**: Play system sound using `paplay /usr/share/sounds/freedesktop/stereo/complete.oga`
+- **Visual indicator**: Always add "🔔 Ding!" text when finishing a task
+- **Format**: Play audio + show bell emoji (🔔) followed by "Ding!" for clear completion signal
 - **Placement**: At the end of task completion messages
 
 ### Other Repositories (Reference Only)
