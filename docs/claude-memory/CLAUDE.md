@@ -381,6 +381,11 @@ npm run lint            # Code quality check
 - **Commit frequency**: After completing logical units of work
 - **Message format**: Follow conventional commits with business context
 
+### Task Completion Protocol
+- **Completion indicator**: Always add "🔔 Ding!" when finishing a task
+- **Format**: Use bell emoji (🔔) followed by "Ding!" for clear completion signal
+- **Placement**: At the end of task completion messages
+
 ### Other Repositories (Reference Only)
 - **int-creative-astro-copy/**: Backup/archive - do not modify unless requested
 - **int-creative-new/**: Legacy - do not modify unless requested  
