@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // INT Creative Brand Colors
+        // INT Creative Brand Colors (RGB Values as specified)
         forest: {
           50: '#f0f9f4',
           100: '#dcf4e4',
@@ -15,8 +15,21 @@ export default {
           600: '#228043',
           700: '#1d6537',
           800: '#1a512e',
-          900: '#0B3D2E', // Primary Forest Green
+          900: '#0F2F20', // Corrected Primary Forest Green RGB(15,47,32)
           950: '#06231a',
+        },
+        gold: {
+          DEFAULT: '#C29D49', // Gold Ochre RGB(194,157,73)
+          50: '#fdf6e8',
+          100: '#faedc2',
+          200: '#f6da88',
+          300: '#f0c44e',
+          400: '#eab028',
+          500: '#C29D49', // Primary Gold Ochre
+          600: '#a68439',
+          700: '#8b6a2e',
+          800: '#72562a',
+          900: '#5e4626',
         },
         sage: {
           50: '#f4f8f5',
@@ -32,9 +45,10 @@ export default {
           950: '#111f16',
         },
         beige: {
-          50: '#F5F0E6', // Primary Warm Beige
-          100: '#f2eadb',
-          200: '#e8d5b7',
+          DEFAULT: '#E5CCAC', // Primary Warm Beige RGB(229,204,172)
+          50: '#F9F9F7', // Light Cream RGB(249,249,247)
+          100: '#EDEAE0', // Soft Cream RGB(237,234,224)
+          200: '#E5CCAC', // Primary Warm Beige
           300: '#dcc084',
           400: '#d1ab51',
           500: '#c49a30',
@@ -44,9 +58,13 @@ export default {
           900: '#5e4622',
           950: '#342410',
         },
+        // Brand text colors
+        text: {
+          dark: '#1C1C1C', // Professional Dark Text RGB(28,28,28)
+        },
         // Keep some standard colors for variety
         primary: {
-          DEFAULT: '#0B3D2E',
+          DEFAULT: '#0F2F20', // Corrected to brand forest green
           50: '#f0f9f4',
           100: '#dcf4e4',
           200: '#bbe8cc',
@@ -56,7 +74,7 @@ export default {
           600: '#228043',
           700: '#1d6537',
           800: '#1a512e',
-          900: '#0B3D2E',
+          900: '#0F2F20', // Corrected to brand forest green
           950: '#06231a',
         },
         secondary: {
@@ -75,8 +93,14 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Poppins', 'system-ui', 'sans-serif'],
+        // Brand typography hierarchy
+        sans: ['Inter', 'system-ui', 'sans-serif'], // Body text
+        heading: ['Playfair Display', 'serif'], // Headings - serif as per brand
+        section: ['Montserrat Alternates', 'sans-serif'], // Section labels
+        // CSS variables for consistent usage
+        'brand-heading': 'var(--font-heading)',
+        'brand-section': 'var(--font-section)',
+        'brand-body': 'var(--font-body)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

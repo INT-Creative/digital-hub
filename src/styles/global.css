@@ -3,12 +3,35 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: Inter, system-ui, sans-serif;
+  :root {
+    /* Brand typography CSS variables */
+    --font-heading: 'Playfair Display', serif;
+    --font-section: 'Montserrat Alternates', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    
+    /* Brand color variables */
+    --color-forest-primary: #0F2F20; /* RGB(15,47,32) */
+    --color-gold-ochre: #C29D49; /* RGB(194,157,73) */
+    --color-warm-beige: #E5CCAC; /* RGB(229,204,172) */
+    --color-light-cream: #F9F9F7; /* RGB(249,249,247) */
+    --color-soft-cream: #EDEAE0; /* RGB(237,234,224) */
+    --color-text-dark: #1C1C1C; /* RGB(28,28,28) */
   }
   
+  html {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+  }
+  
+  /* Brand Typography Hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    font-family: Poppins, system-ui, sans-serif;
+    font-family: var(--font-heading);
+    font-feature-settings: 'liga' 1;
+  }
+  
+  /* Section labels and navigation */
+  nav, .section-label, .nav-item, button {
+    font-family: var(--font-section);
   }
 }
 
@@ -18,15 +41,18 @@
   }
   
   .btn-primary {
-    @apply btn bg-forest-900 text-white hover:bg-forest-800 focus:ring-sage-500;
+    @apply btn bg-forest-900 text-beige-50 hover:bg-forest-800 focus:ring-gold-500;
+    font-family: var(--font-section);
   }
   
   .btn-secondary {
-    @apply btn bg-sage-600 text-white hover:bg-sage-700 focus:ring-sage-500;
+    @apply btn bg-gold text-forest-900 hover:bg-gold-600 focus:ring-gold-500;
+    font-family: var(--font-section);
   }
   
   .btn-outline {
-    @apply btn border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-white focus:ring-sage-500;
+    @apply btn border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-beige-50 focus:ring-gold-500;
+    font-family: var(--font-section);
   }
   
   /* Lead generation focused components */
