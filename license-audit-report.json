@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-08-22T01:42:10.465Z",
+  "summary": {
+    "total": 922,
+    "approved": 921,
+    "issues": 0,
+    "warnings": 1
+  },
+  "issues": [],
+  "warnings": [
+    {
+      "type": "UNKNOWN",
+      "severity": "MEDIUM",
+      "package": {
+        "name": "intcreative-hub@1.0.0",
+        "license": "Custom:",
+        "repository": "https://github.com/intcreative/intcreative-hub",
+        "path": "/home/intadmin/Desktop/intcreative-hub"
+      },
+      "message": "Unknown license requires review: Custom:"
+    }
+  ]
+}
